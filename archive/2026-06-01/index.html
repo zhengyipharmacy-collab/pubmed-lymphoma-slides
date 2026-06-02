@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PubMed DLBCL/CNSL 新治疗文献 Slides - 2026-06-01</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #f5f1e8;
+      --bg-secondary: #fffaf0;
+      --text-primary: #1f2933;
+      --text-secondary: #586272;
+      --accent: #0b7285;
+      --accent-2: #b35c1e;
+      --line: rgba(31, 41, 51, 0.16);
+      --panel: rgba(255, 250, 240, 0.86);
+      --panel-strong: #ffffff;
+      --font-display: "Noto Serif SC", serif;
+      --font-body: "Noto Sans SC", sans-serif;
+      --title-size: clamp(1.8rem, 4.7vw, 4.2rem);
+      --h2-size: clamp(1.35rem, 3vw, 2.55rem);
+      --h3-size: clamp(0.95rem, 1.55vw, 1.2rem);
+      --body-size: clamp(0.74rem, 1.18vw, 1rem);
+      --small-size: clamp(0.62rem, 0.9vw, 0.8rem);
+      --slide-padding: clamp(1rem, 3.3vw, 3.4rem);
+      --content-gap: clamp(0.65rem, 1.5vw, 1.25rem);
+      --element-gap: clamp(0.35rem, 0.8vw, 0.75rem);
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration-normal: 0.55s;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ===========================================
+       VIEWPORT FITTING: MANDATORY BASE STYLES
+       Include this ENTIRE file in every presentation.
+       These styles ensure slides fit exactly in the viewport.
+       =========================================== */
+    html, body {
+        height: 100%;
+        overflow-x: hidden;
+    }
+    html {
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+    }
+    .slide {
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    .slide-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-height: 100%;
+        overflow: hidden;
+        padding: var(--slide-padding);
+    }
+    .card, .container, .content-box {
+        max-width: min(90vw, 1000px);
+        max-height: min(80vh, 700px);
+    }
+    .feature-list, .bullet-list {
+        gap: clamp(0.4rem, 1vh, 1rem);
+    }
+    .feature-list li, .bullet-list li {
+        font-size: var(--body-size);
+        line-height: 1.4;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+        gap: clamp(0.5rem, 1.5vw, 1rem);
+    }
+    img, .image-container {
+        max-width: 100%;
+        max-height: min(50vh, 400px);
+        object-fit: contain;
+    }
+    @media (max-height: 700px) {
+        :root {
+            --slide-padding: clamp(0.75rem, 3vw, 2rem);
+            --content-gap: clamp(0.4rem, 1.5vw, 1rem);
+            --title-size: clamp(1.25rem, 4.5vw, 2.5rem);
+            --h2-size: clamp(1rem, 3vw, 1.75rem);
+        }
+    }
+    @media (max-height: 600px) {
+        :root {
+            --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem);
+            --content-gap: clamp(0.3rem, 1vw, 0.75rem);
+            --title-size: clamp(1.1rem, 4vw, 2rem);
+            --body-size: clamp(0.7rem, 1.2vw, 0.95rem);
+        }
+        .nav-dots, .keyboard-hint, .decorative {
+            display: none;
+        }
+    }
+    @media (max-height: 500px) {
+        :root {
+            --slide-padding: clamp(0.4rem, 2vw, 1rem);
+            --title-size: clamp(1rem, 3.5vw, 1.5rem);
+            --h2-size: clamp(0.9rem, 2.5vw, 1.25rem);
+            --body-size: clamp(0.65rem, 1vw, 0.85rem);
+        }
+    }
+    @media (max-width: 600px) {
+        :root { --title-size: clamp(1.25rem, 7vw, 2.5rem); }
+        .grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            transition-duration: 0.2s !important;
+        }
+        html { scroll-behavior: auto; }
+    }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(11, 114, 133, 0.05) 1px, transparent 1px),
+        linear-gradient(rgba(11, 114, 133, 0.05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 82%);
+    }
+    .slide::after {
+      content: attr(data-count);
+      position: absolute;
+      right: clamp(1rem, 2vw, 2rem);
+      bottom: clamp(0.7rem, 1.4vw, 1.2rem);
+      color: var(--text-secondary);
+      font-size: var(--small-size);
+      letter-spacing: 0;
+    }
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0;
+      z-index: 20;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 0.25s ease;
+    }
+    .nav-dots {
+      position: fixed;
+      right: clamp(0.55rem, 1.3vw, 1rem);
+      top: 50%;
+      transform: translateY(-50%);
+      display: grid;
+      gap: 0.45rem;
+      z-index: 30;
+    }
+    .nav-dots button {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(31, 41, 51, 0.35);
+      background: rgba(255, 255, 255, 0.75);
+      cursor: pointer;
+    }
+    .nav-dots button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .kicker {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: var(--small-size);
+      text-transform: uppercase;
+      letter-spacing: 0;
+      margin-bottom: var(--element-gap);
+    }
+    h1, h2 {
+      font-family: var(--font-display);
+      letter-spacing: 0;
+      line-height: 1.08;
+    }
+    h1 { font-size: var(--title-size); max-width: 12ch; }
+    h2 { font-size: var(--h2-size); max-width: 22ch; }
+    h3 { font-size: var(--h3-size); margin-bottom: 0.35rem; }
+    p, li { font-size: var(--body-size); line-height: 1.42; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .cover-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: clamp(1rem, 3vw, 3rem);
+      align-items: center;
+    }
+    .subtitle {
+      margin-top: var(--content-gap);
+      color: var(--text-secondary);
+      max-width: 56ch;
+    }
+    .query-box {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: clamp(0.9rem, 1.8vw, 1.4rem);
+      border-radius: 8px;
+    }
+    code {
+      font-size: var(--small-size);
+      color: #334155;
+      overflow-wrap: anywhere;
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+      gap: clamp(0.85rem, 2vw, 1.55rem);
+      align-items: stretch;
+      min-height: 0;
+    }
+    .article-head {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--content-gap);
+      border-right: 1px solid var(--line);
+      padding-right: clamp(0.8rem, 1.6vw, 1.4rem);
+      min-height: 0;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.45rem;
+    }
+    .meta {
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.5rem 0.6rem;
+      min-height: 0;
+    }
+    .meta b {
+      display: block;
+      color: var(--text-secondary);
+      font-size: var(--small-size);
+      font-weight: 500;
+      margin-bottom: 0.1rem;
+    }
+    .meta span { font-size: var(--small-size); font-weight: 700; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 1.35rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: #e6f4f7;
+      color: var(--accent);
+      border: 1px solid rgba(11, 114, 133, 0.2);
+      font-size: var(--small-size);
+      font-weight: 700;
+    }
+    .pill.orange { background: #fff0df; color: var(--accent-2); border-color: rgba(179, 92, 30, 0.25); }
+    .content-stack {
+      display: grid;
+      grid-template-rows: auto 1fr 1fr 1fr;
+      gap: clamp(0.45rem, 1vw, 0.7rem);
+      min-height: 0;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: clamp(0.55rem, 1.1vw, 0.85rem);
+      min-height: 0;
+      overflow: hidden;
+    }
+    .panel.conclusion {
+      background: var(--panel-strong);
+      border-left: 5px solid var(--accent);
+    }
+    .panel ul { margin-left: 1.1rem; }
+    .panel li + li { margin-top: 0.18rem; }
+    .small-text, .panel li, .panel p { font-size: clamp(0.68rem, 1.05vw, 0.93rem); }
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(0.5rem, 1.2vw, 0.85rem);
+      margin-top: var(--content-gap);
+    }
+    .summary-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: clamp(0.75rem, 1.6vw, 1.15rem);
+    }
+    .source {
+      color: var(--text-secondary);
+      font-size: var(--small-size);
+      margin-top: var(--element-gap);
+    }
+    .keyboard-hint {
+      position: fixed;
+      left: clamp(1rem, 2vw, 2rem);
+      bottom: clamp(0.7rem, 1.4vw, 1.2rem);
+      color: var(--text-secondary);
+      font-size: var(--small-size);
+      z-index: 10;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--duration-normal) var(--ease-out-expo), transform var(--duration-normal) var(--ease-out-expo);
+    }
+    .slide.visible .reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal:nth-child(1) { transition-delay: 0.06s; }
+    .reveal:nth-child(2) { transition-delay: 0.12s; }
+    .reveal:nth-child(3) { transition-delay: 0.18s; }
+    .reveal:nth-child(4) { transition-delay: 0.24s; }
+    @media (max-width: 860px) {
+      .cover-grid, .article-layout { grid-template-columns: 1fr; }
+      .article-head { border-right: 0; border-bottom: 1px solid var(--line); padding-right: 0; padding-bottom: 0.8rem; }
+      .meta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .content-stack { grid-template-rows: auto auto auto auto; }
+      .evidence-grid { grid-template-columns: 1fr; }
+      h2 { max-width: 28ch; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" aria-hidden="true"></div>
+  <nav class="nav-dots" aria-label="幻灯片导航"></nav>
+  <div class="keyboard-hint">方向键 / 滚动浏览</div>
+
+  <section class="slide" data-count="01 / 10">
+    <div class="slide-content cover-grid">
+      <div>
+        <div class="kicker reveal">PubMed daily watch</div>
+        <h1 class="reveal">DLBCL / CNSL 新治疗文献</h1>
+        <p class="subtitle reveal">2026-06-01 提前运行版。每篇文章一页，聚焦标题、结论、主要内容、关键信息和启示。</p>
+        <div class="pill-row reveal" style="margin-top: var(--content-gap);">
+          <span class="pill">双抗</span>
+          <span class="pill">CAR-T</span>
+          <span class="pill">ADC</span>
+          <span class="pill">BTKi</span>
+          <span class="pill orange">病例</span>
+          <span class="pill orange">基础 / 转化</span>
+        </div>
+      </div>
+      <div class="query-box reveal">
+        <h3>今日检索结论</h3>
+        <p class="small-text">近 7 天内有一篇双抗安全性相关新增记录。为保持连续跟踪，另纳入 2026 年 5 月高相关参考文献。</p>
+        <p class="source">范围：2026-05-25 至 2026-06-01</p>
+        <p class="source">查询词：DLBCL / LBCL / CNSL / PCNSL + BTKi / bispecific / CAR-T / ADC / case report / mechanism / translational</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-count="02 / 10">
+    <div class="slide-content article-layout">
+      <article class="article-head reveal">
+        <div>
+          <div class="kicker">双抗 / 安全性</div>
+          <h2>双抗治疗 B-cell NHL：心血管毒性进入监测清单</h2>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><b>疾病方向</b><span>B-cell NHL，含 DLBCL 场景</span></div>
+          <div class="meta"><b>相关性</b><span>高</span></div>
+          <div class="meta"><b>类型</b><span>安全性研究</span></div>
+          <div class="meta"><b>PMID</b><span>42192442</span></div>
+        </div>
+        <p class="source">J Hematol Oncol | Malak Munir | <a href="https://pubmed.ncbi.nlm.nih.gov/42192442/">PubMed</a></p>
+      </article>
+      <div class="content-stack reveal">
+        <div class="panel conclusion"><h3>结论</h3><p>R/R B-cell NHL 双抗治疗的安全性不应只盯 CRS/ICANS，心血管不良事件也需要系统识别。</p></div>
+        <div class="panel"><h3>主要内容</h3><ul><li>研究聚焦双特异性抗体相关 cardiovascular adverse events。</li><li>适用背景包括 R/R B-cell NHL，和 DLBCL 双抗使用场景高度相关。</li><li>提示真实世界推广后，非典型安全性会更重要。</li></ul></div>
+        <div class="panel"><h3>关键信息</h3><p>类别：双抗；主题：安全性；价值：把心血管事件纳入双抗风险管理，而非只记录免疫毒性。</p></div>
+        <div class="panel"><h3>启示</h3><p><b>已验证证据：</b>双抗存在心血管 AE 监测需求。<br><b>作者观点：</b>应提高识别和管理。<br><b>我的推断：</b>DLBCL 双抗门诊化后，基线心血管风险分层会变成方案设计的一部分。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-count="03 / 10">
+    <div class="slide-content article-layout">
+      <article class="article-head reveal">
+        <div>
+          <div class="kicker">双抗 / CAR-T 序贯</div>
+          <h2>CAR-T 后 LBCL：CD3xCD20 双抗仍有挽救空间</h2>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><b>疾病方向</b><span>R/R LBCL，CAR-T 后</span></div>
+          <div class="meta"><b>相关性</b><span>高</span></div>
+          <div class="meta"><b>类型</b><span>系统综述 / Meta</span></div>
+          <div class="meta"><b>PMID</b><span>42118323</span></div>
+        </div>
+        <p class="source">Ann Hematol | Ning Yuan | <a href="https://pubmed.ncbi.nlm.nih.gov/42118323/">PubMed</a></p>
+      </article>
+      <div class="content-stack reveal">
+        <div class="panel conclusion"><h3>结论</h3><p>CAR-T 失败后的 LBCL 使用 CD3xCD20 双抗可产生缓解，但疗效低于 CAR-T naive 人群。</p></div>
+        <div class="panel"><h3>主要内容</h3><ul><li>纳入 15 项研究、1169 例患者。</li><li>CAR-T 后双抗挽救治疗合并 ORR 约 45%，CR 约 30%。</li><li>既往 CAR-T 暴露与更低疗效相关。</li></ul></div>
+        <div class="panel"><h3>关键信息</h3><p>关键不是“是否有双抗”，而是双抗在 CAR-T 前、CAR-T 后、桥接或挽救中的位置。</p></div>
+        <div class="panel"><h3>启示</h3><p><b>已验证证据：</b>CAR-T 后双抗仍有响应。<br><b>作者观点：</b>双抗是可研究的挽救路径。<br><b>我的推断：</b>每日监测表必须记录治疗顺序，否则无法判断文章对 DLBCL 决策的价值。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-count="04 / 10">
+    <div class="slide-content article-layout">
+      <article class="article-head reveal">
+        <div>
+          <div class="kicker">双抗 / 门诊给药</div>
+          <h2>Epcoritamab 门诊化：双抗可及性开始成为核心问题</h2>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><b>疾病方向</b><span>R/R DLBCL</span></div>
+          <div class="meta"><b>相关性</b><span>高</span></div>
+          <div class="meta"><b>类型</b><span>临床研究中期结果</span></div>
+          <div class="meta"><b>PMID</b><span>41881714</span></div>
+        </div>
+        <p class="source">Clin Lymphoma Myeloma Leuk | David Andorsky | <a href="https://pubmed.ncbi.nlm.nih.gov/41881714/">PubMed</a></p>
+      </article>
+      <div class="content-stack reveal">
+        <div class="panel conclusion"><h3>结论</h3><p>Epcoritamab 单药在 R/R DLBCL 中探索门诊给药，重点从疗效延伸到安全流程和可及性。</p></div>
+        <div class="panel"><h3>主要内容</h3><ul><li>研究对象为 R/R DLBCL 患者。</li><li>药物类别为 CD3xCD20 双抗。</li><li>关注门诊治疗模式下的实施和监测。</li></ul></div>
+        <div class="panel"><h3>关键信息</h3><p>门诊化意味着 CRS 风险分层、step-up dosing、首次全剂量观察和患者教育都变成研究变量。</p></div>
+        <div class="panel"><h3>启示</h3><p><b>已验证证据：</b>双抗进入门诊路径探索。<br><b>我的推断：</b>双抗研究不能只摘 ORR/CR，还要记录给药场景和安全管理流程。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-count="05 / 10">
+    <div class="slide-content article-layout">
+      <article class="article-head reveal">
+        <div>
+          <div class="kicker">CAR-T / 基础转化</div>
+          <h2>DLBCL CAR-T：肠道微生物组可能影响疗效和毒性</h2>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><b>疾病方向</b><span>DLBCL</span></div>
+          <div class="meta"><b>相关性</b><span>中</span></div>
+          <div class="meta"><b>类型</b><span>短期纵向研究</span></div>
+          <div class="meta"><b>PMID</b><span>42093732</span></div>
+        </div>
+        <p class="source">Blood Lymphat Cancer | Ziyuan Shen | <a href="https://pubmed.ncbi.nlm.nih.gov/42093732/">PubMed</a></p>
+      </article>
+      <div class="content-stack reveal">
+        <div class="panel conclusion"><h3>结论</h3><p>抗 CD19 CAR-T 治疗期间的肠道微生物组动态，是 DLBCL 转化研究中值得持续追踪的宿主因素。</p></div>
+        <div class="panel"><h3>主要内容</h3><ul><li>研究 DLBCL 患者 CAR-T 前后微生物群变化。</li><li>方向属于机制/转化，而非直接药物疗效试验。</li><li>可连接感染、炎症、免疫激活和 CAR-T 结局。</li></ul></div>
+        <div class="panel"><h3>关键信息</h3><p>这类研究提示 CAR-T 结局不只由肿瘤靶点决定，也受宿主状态和治疗前干预影响。</p></div>
+        <div class="panel"><h3>启示</h3><p><b>已验证证据：</b>CAR-T 期间可观察到微生态动态。<br><b>我的推断：</b>基础/转化研究应保留在日报中，用来发现后续联合策略和毒性管理假设。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-count="06 / 10">
+    <div class="slide-content article-layout">
+      <article class="article-head reveal">
+        <div>
+          <div class="kicker">CNSL / 诊断标志物</div>
+          <h2>PCNSL 影像鉴别：诊断研究影响新治疗入组质量</h2>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><b>疾病方向</b><span>PCNSL</span></div>
+          <div class="meta"><b>相关性</b><span>中</span></div>
+          <div class="meta"><b>类型</b><span>影像学生物标志物</span></div>
+          <div class="meta"><b>PMID</b><span>42132378</span></div>
+        </div>
+        <p class="source">Neurosurgery | Novita I Khairunnisa | <a href="https://pubmed.ncbi.nlm.nih.gov/42132378/">PubMed</a></p>
+      </article>
+      <div class="content-stack reveal">
+        <div class="panel conclusion"><h3>结论</h3><p>Cortical diffusion-enhancement mismatch sign 可作为区分 PCNSL 与胶质母细胞瘤的影像线索。</p></div>
+        <div class="panel"><h3>主要内容</h3><ul><li>文章关注 PCNSL 与 glioblastoma 的影像鉴别。</li><li>属于诊断和分层研究，不是治疗研究。</li><li>对 CNSL 早期识别和入组质量有间接价值。</li></ul></div>
+        <div class="panel"><h3>关键信息</h3><p>CNSL 新治疗研究常受诊断延迟、误诊和入组异质性影响，影像标志物应纳入监测。</p></div>
+        <div class="panel"><h3>启示</h3><p><b>已验证证据：</b>影像征象可能帮助 PCNSL 鉴别。<br><b>我的推断：</b>CNSL 的 CAR-T、双抗、ADC、BTKi 研究都需要更干净的诊断入口。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-count="07 / 10">
+    <div class="slide-content article-layout">
+      <article class="article-head reveal">
+        <div>
+          <div class="kicker">病例报告</div>
+          <h2>孤立胸腔积液起病的 LBCL：病例提示诊断陷阱</h2>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><b>疾病方向</b><span>Large B-cell lymphoma</span></div>
+          <div class="meta"><b>相关性</b><span>中</span></div>
+          <div class="meta"><b>类型</b><span>病例报告</span></div>
+          <div class="meta"><b>PMID</b><span>42104634</span></div>
+        </div>
+        <p class="source">J Clin Lab Anal | Van Vlierberghe Magalie | <a href="https://pubmed.ncbi.nlm.nih.gov/42104634/">PubMed</a></p>
+      </article>
+      <div class="content-stack reveal">
+        <div class="panel conclusion"><h3>结论</h3><p>Large B-cell lymphoma 可罕见地以孤立胸腔积液表现，病例报告对诊断路径有提醒价值。</p></div>
+        <div class="panel"><h3>主要内容</h3><ul><li>病例以胸腔积液为突出表现。</li><li>强调诊断考虑、实验室和病理确认。</li><li>价值在于提示非典型表现，而非改变治疗标准。</li></ul></div>
+        <div class="panel"><h3>关键信息</h3><p>病例报告虽然证据级别低，但能捕捉误诊风险、特殊受累部位和需要补充检测的场景。</p></div>
+        <div class="panel"><h3>启示</h3><p><b>已验证证据：</b>LBCL 可有罕见临床表现。<br><b>我的推断：</b>日报应保留病例，尤其是影响诊断、分期、CNS 风险判断或分子检测的病例。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-count="08 / 10">
+    <div class="slide-content article-layout">
+      <article class="article-head reveal">
+        <div>
+          <div class="kicker">ADC / 一线标准演进</div>
+          <h2>DLBCL 一线治疗：Pola-R-CHP 代表 ADC 成熟应用</h2>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><b>疾病方向</b><span>DLBCL 一线</span></div>
+          <div class="meta"><b>相关性</b><span>高</span></div>
+          <div class="meta"><b>类型</b><span>综述</span></div>
+          <div class="meta"><b>PMID</b><span>41631494</span></div>
+        </div>
+        <p class="source">Eur J Haematol | Mamdouh Skafi | <a href="https://pubmed.ncbi.nlm.nih.gov/41631494/">PubMed</a></p>
+      </article>
+      <div class="content-stack reveal">
+        <div class="panel conclusion"><h3>结论</h3><p>DLBCL 一线治疗正在从 R-CHOP 单一路径走向 ADC 整合和生物学分层。</p></div>
+        <div class="panel"><h3>主要内容</h3><ul><li>综述 DLBCL 一线治疗标准演进。</li><li>Pola-R-CHP 被视为一线治疗的重要增量进展。</li><li>强调 DLBCL 生物学异质性和未来方向。</li></ul></div>
+        <div class="panel"><h3>关键信息</h3><p>ADC 监测要区分“一线标准优化”和“复发难治挽救”，二者启示不同。</p></div>
+        <div class="panel"><h3>启示</h3><p><b>已验证证据：</b>polatuzumab vedotin 已进入 DLBCL 一线证据图谱。<br><b>我的推断：</b>后续日报应单列 ADC，避免被 CAR-T/双抗更新淹没。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-count="09 / 10">
+    <div class="slide-content article-layout">
+      <article class="article-head reveal">
+        <div>
+          <div class="kicker">R/R DLBCL / 治疗排序</div>
+          <h2>复发难治 DLBCL：问题从“有什么药”转向“怎么排序”</h2>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><b>疾病方向</b><span>R/R DLBCL</span></div>
+          <div class="meta"><b>相关性</b><span>高</span></div>
+          <div class="meta"><b>类型</b><span>SOHO 综述</span></div>
+          <div class="meta"><b>PMID</b><span>41826193</span></div>
+        </div>
+        <p class="source">Clin Lymphoma Myeloma Leuk | Jacqueline F Wang | <a href="https://pubmed.ncbi.nlm.nih.gov/41826193/">PubMed</a></p>
+      </article>
+      <div class="content-stack reveal">
+        <div class="panel conclusion"><h3>结论</h3><p>R/R DLBCL 的关键问题已从单药疗效扩展到 CAR-T、双抗、ADC 等治疗的前后线排序。</p></div>
+        <div class="panel"><h3>主要内容</h3><ul><li>讨论 R/R DLBCL 治疗序贯策略。</li><li>覆盖 CAR-T、双抗等免疫治疗整合后的证据。</li><li>强调复发时间、可及性和患者适配度。</li></ul></div>
+        <div class="panel"><h3>关键信息</h3><p>同一药物在二线、CAR-T 后、桥接或不适合 CAR-T 患者中的意义完全不同。</p></div>
+        <div class="panel"><h3>启示</h3><p><b>已验证证据：</b>R/R DLBCL 决策依赖治疗顺序和患者特征。<br><b>我的推断：</b>每日 slides 应固定记录“前线位置”和“是否 CAR-T 后”。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-count="10 / 10">
+    <div class="slide-content">
+      <div class="kicker reveal">Daily synthesis</div>
+      <h2 class="reveal">今日综合判断</h2>
+      <div class="evidence-grid reveal">
+        <div class="summary-panel">
+          <h3>DLBCL</h3>
+          <p>监测重心应从单一 BTKi 扩展为双抗、CAR-T、ADC、BTKi/IMiD 联合、病例和转化研究。最关键字段是治疗类别、治疗线数和是否 CAR-T 后。</p>
+        </div>
+        <div class="summary-panel">
+          <h3>CNSL / PCNSL</h3>
+          <p>除 BTKi 外，应追踪 CAR-T、双抗、ADC 的 CNS 暴露、神经毒性、桥接和巩固策略；诊断标志物也会影响新治疗入组质量。</p>
+        </div>
+        <div class="summary-panel">
+          <h3>机制与转化</h3>
+          <p>微生物组、耐药机制、CNS 穿透、微环境和罕见病例都是值得保留的低频高价值线索，不应被临床试验摘要挤掉。</p>
+        </div>
+      </div>
+      <div class="query-box reveal" style="margin-top: var(--content-gap); max-width: 100%;">
+        <h3>下一版固定格式</h3>
+        <p>每篇文章 1 页：标题、结论、主要内容、关键信息、启示；启示分为“已验证证据 / 作者观点 / 我的推断”。</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    class SlidePresentation {
+      constructor() {
+        this.slides = Array.from(document.querySelectorAll(".slide"));
+        this.progress = document.querySelector(".progress-bar");
+        this.nav = document.querySelector(".nav-dots");
+        this.current = 0;
+        this.buildDots();
+        this.observe();
+        this.bindKeys();
+        this.update();
+      }
+      buildDots() {
+        this.slides.forEach((_, index) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.setAttribute("aria-label", `跳转到第 ${index + 1} 页`);
+          button.addEventListener("click", () => this.go(index));
+          this.nav.appendChild(button);
+        });
+      }
+      observe() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              this.current = this.slides.indexOf(entry.target);
+              entry.target.classList.add("visible");
+              this.update();
+            }
+          });
+        }, { threshold: 0.55 });
+        this.slides.forEach((slide) => observer.observe(slide));
+      }
+      bindKeys() {
+        document.addEventListener("keydown", (event) => {
+          if (["ArrowDown", "ArrowRight", " ", "PageDown"].includes(event.key)) {
+            event.preventDefault();
+            this.go(Math.min(this.current + 1, this.slides.length - 1));
+          }
+          if (["ArrowUp", "ArrowLeft", "PageUp"].includes(event.key)) {
+            event.preventDefault();
+            this.go(Math.max(this.current - 1, 0));
+          }
+          if (event.key === "Home") this.go(0);
+          if (event.key === "End") this.go(this.slides.length - 1);
+        });
+      }
+      go(index) {
+        this.slides[index].scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      update() {
+        const ratio = ((this.current + 1) / this.slides.length) * 100;
+        this.progress.style.width = `${ratio}%`;
+        Array.from(this.nav.children).forEach((dot, index) => {
+          dot.classList.toggle("active", index === this.current);
+        });
+      }
+    }
+    new SlidePresentation();
+  </script>
+</body>
+</html>
