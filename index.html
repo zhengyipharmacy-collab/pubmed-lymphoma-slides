@@ -235,18 +235,27 @@
 
     .bar-item {
       display: grid;
-      grid-template-columns: 160px 1fr 56px;
-      gap: 10px;
+      grid-template-columns: minmax(0, 1fr) max-content;
+      grid-template-areas:
+        "name value"
+        "track track";
+      gap: 4px 10px;
       align-items: center;
     }
 
     .bar-item .name {
+      grid-area: name;
       font-size: var(--small);
       color: var(--ink);
       font-weight: 600;
+      line-height: 1.22;
+      min-width: 0;
+      overflow: visible;
+      white-space: normal;
     }
 
     .bar-track {
+      grid-area: track;
       height: 12px;
       border-radius: 999px;
       background: rgba(24, 33, 43, 0.08);
@@ -261,7 +270,14 @@
 
     .bar-fill.amber { background: linear-gradient(90deg, var(--amber), #dca162); }
     .bar-fill.rose { background: linear-gradient(90deg, var(--rose), #d17a8a); }
-    .bar-value { font-size: var(--small); font-weight: 700; text-align: right; }
+    .bar-value {
+      grid-area: value;
+      font-size: var(--small);
+      font-weight: 700;
+      text-align: right;
+      white-space: nowrap;
+      min-width: max-content;
+    }
 
     .two-chart {
       display: grid;
@@ -539,7 +555,7 @@
           </div>
           <div class="quick-actions">
             <a class="action-link" href="https://raw.githubusercontent.com/zhengyipharmacy-collab/pubmed-lymphoma-slides/master/pubmed-dlbcl-cnsl-btki-2026-06-03.pdf" download>下载当天 PDF</a>
-            <a class="action-link" href="https://raw.githubusercontent.com/zhengyipharmacy-collab/pubmed-lymphoma-slides/d00c84eb87c106adbe0c2a361f6a7f445e6db06b/pubmed-dlbcl-cnsl-btki-2026-06-03.pptx" download>下载可编辑 PPT</a>
+            <a class="action-link" href="https://raw.githubusercontent.com/zhengyipharmacy-collab/pubmed-lymphoma-slides/master/pubmed-dlbcl-cnsl-btki-2026-06-03.pptx" download>下载可编辑 PPT</a>
             <a class="action-link" href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/archive/2026-06-03/">查看当天归档</a>
           </div>
         </div>
