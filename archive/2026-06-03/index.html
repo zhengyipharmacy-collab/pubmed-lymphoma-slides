@@ -1,0 +1,1409 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PubMed DLBCL/CNSL 新治疗文献 Slides - 2026-06-03</title>
+  <style>
+    :root {
+      --bg: #f3efe7;
+      --paper: rgba(255, 252, 246, 0.92);
+      --paper-strong: #fffdf8;
+      --ink: #18212b;
+      --muted: #586474;
+      --line: rgba(24, 33, 43, 0.14);
+      --teal: #0d6e72;
+      --amber: #b86a16;
+      --rose: #b04d5f;
+      --navy: #284b63;
+      --shadow: 0 18px 40px rgba(24, 33, 43, 0.08);
+      --slide-pad: clamp(18px, 3vw, 42px);
+      --title: clamp(30px, 5vw, 58px);
+      --h2: clamp(24px, 3vw, 38px);
+      --h3: clamp(15px, 1.6vw, 20px);
+      --body: clamp(13px, 1.15vw, 17px);
+      --small: clamp(11px, 0.95vw, 13px);
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow-x: hidden;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      background:
+        radial-gradient(circle at top left, rgba(13, 110, 114, 0.08), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(184, 106, 22, 0.08), transparent 32%),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    p, li { font-size: var(--body); line-height: 1.48; }
+    h1, h2, h3 { margin: 0; line-height: 1.08; }
+
+    .slide {
+      min-height: 100vh;
+      min-height: 100dvh;
+      scroll-snap-align: start;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+    }
+
+    .slide::after {
+      content: attr(data-count);
+      position: absolute;
+      right: 24px;
+      bottom: 18px;
+      font-size: var(--small);
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .frame {
+      width: min(1220px, calc(100vw - 44px));
+      max-height: calc(100vh - 44px);
+      max-height: calc(100dvh - 44px);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,252,246,0.96));
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .inner {
+      padding: var(--slide-pad);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    .cover-grid, .article-grid, .abstract-grid, .summary-grid {
+      display: grid;
+      gap: 18px;
+      min-height: 0;
+    }
+
+    .cover-grid { grid-template-columns: 1.15fr 0.85fr; align-items: center; }
+    .article-grid { grid-template-columns: 0.9fr 1.1fr; }
+    .abstract-grid { grid-template-columns: 0.9fr 1.1fr; }
+    .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .eyebrow {
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: var(--small);
+      font-weight: 700;
+    }
+
+    .title {
+      font-size: var(--title);
+      max-width: 11ch;
+    }
+
+    .subtitle {
+      max-width: 54ch;
+      color: var(--muted);
+    }
+
+    .panel, .meta-card, .chart-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+      overflow: hidden;
+    }
+
+    .panel strong { color: var(--navy); }
+
+    .meta-stack {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .meta-card b, .label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: var(--small);
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .meta-card span {
+      font-size: var(--small);
+      font-weight: 700;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: var(--small);
+      font-weight: 700;
+      border: 1px solid rgba(13, 110, 114, 0.18);
+      background: rgba(13, 110, 114, 0.08);
+      color: var(--teal);
+    }
+
+    .pill.alt {
+      border-color: rgba(184, 106, 22, 0.22);
+      background: rgba(184, 106, 22, 0.1);
+      color: var(--amber);
+    }
+
+    .article-title {
+      font-size: var(--h2);
+      margin-top: 6px;
+      margin-bottom: 10px;
+      line-height: 1.08;
+    }
+
+    .article-title .zh-title,
+    .article-title .en-title {
+      display: block;
+    }
+
+    .article-title .en-title {
+      margin-top: 8px;
+      font-size: clamp(18px, 2vw, 30px);
+      line-height: 1.12;
+      color: var(--muted);
+      font-weight: 760;
+    }
+
+    .source-note {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: var(--small);
+    }
+
+    .stack {
+      display: grid;
+      grid-template-rows: auto auto auto 1fr;
+      gap: 12px;
+      min-height: 0;
+    }
+
+    .stack p, .stack li, .abstract-columns p, .abstract-columns li { font-size: clamp(12px, 1vw, 15px); }
+
+    .abstract-columns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      min-height: 0;
+    }
+
+    .bullets {
+      margin: 8px 0 0 18px;
+      padding: 0;
+    }
+
+    .bullets li + li { margin-top: 5px; }
+
+    .chart-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 0;
+    }
+
+    .chart-title {
+      font-size: var(--h3);
+    }
+
+    .bar-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .bar-item {
+      display: grid;
+      grid-template-columns: 160px 1fr 56px;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .bar-item .name {
+      font-size: var(--small);
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .bar-track {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(24, 33, 43, 0.08);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--teal), #50a2a5);
+    }
+
+    .bar-fill.amber { background: linear-gradient(90deg, var(--amber), #dca162); }
+    .bar-fill.rose { background: linear-gradient(90deg, var(--rose), #d17a8a); }
+    .bar-value { font-size: var(--small); font-weight: 700; text-align: right; }
+
+    .two-chart {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      min-height: 0;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .mini-stat {
+      border-radius: 16px;
+      padding: 14px;
+      background: var(--paper-strong);
+      border: 1px solid var(--line);
+    }
+
+    .mini-stat b {
+      display: block;
+      font-size: var(--small);
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .mini-stat span {
+      font-size: clamp(22px, 2.6vw, 34px);
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .summary-block {
+      border-top: 4px solid var(--teal);
+      background: var(--paper);
+      border-radius: 18px;
+      padding: 16px 18px;
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .action-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      border-radius: 8px;
+      padding: 0 14px;
+      border: 1px solid rgba(13, 110, 114, 0.28);
+      background: rgba(13, 110, 114, 0.1);
+      color: var(--teal);
+      font-size: var(--small);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .pico-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      min-height: 0;
+    }
+
+    .pico-card {
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      padding: 14px 16px;
+    }
+
+    .pico-card h3 {
+      margin-bottom: 8px;
+      font-size: var(--h3);
+    }
+
+    .pico-card dl {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 6px 10px;
+      margin: 0;
+    }
+
+    .pico-card dt {
+      color: var(--muted);
+      font-size: var(--small);
+      font-weight: 800;
+    }
+
+    .pico-card dd {
+      margin: 0;
+      font-size: clamp(12px, 1vw, 15px);
+      line-height: 1.42;
+    }
+
+    .pico-list {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 6px 10px;
+      margin: 8px 0 0;
+    }
+
+    .pico-list dt {
+      color: var(--muted);
+      font-size: var(--small);
+      font-weight: 800;
+    }
+
+    .pico-list dd {
+      margin: 0;
+      font-size: clamp(11px, 0.95vw, 14px);
+      line-height: 1.35;
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .flow-step {
+      min-height: 82px;
+      border-radius: 15px;
+      border: 1px solid var(--line);
+      background: linear-gradient(160deg, rgba(13,110,114,.10), rgba(255,252,246,.95));
+      padding: 12px;
+      position: relative;
+    }
+
+    .flow-step:not(:last-child)::after {
+      content: ">";
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--teal);
+      font-weight: 900;
+    }
+
+    .flow-step b {
+      display: block;
+      margin-bottom: 6px;
+      font-size: clamp(12px, 1vw, 15px);
+      color: var(--teal);
+    }
+
+    .flow-step span {
+      display: block;
+      font-size: clamp(11px, 0.95vw, 14px);
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0;
+      background: linear-gradient(90deg, var(--teal), var(--amber));
+      z-index: 20;
+      transition: width 0.25s ease;
+    }
+
+    .dots {
+      position: fixed;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: grid;
+      gap: 6px;
+      z-index: 20;
+    }
+
+    .dots button {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(24, 33, 43, 0.25);
+      background: rgba(255,255,255,0.7);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .dots button.active {
+      background: var(--teal);
+      border-color: var(--teal);
+    }
+
+    .hint {
+      position: fixed;
+      left: 16px;
+      bottom: 14px;
+      color: var(--muted);
+      font-size: var(--small);
+      z-index: 20;
+    }
+
+    @media (max-width: 980px) {
+      .cover-grid, .article-grid, .abstract-grid, .summary-grid, .two-chart, .pico-grid, .flow-grid { grid-template-columns: 1fr; }
+      .meta-stack, .mini-grid { grid-template-columns: 1fr 1fr; }
+      .title { max-width: none; }
+      .frame { max-height: none; }
+    }
+
+    @media (max-width: 720px) {
+      .meta-stack, .mini-grid { grid-template-columns: 1fr; }
+      .bar-item { grid-template-columns: 1fr; }
+      .dots, .hint { display: none; }
+      .frame { width: calc(100vw - 18px); }
+      .slide { padding: 9px; }
+    }
+
+    @media print {
+      html, body {
+        background: #fff;
+        scroll-snap-type: none;
+      }
+      .progress, .dots, .hint, .quick-actions {
+        display: none !important;
+      }
+      .slide {
+        min-height: 100vh;
+        padding: 0;
+        page-break-after: always;
+        break-after: page;
+      }
+      .frame {
+        width: 100vw;
+        max-height: none;
+        min-height: 100vh;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .inner {
+        min-height: 100vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+  <nav class="dots" aria-label="slides navigation"></nav>
+  <div class="hint">方向键 / PageUp / PageDown / 滚轮浏览</div>
+
+  <section class="slide" data-order="01" data-count="01 / 19">
+    <div class="frame">
+      <div class="inner cover-grid">
+        <div>
+          <div class="eyebrow">PubMed daily watch</div>
+          <h1 class="title">DLBCL / CNSL 新治疗文献</h1>
+          <p class="subtitle">
+            固定文件交付版，覆盖 2026 年 6 月 3 日 09:30（Asia/Shanghai）补跑检索结果。
+            本版按逻辑重排并采用“每篇文献 1-3 页”结构：
+            快速浏览页、结构化摘要/PICO/PECO 页，以及必要时的图表/流程图页。
+          </p>
+          <div class="pill-row" style="margin-top:18px;">
+            <span class="pill">BTKi</span>
+            <span class="pill">双抗 / 双特异性抗体</span>
+            <span class="pill">CAR-T / 细胞治疗</span>
+            <span class="pill">CNSL / PCNSL</span>
+            <span class="pill alt">真实世界 / 安全性</span>
+            <span class="pill alt">机制 / 转化</span>
+          </div>
+          <div class="quick-actions">
+            <a class="action-link" href="https://raw.githubusercontent.com/zhengyipharmacy-collab/pubmed-lymphoma-slides/master/pubmed-dlbcl-cnsl-btki-2026-06-03.pdf" download>下载当天 PDF</a>
+            <a class="action-link" href="https://raw.githubusercontent.com/zhengyipharmacy-collab/pubmed-lymphoma-slides/master/pubmed-dlbcl-cnsl-btki-2026-06-03.pptx" download>下载可编辑 PPT</a>
+            <a class="action-link" href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/archive/2026-06-03/">查看当天归档</a>
+          </div>
+        </div>
+        <div style="display:grid;gap:14px;">
+          <div class="panel">
+            <h3>检索范围</h3>
+            <p>近 7 天 PubMed 新增/更新窗口：<strong>2026-05-27 至 2026-06-03</strong>。</p>
+            <p class="source-note">固定追踪主题：DLBCL、PCNSL、SCNSL 与新治疗/机制/安全性/真实世界。</p>
+          </div>
+          <div class="panel">
+            <h3>实际 PubMed 查询词</h3>
+            <p class="source-note">
+              ((DLBCL OR "diffuse large B-cell lymphoma" OR "large B-cell lymphoma" OR PCNSL OR
+              "primary CNS lymphoma" OR SCNSL OR "secondary CNS lymphoma" OR "central nervous system lymphoma")
+              AND (ibrutinib OR zanubrutinib OR acalabrutinib OR pirtobrutinib OR tirabrutinib OR orelabrutinib
+              OR bispecific OR glofitamab OR epcoritamab OR mosunetuzumab OR odronextamab
+              OR CAR-T OR "CAR NK" OR loncastuximab OR polatuzumab OR ADC OR immunotherapy
+              OR translational OR mechanism OR resistance OR pharmacokinetics OR "real-world" OR "case report"))
+              + last 7 days
+            </p>
+          </div>
+          <div class="panel">
+            <h3>本日总体结论</h3>
+            <ul class="bullets">
+              <li>本次补跑确认 6 月 3 日 08:00 自动触发未产出；真实 Codex 自动化注册表已同步为每日 08:00，下一次为 2026-06-04 08:00。</li>
+              <li>近期真正值得跟踪的主线仍是：双抗在 CAR-T 后的位置、双抗门诊化、双抗安全边界、CNS 预防毒性代价，以及 BTKi 在 PCNSL 的前移。</li>
+              <li>本版已按逻辑重排：先看 DLBCL 双抗排序与实施，再看 DLBCL/CNS 预防，最后看 PCNSL/CNSL 治疗与亚群。</li>
+              <li>本版纳入 10 篇：1 篇近 7 天窗口命中，9 篇近期高相关参考/补充；补充文献不冒充“当天新增”。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>说明</h3>
+            <p class="source-note">
+              已验证：PubMed 标题、PMID、期刊、摘要要点与 PubMed 链接。
+              额外的细颗粒数字图，优先取自 PubMed 摘要；若 PubMed 条目只有简版摘要，则会标明“基于同研究公开更新数据重绘”。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="07" data-count="02 / 15">
+    <div class="frame">
+      <div class="inner article-grid">
+        <div>
+          <div class="eyebrow">文献 3 / 近 7 天窗口命中 / 双抗安全性</div>
+          <h2 class="article-title"><span class="zh-title">复发/难治 B 细胞 NHL 双抗相关心血管不良事件</span><span class="en-title">Cardiovascular adverse events associated with bispecific antibodies in relapsed or refractory B-cell non-Hodgkin lymphomas</span></h2>
+          <div class="pill-row">
+            <span class="pill">疾病方向：B-cell NHL，直接关联 DLBCL 双抗场景</span>
+            <span class="pill">类别：双抗 / 安全性 / 真实世界</span>
+            <span class="pill alt">临床相关性：高</span>
+          </div>
+          <div class="meta-stack" style="margin-top:14px;">
+            <div class="meta-card"><b>文献类型</b><span>药物警戒 / FAERS 分析</span></div>
+            <div class="meta-card"><b>期刊</b><span>J Hematol Oncol</span></div>
+            <div class="meta-card"><b>第一作者</b><span>Malak Munir</span></div>
+            <div class="meta-card"><b>PMID</b><span>42192442</span></div>
+          </div>
+          <p class="source-note"><a href="https://pubmed.ncbi.nlm.nih.gov/42192442/">PubMed 链接</a> | 2026-05-26</p>
+        </div>
+        <div class="stack">
+          <div class="panel">
+            <h3>结论</h3>
+            <p>双抗相关不良事件不能只盯 CRS/ICANS；心血管不良事件在真实世界报告中占比不低，而且死亡信号值得前移监测。</p>
+          </div>
+          <div class="panel">
+            <h3>主要内容</h3>
+            <ul class="bullets">
+              <li>基于 2022 年 12 月到 2025 年 9 月 FAERS，分析 mosunetuzumab、glofitamab、epcoritamab 的心血管不良事件。</li>
+              <li>在 246,490 份 AE 报告里，1,931 份与双抗有关；其中 336 份报告出现心血管事件。</li>
+              <li>常见事件是休克、出血、低血压；部分心律失常并不总与 CRS 同步出现。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>关键信息</h3>
+            <ul class="bullets">
+              <li>CVAE 占双抗相关 AE 报告的 17.4%，其中 39.3% 为致死报告。</li>
+              <li>作为药物类别，双抗相对所有其他药物的低血压报告信号 aROR 为 2.15；致死性 CVAE aROR 为 2.04。</li>
+              <li>Epcoritamab 的低血压信号更强；mosunetuzumab 更偏向房颤/室上速等节律异常信号。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>启示</h3>
+            <p><strong>已验证证据：</strong>该药物警戒分析提示双抗存在可见的心血管毒性信号，且发生时间通常早于非 CVAE。</p>
+            <p><strong>论文作者观点：</strong>需要持续监测、风险分层和更有针对性的心血管评估。</p>
+            <p><strong>我的推断：</strong>如果后续 DLBCL 双抗进一步门诊化，基线心血管风险、首剂后低血压管理和心律监测会变成方案设计变量，而不是单纯 AE 备注。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="08" data-count="03 / 15">
+    <div class="frame">
+      <div class="inner abstract-grid">
+        <div class="abstract-columns">
+          <div class="panel">
+            <h3>结构化摘要</h3>
+            <ul class="bullets">
+              <li><strong>背景：</strong>已获批双抗正从试验环境扩展到更广泛的 R/R B-cell NHL 实践，心血管毒性识别不足。</li>
+              <li><strong>方法：</strong>作者回顾 FAERS 中 2022-12 至 2025-09 的自发上报数据，比较双抗相关 CVAE 与全库其他药物报告的相对信号。</li>
+              <li><strong>结果：</strong>336 例 CVAE 中，低血压、出血、休克最常见；低血压和致死 CVAE 的类效应信号最突出。</li>
+              <li><strong>局限：</strong>自发上报数据库无法给出真实发生率，且易受漏报、选择性上报和共病混杂影响。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>研究框架（PECO）</h3>
+            <dl class="pico-list">
+              <dt>P 人群</dt><dd>FAERS 中 R/R B-cell NHL 双抗相关 AE 报告；直接关联 DLBCL 双抗使用场景。</dd>
+              <dt>E 暴露</dt><dd>Mosunetuzumab、glofitamab、epcoritamab 等 CD20/CD3 双抗。</dd>
+              <dt>C 参照</dt><dd>FAERS 全库其他药物报告，以及双抗相关非 CVAE 报告。</dd>
+              <dt>O 结局</dt><dd>CVAE、低血压、休克、出血、心律失常和致死性 CVAE。</dd>
+            </dl>
+            <p class="source-note">图表基于 PubMed 摘要中的 FAERS 数字重绘。</p>
+          </div>
+        </div>
+        <div class="two-chart">
+          <div class="chart-card">
+            <div class="chart-title">双抗相关 AE 中的心血管负担</div>
+            <div class="bar-list">
+              <div class="bar-item"><div class="name">CVAE / 双抗相关 AE</div><div class="bar-track"><div class="bar-fill" style="width:17.4%;"></div></div><div class="bar-value">17.4%</div></div>
+              <div class="bar-item"><div class="name">致死 / CVAE</div><div class="bar-track"><div class="bar-fill rose" style="width:39.3%;"></div></div><div class="bar-value">39.3%</div></div>
+              <div class="bar-item"><div class="name">CRS 并发 / 双抗 AE</div><div class="bar-track"><div class="bar-fill amber" style="width:33.4%;"></div></div><div class="bar-value">33.4%</div></div>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">关键信号强度（aROR）</div>
+            <div class="bar-list">
+              <div class="bar-item"><div class="name">低血压（双抗整体）</div><div class="bar-track"><div class="bar-fill" style="width:53.8%;"></div></div><div class="bar-value">2.15</div></div>
+              <div class="bar-item"><div class="name">致死 CVAE（双抗整体）</div><div class="bar-track"><div class="bar-fill rose" style="width:51.0%;"></div></div><div class="bar-value">2.04</div></div>
+              <div class="bar-item"><div class="name">低血压（epcoritamab）</div><div class="bar-track"><div class="bar-fill amber" style="width:59.3%;"></div></div><div class="bar-value">2.37</div></div>
+              <div class="bar-item"><div class="name">房颤/房扑（mosunetuzumab）</div><div class="bar-track"><div class="bar-fill" style="width:76.0%;"></div></div><div class="bar-value">3.04</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="02" data-count="04 / 15">
+    <div class="frame">
+      <div class="inner article-grid">
+        <div>
+          <div class="eyebrow">文献 1 / 近期高相关参考 / CAR-T 后双抗</div>
+          <h2 class="article-title"><span class="zh-title">CAR-T 失败后 R/R LBCL 双抗挽救治疗</span><span class="en-title">Anti-CD3/CD20 bispecific antibodies as salvage therapy after CAR-T failure in relapsed/refractory large B-cell lymphoma</span></h2>
+          <div class="pill-row">
+            <span class="pill">疾病方向：R/R LBCL / DLBCL</span>
+            <span class="pill">类别：双抗 / CAR-T 后排序</span>
+            <span class="pill alt">临床相关性：高</span>
+          </div>
+          <div class="meta-stack" style="margin-top:14px;">
+            <div class="meta-card"><b>文献类型</b><span>系统综述 + Meta 分析</span></div>
+            <div class="meta-card"><b>期刊</b><span>Ann Hematol</span></div>
+            <div class="meta-card"><b>第一作者</b><span>Ning Yuan</span></div>
+            <div class="meta-card"><b>PMID</b><span>42118323</span></div>
+          </div>
+          <p class="source-note"><a href="https://pubmed.ncbi.nlm.nih.gov/42118323/">PubMed 链接</a> | 2026-05-12</p>
+        </div>
+        <div class="stack">
+          <div class="panel">
+            <h3>结论</h3>
+            <p>CAR-T 失败后，CD3×CD20 双抗仍然有可观但明显打折的活性；真正决定价值的不是“用不用双抗”，而是“CAR-T 后多久复发、以及双抗放在什么位置”。</p>
+          </div>
+          <div class="panel">
+            <h3>主要内容</h3>
+            <ul class="bullets">
+              <li>纳入 2021-2025 年 15 项研究，共 1,169 例 CAR-T 后进展的 R/R LBCL 患者。</li>
+              <li>合并 ORR 45%，CR 30%；比 CAR-T naive 人群的双抗疗效低。</li>
+              <li>复发时间分层非常关键：CAR-T 后越晚复发，双抗应答越好。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>关键信息</h3>
+            <ul class="bullets">
+              <li>≤90 天复发 ORR 仅 26%，181 天到 1 年复发 ORR 达 71%。</li>
+              <li>Epcoritamab 在作者纳入的数据里 ORR 最高。</li>
+              <li>联合方案和皮下给药的应答优于单药和静脉方案。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>启示</h3>
+            <p><strong>已验证证据：</strong>CAR-T 暴露史会降低双抗总体疗效，但并不等于“CAR-T 后双抗无效”。</p>
+            <p><strong>论文作者观点：</strong>双抗是 CAR-T 失败后的有意义挽救路径，尤其适用于较晚复发者。</p>
+            <p><strong>我的推断：</strong>你每天看的文献页必须固定记录“CAR-T 前/后”和“复发间隔”，否则同样是双抗文章，真实可比性会被抹平。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="03" data-count="05 / 15">
+    <div class="frame">
+      <div class="inner abstract-grid">
+        <div class="abstract-columns">
+          <div class="panel">
+            <h3>结构化摘要</h3>
+            <ul class="bullets">
+              <li><strong>目的：</strong>评估 CAR-T 失败后，CD3×CD20 双抗在 R/R LBCL 中的疗效与安全性。</li>
+              <li><strong>方法：</strong>系统回顾 2021-2025 年临床研究，使用随机效应模型合并分析。</li>
+              <li><strong>结果：</strong>合并 ORR 45%，CR 30%；早复发组疗效最差，晚复发组疗效最好。</li>
+              <li><strong>安全性：</strong>CRS 最常见，多为 1-2 级；神经毒性和血液学毒性可控。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>研究框架（PICO）</h3>
+            <dl class="pico-list">
+              <dt>P 人群</dt><dd>CAR-T 后进展或复发的 R/R LBCL 患者。</dd>
+              <dt>I 干预</dt><dd>CD3×CD20 双抗，包括 epcoritamab、glofitamab、mosunetuzumab 等。</dd>
+              <dt>C 对照</dt><dd>CAR-T naive 双抗人群、不同复发时间亚组、单药/联合和 SC/IV 给药亚组。</dd>
+              <dt>O 结局</dt><dd>ORR、CR、CRS、神经毒性；重点看 CAR-T 后复发间隔对疗效的影响。</dd>
+            </dl>
+            <p class="source-note">图表基于 PubMed 摘要数字重绘。</p>
+          </div>
+        </div>
+        <div class="two-chart">
+          <div class="chart-card">
+            <div class="chart-title">总体疗效</div>
+            <div class="bar-list">
+              <div class="bar-item"><div class="name">ORR</div><div class="bar-track"><div class="bar-fill" style="width:45%;"></div></div><div class="bar-value">45%</div></div>
+              <div class="bar-item"><div class="name">CR</div><div class="bar-track"><div class="bar-fill amber" style="width:30%;"></div></div><div class="bar-value">30%</div></div>
+              <div class="bar-item"><div class="name">CAR-T naive ORR</div><div class="bar-track"><div class="bar-fill rose" style="width:69%;"></div></div><div class="bar-value">69%</div></div>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">按 CAR-T 后复发时间分层</div>
+            <div class="bar-list">
+              <div class="bar-item"><div class="name">≤90 天 ORR / CR</div><div class="bar-track"><div class="bar-fill" style="width:26%;"></div></div><div class="bar-value">26 / 10</div></div>
+              <div class="bar-item"><div class="name">91-180 天 ORR / CR</div><div class="bar-track"><div class="bar-fill amber" style="width:57%;"></div></div><div class="bar-value">57 / 29</div></div>
+              <div class="bar-item"><div class="name">181 天-1 年 ORR / CR</div><div class="bar-track"><div class="bar-fill rose" style="width:71%;"></div></div><div class="bar-value">71 / 56</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="04" data-count="06 / 15">
+    <div class="frame">
+      <div class="inner abstract-grid">
+        <div>
+          <div class="eyebrow">Review / Meta figure</div>
+          <h2 class="article-title"><span class="zh-title">CAR-T 后双抗：主要 Figure 与流程图复刻</span><span class="en-title">Review / meta figure and clinical flow chart reconstruction</span></h2>
+          <div class="panel">
+            <h3>图表含义</h3>
+            <p>这张复刻图把 review/meta 的核心信息压缩成一个临床排序图：CAR-T 后复发越早，双抗应答越差；双抗是否值得放在 CAR-T 后，必须和复发时间、给药方式、联合策略一起读。</p>
+          </div>
+          <div class="panel">
+            <h3>读图提醒</h3>
+            <ul class="bullets">
+              <li><strong>已验证证据：</strong>meta 分析摘要报告了按 CAR-T 后复发时间分层的 ORR/CR 差异。</li>
+              <li><strong>作者观点：</strong>双抗可作为 CAR-T 失败后的挽救路径，晚复发者更可能获益。</li>
+              <li><strong>我的推断：</strong>后续日报中的 review 类文章，应优先呈现“研究框架图、亚组图、疗效/毒性汇总图”，而不是只摘结论。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title">CAR-T failure → bispecific antibody response map</div>
+          <div class="bar-list">
+            <div class="bar-item"><div class="name">早期复发 ≤90 天</div><div class="bar-track"><div class="bar-fill rose" style="width:26%;"></div></div><div class="bar-value">ORR 26%</div></div>
+            <div class="bar-item"><div class="name">中期复发 91-180 天</div><div class="bar-track"><div class="bar-fill amber" style="width:57%;"></div></div><div class="bar-value">ORR 57%</div></div>
+            <div class="bar-item"><div class="name">较晚复发 181 天-1 年</div><div class="bar-track"><div class="bar-fill" style="width:71%;"></div></div><div class="bar-value">ORR 71%</div></div>
+          </div>
+          <div class="flow-grid" aria-label="Review chart reconstruction">
+            <div class="flow-step"><b>CAR-T 失败</b><span>先记录复发/进展距 CAR-T 的时间。</span></div>
+            <div class="flow-step"><b>时间分层</b><span>≤90 天、91-180 天、181 天-1 年。</span></div>
+            <div class="flow-step"><b>双抗变量</b><span>药物、单/联合、皮下/静脉给药。</span></div>
+            <div class="flow-step"><b>结局判断</b><span>ORR/CR，同时核对 CRS 与神经毒性。</span></div>
+          </div>
+          <div class="panel">
+            <h3>Figure / chart 说明</h3>
+            <p>本页不是原文图片复制，而是基于摘要数字和研究逻辑重绘的可读图与流程图；后续若 review 原文有开放许可 figure 或 PMC 可用图，会优先贴入原图或按原图结构复刻。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="05" data-count="07 / 15">
+    <div class="frame">
+      <div class="inner article-grid">
+        <div>
+          <div class="eyebrow">文献 2 / 近期高相关参考 / 双抗门诊化</div>
+          <h2 class="article-title"><span class="zh-title">Epcoritamab 单药门诊治疗 R/R DLBCL</span><span class="en-title">Epcoritamab Monotherapy as Outpatient Treatment for Patients With Relapsed/Refractory Diffuse Large B-Cell Lymphoma</span></h2>
+          <div class="pill-row">
+            <span class="pill">疾病方向：R/R DLBCL</span>
+            <span class="pill">类别：双抗 / 门诊化 / 实施路径</span>
+            <span class="pill alt">临床相关性：高</span>
+          </div>
+          <div class="meta-stack" style="margin-top:14px;">
+            <div class="meta-card"><b>文献类型</b><span>临床试验中期结果</span></div>
+            <div class="meta-card"><b>期刊</b><span>Clin Lymphoma Myeloma Leuk</span></div>
+            <div class="meta-card"><b>第一作者</b><span>David Andorsky</span></div>
+            <div class="meta-card"><b>PMID</b><span>41881714</span></div>
+          </div>
+          <p class="source-note"><a href="https://pubmed.ncbi.nlm.nih.gov/41881714/">PubMed 链接</a> | 2026-05</p>
+        </div>
+        <div class="stack">
+          <div class="panel">
+            <h3>结论</h3>
+            <p>这篇文章的真正信息量，不是“epcoritamab 有效”本身，而是它在 DLBCL 中向门诊给药和门诊监测推进得更远了。</p>
+          </div>
+          <div class="panel">
+            <h3>主要内容</h3>
+            <ul class="bullets">
+              <li>EPCORE NHL-6 评估 2L+ R/R DLBCL 皮下注射 epcoritamab 的门诊实施可行性。</li>
+              <li>首个完整剂量后，不再把强制住院监测当作默认前提，而是把门诊路径本身纳入试验问题。</li>
+              <li>研究仍然密切跟踪 CRS、ICANS 和首剂后监测时点。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>关键信息</h3>
+            <ul class="bullets">
+              <li>公开更新数据显示：92% 的首次完整剂量在门诊完成监测。</li>
+              <li>整体 ORR 62.0%，CR 42.4%；2L 患者 ORR 64.3%，CR 47.6%。</li>
+              <li>整体 CRS 40.2%，ICANS 7.6%，总体与既往 epcoritamab 经验一致。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>启示</h3>
+            <p><strong>已验证证据：</strong>epcoritamab 具备向门诊实施推进的可行性，且安全性构成与既往数据大体一致。</p>
+            <p><strong>论文作者观点：</strong>不必把首次完整剂量后的常规住院监测视为唯一可行路径。</p>
+            <p><strong>我的推断：</strong>后续 DLBCL 双抗研究比较的不只是药物对药物，而是“给药场景 + 监测成本 + 可及性”的组合方案。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="06" data-count="08 / 15">
+    <div class="frame">
+      <div class="inner abstract-grid">
+        <div class="abstract-columns">
+          <div class="panel">
+            <h3>结构化摘要</h3>
+            <ul class="bullets">
+              <li><strong>背景：</strong>既往获批路径通常要求首次完整剂量后住院监测 24 小时，限制了双抗的可及性。</li>
+              <li><strong>设计：</strong>28 天为一周期，前两次 step-up 后给 48 mg 完整剂量；主要终点看 G3+ CRS、ICANS 和神经事件。</li>
+              <li><strong>结果：</strong>92 例入组，88 例接受首次完整剂量；81 例在门诊完成监测。</li>
+              <li><strong>备注：</strong>PubMed 条目为中期结果，下面图表用的是该研究公开更新数据重绘，以补足门诊比例、CRS/ICANS 和分线疗效。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>研究框架（PICO）</h3>
+            <dl class="pico-list">
+              <dt>P 人群</dt><dd>2L+ R/R DLBCL 患者，接受 epcoritamab 皮下注射治疗。</dd>
+              <dt>I 干预</dt><dd>Step-up dosing 后首个完整剂量在门诊监测的实施路径。</dd>
+              <dt>C 对照</dt><dd>既往要求住院监测的 epcoritamab 路径与历史安全性背景。</dd>
+              <dt>O 结局</dt><dd>门诊完成比例、CRS、ICANS、ORR、CR 和分线疗效。</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="two-chart">
+          <div class="chart-card">
+            <div class="chart-title">门诊实施与安全性</div>
+            <div class="bar-list">
+              <div class="bar-item"><div class="name">首次完整剂量门诊监测</div><div class="bar-track"><div class="bar-fill" style="width:92%;"></div></div><div class="bar-value">92%</div></div>
+              <div class="bar-item"><div class="name">整体 CRS</div><div class="bar-track"><div class="bar-fill amber" style="width:40.2%;"></div></div><div class="bar-value">40.2%</div></div>
+              <div class="bar-item"><div class="name">整体 ICANS</div><div class="bar-track"><div class="bar-fill rose" style="width:7.6%;"></div></div><div class="bar-value">7.6%</div></div>
+              <div class="bar-item"><div class="name">首次完整剂量后 CRS</div><div class="bar-track"><div class="bar-fill" style="width:31.8%;"></div></div><div class="bar-value">31.8%</div></div>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">疗效（公开更新数据）</div>
+            <div class="bar-list">
+              <div class="bar-item"><div class="name">总体 ORR / CR</div><div class="bar-track"><div class="bar-fill" style="width:62%;"></div></div><div class="bar-value">62 / 42</div></div>
+              <div class="bar-item"><div class="name">2L ORR / CR</div><div class="bar-track"><div class="bar-fill amber" style="width:64.3%;"></div></div><div class="bar-value">64 / 48</div></div>
+              <div class="bar-item"><div class="name">3L+ ORR / CR</div><div class="bar-track"><div class="bar-fill rose" style="width:60%;"></div></div><div class="bar-value">60 / 38</div></div>
+            </div>
+            <p class="source-note">图表依据同一研究的公开 SOHO 更新数据重绘，用于补足 PubMed 简版摘要未展示的细项。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="11" data-count="09 / 15">
+    <div class="frame">
+      <div class="inner article-grid">
+        <div>
+          <div class="eyebrow">文献 5 / 近期高相关参考 / PCNSL BTKi 前移</div>
+          <h2 class="article-title"><span class="zh-title">Ibrutinib 联合 R-MVP 治疗新诊断 PCNSL</span><span class="en-title">Ibrutinib in combination with rituximab, methotrexate, vincristine, and procarbazine for newly diagnosed primary CNS lymphoma</span></h2>
+          <div class="pill-row">
+            <span class="pill">疾病方向：PCNSL</span>
+            <span class="pill">类别：BTKi / 前移 / 诱导治疗</span>
+            <span class="pill alt">临床相关性：高</span>
+          </div>
+          <div class="meta-stack" style="margin-top:14px;">
+            <div class="meta-card"><b>文献类型</b><span>单中心 II 期研究</span></div>
+            <div class="meta-card"><b>期刊</b><span>Neuro Oncol</span></div>
+            <div class="meta-card"><b>第一作者</b><span>Lauren R Schaff</span></div>
+            <div class="meta-card"><b>PMID</b><span>41557853</span></div>
+          </div>
+          <p class="source-note"><a href="https://pubmed.ncbi.nlm.nih.gov/41557853/">PubMed 链接</a> | 2026-05-01</p>
+        </div>
+        <div class="stack">
+          <div class="panel">
+            <h3>结论</h3>
+            <p>BTKi 在 PCNSL 里的价值已经不只是复发后补救；这篇研究把 ibrutinib 更明确地前移进新诊断 PCNSL 的一线组合诱导。</p>
+          </div>
+          <div class="panel">
+            <h3>主要内容</h3>
+            <ul class="bullets">
+              <li>单中心 II 期试验，在 R-MVP 基础上加入 ibrutinib，目标是提高新诊断 PCNSL 的完全缓解率。</li>
+              <li>共入组 30 例，中位年龄 69 岁；29 例完成 R-MVP/i。</li>
+              <li>CR/CRu 达 29/30，提示 BTK 通路抑制前移有较强诱导活性。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>关键信息</h3>
+            <ul class="bullets">
+              <li>CR/CRu 率 97%，2 年 PFS 84.2%。</li>
+              <li>文摘显示未观察到 5 级毒性；整体耐受性可接受。</li>
+              <li>这类结果更像“前移可行性 + 深度缓解”信号，而不是直接替代标准答案。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>启示</h3>
+            <p><strong>已验证证据：</strong>在这项单中心研究中，R-MVP/i 诱导取得了很高的 CR/CRu 和不错的 2 年 PFS。</p>
+            <p><strong>论文作者观点：</strong>加入 ibrutinib 可能提高新诊断 PCNSL 的完全缓解深度。</p>
+            <p><strong>我的推断：</strong>后续你监测 CNSL 时，BTKi 不能只看复发/难治，还要看它在“前移诱导、巩固、维持”上的位置变化。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="12" data-count="10 / 15">
+    <div class="frame">
+      <div class="inner abstract-grid">
+        <div class="abstract-columns">
+          <div class="panel">
+            <h3>结构化摘要</h3>
+            <ul class="bullets">
+              <li><strong>背景：</strong>HD-MTX 仍是一线主干，但新诊断 PCNSL 的完全缓解率和持久缓解仍有提升空间。</li>
+              <li><strong>方法：</strong>在 rituximab、MTX、procarbazine、vincristine 组合中加入 ibrutinib，观察 CR 提升。</li>
+              <li><strong>结果：</strong>30 例中 29 例达 CR/CRu，1 例 PR；中位随访 25.1 个月时，PFS 和 OS 中位数均未达到。</li>
+              <li><strong>安全性：</strong>文摘中未见 5 级毒性；更适合解读为“有希望的前移组合”，而非终局定论。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>研究框架（PICO）</h3>
+            <dl class="pico-list">
+              <dt>P 人群</dt><dd>新诊断 primary CNS lymphoma 患者。</dd>
+              <dt>I 干预</dt><dd>Ibrutinib 联合 rituximab、MTX、vincristine、procarbazine 诱导。</dd>
+              <dt>C 对照</dt><dd>历史 R-MVP / HD-MTX 主干背景；本研究为单臂 II 期，无随机对照。</dd>
+              <dt>O 结局</dt><dd>CR/CRu、PFS、OS、严重毒性和 5 级毒性。</dd>
+            </dl>
+            <p class="source-note">图表基于 PubMed 摘要数字重绘。</p>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title">R-MVP/i 关键结果</div>
+          <div class="mini-grid">
+            <div class="mini-stat"><b>入组人数</b><span>30</span></div>
+            <div class="mini-stat"><b>CR / CRu</b><span>97%</span></div>
+            <div class="mini-stat"><b>2 年 PFS</b><span>84.2%</span></div>
+          </div>
+          <div class="bar-list">
+            <div class="bar-item"><div class="name">完成 R-MVP/i</div><div class="bar-track"><div class="bar-fill" style="width:96.7%;"></div></div><div class="bar-value">29/30</div></div>
+            <div class="bar-item"><div class="name">CR / CRu</div><div class="bar-track"><div class="bar-fill amber" style="width:96.7%;"></div></div><div class="bar-value">29/30</div></div>
+            <div class="bar-item"><div class="name">PR</div><div class="bar-track"><div class="bar-fill rose" style="width:3.3%;"></div></div><div class="bar-value">1/30</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="13" data-count="11 / 15">
+    <div class="frame">
+      <div class="inner article-grid">
+        <div>
+          <div class="eyebrow">文献 6 / 近期高相关参考 / ID-PCNSL 亚群</div>
+          <h2 class="article-title"><span class="zh-title">免疫缺陷相关 PCNSL：国际协作组研究</span><span class="en-title">Immunodeficiency-associated primary CNS lymphomas: An International Primary CNS Lymphoma Collaborative Group Study</span></h2>
+          <div class="pill-row">
+            <span class="pill">疾病方向：ID-PCNSL</span>
+            <span class="pill">类别：真实世界 / 亚群 / 预后</span>
+            <span class="pill alt">临床相关性：中高</span>
+          </div>
+          <div class="meta-stack" style="margin-top:14px;">
+            <div class="meta-card"><b>文献类型</b><span>国际多中心回顾性研究</span></div>
+            <div class="meta-card"><b>期刊</b><span>Blood</span></div>
+            <div class="meta-card"><b>第一作者</b><span>Leon D Kaulen</span></div>
+            <div class="meta-card"><b>PMID</b><span>41843467</span></div>
+          </div>
+          <p class="source-note"><a href="https://pubmed.ncbi.nlm.nih.gov/41843467/">PubMed 链接</a> | 2026-03-17</p>
+        </div>
+        <div class="stack">
+          <div class="panel">
+            <h3>结论</h3>
+            <p>免疫缺陷相关 PCNSL 不是普通 PCNSL 的简单复制版；免疫重建 + 利妥昔单抗-甲氨蝶呤方案是这个亚群最值得持续盯住的主线。</p>
+          </div>
+          <div class="panel">
+            <h3>主要内容</h3>
+            <ul class="bullets">
+              <li>23 个中心、7 个国家，共 308 例 ID-PCNSL，整合临床、影像和病理数据。</li>
+              <li>基础免疫缺陷来源包括移植后免疫抑制、自身免疫病免疫抑制和 HIV。</li>
+              <li>所有肿瘤均为 DLBCL，EBV 阳性比例高，提示生物学亚型并不等同于普通免疫健全 PCNSL。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>关键信息</h3>
+            <ul class="bullets">
+              <li>免疫重建联合 RM 方案获得最高应答率和更长 PFS。</li>
+              <li>中位 OS 54 个月；年龄、KPS&lt;70、EBV 阳性均是 OS 不良因素。</li>
+              <li>EBV 阳性 HR 3.26，提示不是仅仅“伴随特征”，而可能影响预后层次。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>启示</h3>
+            <p><strong>已验证证据：</strong>ID-PCNSL 是一个临床病理特征明确不同的 PCNSL 亚群，RM + 免疫重建相关结局更优。</p>
+            <p><strong>论文作者观点：</strong>需要专门的预后分层和亚群管理，而非完全套用传统 PCNSL 框架。</p>
+            <p><strong>我的推断：</strong>今后看 CNSL 文献时，是否存在免疫缺陷背景、EBV 状态和免疫重建路径，应该进入固定字段，而不是写在备注里。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="14" data-count="12 / 15">
+    <div class="frame">
+      <div class="inner abstract-grid">
+        <div class="abstract-columns">
+          <div class="panel">
+            <h3>结构化摘要</h3>
+            <ul class="bullets">
+              <li><strong>背景：</strong>ID-PCNSL 缺少大样本研究和可靠预后模型。</li>
+              <li><strong>方法：</strong>国际多中心回顾队列，分析 308 例的临床、病理、影像和治疗结局。</li>
+              <li><strong>结果：</strong>移植相关免疫抑制 41.2%，自身免疫相关 36.7%，HIV 21.7%；EBV 阳性 79.2%。</li>
+              <li><strong>预后：</strong>年龄、低 KPS、EBV 阳性与更差 OS 独立相关。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>研究框架（PECO）</h3>
+            <dl class="pico-list">
+              <dt>P 人群</dt><dd>免疫缺陷相关 PCNSL，来自 23 个中心、7 个国家的回顾队列。</dd>
+              <dt>E 暴露</dt><dd>移植后免疫抑制、自身免疫病免疫抑制、HIV、EBV 阳性等背景。</dd>
+              <dt>C 参照</dt><dd>不同免疫缺陷背景、免疫重建路径和预后因素分层。</dd>
+              <dt>O 结局</dt><dd>应答率、PFS、OS，以及年龄、KPS、EBV 状态的 HR。</dd>
+            </dl>
+            <p class="source-note">图表基于 PubMed 摘要数字重绘。</p>
+          </div>
+        </div>
+        <div class="two-chart">
+          <div class="chart-card">
+            <div class="chart-title">免疫缺陷背景构成</div>
+            <div class="bar-list">
+              <div class="bar-item"><div class="name">移植后免疫抑制</div><div class="bar-track"><div class="bar-fill" style="width:41.2%;"></div></div><div class="bar-value">41.2%</div></div>
+              <div class="bar-item"><div class="name">自身免疫病免疫抑制</div><div class="bar-track"><div class="bar-fill amber" style="width:36.7%;"></div></div><div class="bar-value">36.7%</div></div>
+              <div class="bar-item"><div class="name">HIV</div><div class="bar-track"><div class="bar-fill rose" style="width:21.7%;"></div></div><div class="bar-value">21.7%</div></div>
+              <div class="bar-item"><div class="name">EBV 阳性</div><div class="bar-track"><div class="bar-fill" style="width:79.2%;"></div></div><div class="bar-value">79.2%</div></div>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">预后因素与总体生存</div>
+            <div class="mini-grid">
+              <div class="mini-stat"><b>样本量</b><span>308</span></div>
+              <div class="mini-stat"><b>中位 OS</b><span>54 月</span></div>
+              <div class="mini-stat"><b>全为 DLBCL</b><span>100%</span></div>
+            </div>
+            <div class="bar-list">
+              <div class="bar-item"><div class="name">年龄 HR（每增加 1 岁）</div><div class="bar-track"><div class="bar-fill" style="width:26.2%;"></div></div><div class="bar-value">1.05</div></div>
+              <div class="bar-item"><div class="name">KPS &lt;70 HR</div><div class="bar-track"><div class="bar-fill amber" style="width:77.5%;"></div></div><div class="bar-value">3.10</div></div>
+              <div class="bar-item"><div class="name">EBV 阳性 HR</div><div class="bar-track"><div class="bar-fill rose" style="width:81.5%;"></div></div><div class="bar-value">3.26</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="09" data-count="13 / 15">
+    <div class="frame">
+      <div class="inner article-grid">
+        <div>
+          <div class="eyebrow">文献 4 / 近期高相关参考 / DLBCL CNS 预防</div>
+          <h2 class="article-title"><span class="zh-title">DLBCL CNS 预防的疗效与毒性（CLSG-CNS-01）</span><span class="en-title">The Efficacy and Toxicity of CNS Prophylaxis in Diffuse Large B-Cell Lymphoma (CLSG-CNS-01)</span></h2>
+          <div class="pill-row">
+            <span class="pill">疾病方向：系统性 DLBCL / CNS 复发预防</span>
+            <span class="pill">类别：随机 III 期 / CNS 预防</span>
+            <span class="pill alt">临床相关性：高</span>
+          </div>
+          <div class="meta-stack" style="margin-top:14px;">
+            <div class="meta-card"><b>文献类型</b><span>随机、多中心、前瞻性 III 期</span></div>
+            <div class="meta-card"><b>期刊</b><span>Hematol Oncol</span></div>
+            <div class="meta-card"><b>第一作者</b><span>H Mocikova</span></div>
+            <div class="meta-card"><b>PMID</b><span>42062177</span></div>
+          </div>
+          <p class="source-note"><a href="https://pubmed.ncbi.nlm.nih.gov/42062177/">PubMed 链接</a> | 2026-05</p>
+        </div>
+        <div class="stack">
+          <div class="panel">
+            <h3>结论</h3>
+            <p>这项随机试验没有证明静脉 HD-MTX 预防优于鞘内 MTX；相反，它更清楚地展示了“毒性代价可能比理论获益更确定”。</p>
+          </div>
+          <div class="panel">
+            <h3>主要内容</h3>
+            <ul class="bullets">
+              <li>中高危 CNS-IPI 患者随机接受 2 次静脉 HD-MTX 或 6 次鞘内 MTX；低危患者不做预防。</li>
+              <li>总计入组 100 例：A 组 30，B 组 31，C 组 39；中位随访 54.9 个月。</li>
+              <li>5 年 CNS 复发率 A 组 0%，B 组 8.7%，但因样本量太小，主要终点并不能下定论。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>关键信息</h3>
+            <ul class="bullets">
+              <li>静脉 HD-MTX 组 G≥3 中性粒细胞减少和感染显著更多。</li>
+              <li>5 年 OS：静脉组 47.2%，鞘内组 72.4%；文中认为更高感染率是关键原因之一。</li>
+              <li>作者明确承认：试验规模不足，真正结论仍需更大国际随机研究。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>启示</h3>
+            <p><strong>已验证证据：</strong>这项试验没有给出“静脉预防更优”的坚实证据，但给出了更重的毒性信号。</p>
+            <p><strong>论文作者观点：</strong>需要更大规模国际随机试验来回答 CNS 预防收益问题。</p>
+            <p><strong>我的推断：</strong>DLBCL 的 CNS 预防未来更可能转向“精准识别真正高风险者”，而不是广泛给更重的甲氨蝶呤暴露。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="10" data-count="14 / 15">
+    <div class="frame">
+      <div class="inner abstract-grid">
+        <div class="abstract-columns">
+          <div class="panel">
+            <h3>结构化摘要</h3>
+            <ul class="bullets">
+              <li><strong>背景：</strong>DLBCL 的 CNS 预防长期存在“静脉高剂量 vs 鞘内”争议，但缺少前瞻随机证据。</li>
+              <li><strong>方法：</strong>中高危 CNS-IPI 随机分配到 2 次 3 g/m² 静脉 MTX 或 6 次 12 mg 鞘内 MTX。</li>
+              <li><strong>结果：</strong>5 年 CNS 复发 A 组 0%，B 组 8.7%，p=0.72；PFS 无显著差异。</li>
+              <li><strong>毒性：</strong>静脉组重度中性粒细胞减少和感染更多，并伴随较差 5 年 OS。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>研究框架（PICO）</h3>
+            <dl class="pico-list">
+              <dt>P 人群</dt><dd>中高危 CNS-IPI 的系统性 DLBCL 患者；另有低危不预防观察组。</dd>
+              <dt>I 干预</dt><dd>2 次 3 g/m² 静脉高剂量 methotrexate CNS 预防。</dd>
+              <dt>C 对照</dt><dd>6 次 12 mg 鞘内 methotrexate；低危组不接受 CNS 预防。</dd>
+              <dt>O 结局</dt><dd>5 年 CNS 复发、PFS、OS、G≥3 中性粒细胞减少和感染。</dd>
+            </dl>
+            <p class="source-note">图表基于 PMC/摘要公开数字重绘；PubMed 正式链接见上一页。</p>
+          </div>
+        </div>
+        <div class="two-chart">
+          <div class="chart-card">
+            <div class="chart-title">5 年结局对比</div>
+            <div class="bar-list">
+              <div class="bar-item"><div class="name">CNS 复发（静脉 HD-MTX）</div><div class="bar-track"><div class="bar-fill" style="width:0%;"></div></div><div class="bar-value">0%</div></div>
+              <div class="bar-item"><div class="name">CNS 复发（鞘内 MTX）</div><div class="bar-track"><div class="bar-fill amber" style="width:8.7%;"></div></div><div class="bar-value">8.7%</div></div>
+              <div class="bar-item"><div class="name">5 年 OS（静脉）</div><div class="bar-track"><div class="bar-fill rose" style="width:47.2%;"></div></div><div class="bar-value">47.2%</div></div>
+              <div class="bar-item"><div class="name">5 年 OS（鞘内）</div><div class="bar-track"><div class="bar-fill" style="width:72.4%;"></div></div><div class="bar-value">72.4%</div></div>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">研究设计与毒性提示</div>
+            <div class="mini-grid">
+              <div class="mini-stat"><b>A 组</b><span>30</span></div>
+              <div class="mini-stat"><b>B 组</b><span>31</span></div>
+              <div class="mini-stat"><b>C 组</b><span>39</span></div>
+            </div>
+            <ul class="bullets">
+              <li>主要终点因样本量不足而不确定，不能把“0% vs 8.7%”过度解读为方案胜负。</li>
+              <li>静脉 HD-MTX 组重度中性粒细胞减少 p=0.0003、感染 p=0.0063，更像这篇研究最稳定的信号。</li>
+              <li>对真实世界方案设计而言，毒性与系统治疗延迟本身就是重要结局。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="15" data-count="15 / 19">
+    <div class="frame">
+      <div class="inner article-grid">
+        <div>
+          <div class="eyebrow">文献 7 / 近期高相关参考 / DLBCL 综合管理</div>
+          <h2 class="article-title"><span class="zh-title">2026 年 DLBCL 管理更新</span><span class="en-title">2026 Update on the Management of Diffuse Large B-Cell Lymphoma</span></h2>
+          <div class="pill-row">
+            <span class="pill">疾病方向：DLBCL</span>
+            <span class="pill">类别：综述 / 治疗排序</span>
+            <span class="pill alt">临床相关性：高</span>
+          </div>
+          <div class="meta-stack" style="margin-top:14px;">
+            <div class="meta-card"><b>文献类型</b><span>Review</span></div>
+            <div class="meta-card"><b>期刊</b><span>Am J Hematol</span></div>
+            <div class="meta-card"><b>作者</b><span>Chong EA et al.</span></div>
+            <div class="meta-card"><b>PMID</b><span>41654318</span></div>
+          </div>
+          <p class="source-note"><a href="https://pubmed.ncbi.nlm.nih.gov/41654318/">PubMed 链接</a> | 2026 Apr | NCBI E-utilities 已核对</p>
+        </div>
+        <div class="stack">
+          <div class="panel"><h3>结论</h3><p>这篇综述适合作为 DLBCL 治疗排序总框架，用来串联一线、二线、CAR-T、双抗、ADC 和后线治疗选择。</p></div>
+          <div class="panel"><h3>主要内容</h3><ul class="bullets"><li>覆盖 DLBCL 管理在 2026 年的证据更新，重点是分层治疗和后线选择。</li><li>作为综述，价值不在单一 ORR，而在把 CAR-T、双抗、ADC 与传统免疫化疗放入同一排序框架。</li><li>适合每天监测时作为“背景框架”引用，帮助判断新文献属于哪条治疗路径。</li></ul></div>
+          <div class="panel"><h3>关键信息</h3><ul class="bullets"><li>PubMed 类型为 Review，并有 PMC 全文记录，后续可优先补充开放全文中的核心图表。</li><li>本页暂不复制原图；PPT 采用可编辑文字框，后续若开放图表可加入 review figure 截图或结构化重绘。</li></ul></div>
+          <div class="panel"><h3>启示</h3><p><strong>已验证证据：</strong>PubMed 记录显示这是一篇 2026 年 DLBCL 管理综述。</p><p><strong>作者观点：</strong>需以全文为准；本页不把综述观点扩展为具体治疗建议。</p><p><strong>我的推断：</strong>每日监测可把它作为“治疗排序地图”，但不能替代具体试验数据。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="16" data-count="16 / 19">
+    <div class="frame">
+      <div class="inner article-grid">
+        <div>
+          <div class="eyebrow">文献 8 / 近期高相关参考 / CAR-T 与双抗排序</div>
+          <h2 class="article-title"><span class="zh-title">LBCL 中 CAR-T 与双抗序贯治疗</span><span class="en-title">Chimeric antigen receptor T-cell therapy and bispecific antibody sequence for large B-cell lymphoma: a systematic review and meta-analysis</span></h2>
+          <div class="pill-row"><span class="pill">疾病方向：LBCL / DLBCL</span><span class="pill">类别：CAR-T / 双抗 / 系统综述与 Meta 分析</span><span class="pill alt">临床相关性：高</span></div>
+          <div class="meta-stack" style="margin-top:14px;"><div class="meta-card"><b>文献类型</b><span>Systematic Review / Meta-Analysis</span></div><div class="meta-card"><b>期刊</b><span>Lancet Haematol</span></div><div class="meta-card"><b>作者</b><span>Sorin M et al.</span></div><div class="meta-card"><b>PMID</b><span>41448213</span></div></div>
+          <p class="source-note"><a href="https://pubmed.ncbi.nlm.nih.gov/41448213/">PubMed 链接</a> | 2026 Feb | NCBI E-utilities 已核对</p>
+        </div>
+        <div class="stack">
+          <div class="panel"><h3>结论</h3><p>这篇 meta 分析直接服务于“先 CAR-T 还是先双抗、以及失败后如何接续”的方案设计问题。</p></div>
+          <div class="panel"><h3>主要内容</h3><ul class="bullets"><li>研究对象是 large B-cell lymphoma，聚焦 CAR-T 与双抗的序贯关系。</li><li>PICO：P 为 LBCL；I/C 为不同 CAR-T 与双抗先后顺序；O 为疗效与安全性结局。</li><li>作为系统综述，适合作为后线排序讨论的证据入口，而不是某个单药疗效结论。</li></ul></div>
+          <div class="panel"><h3>关键信息</h3><ul class="bullets"><li>期刊为 Lancet Haematol，文献类型为 Systematic Review 和 Meta-Analysis。</li><li>后续若全文图表可用，优先提取 PRISMA 流程图、序贯治疗森林图或亚组图。</li></ul></div>
+          <div class="panel"><h3>启示</h3><p><strong>已验证证据：</strong>PubMed 记录确认其主题是 LBCL 中 CAR-T 与双抗序贯。</p><p><strong>作者观点：</strong>需以全文具体结论为准。</p><p><strong>我的推断：</strong>未来日报应把“CAR-T 前/后、双抗前/后”作为固定字段，否则很难比较研究。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="17" data-count="17 / 19">
+    <div class="frame">
+      <div class="inner article-grid">
+        <div>
+          <div class="eyebrow">文献 9 / 近期高相关参考 / 双抗实施效率</div>
+          <h2 class="article-title"><span class="zh-title">美国 DLBCL/FL 中单一与多种双抗使用的运营效率</span><span class="en-title">Operational efficiencies of using one vs multiple bispecific antibodies for diffuse large B-cell lymphoma and follicular lymphoma in the US</span></h2>
+          <div class="pill-row"><span class="pill">疾病方向：DLBCL / FL</span><span class="pill">类别：双抗 / 实施路径 / 运营效率</span><span class="pill alt">临床相关性：中-高</span></div>
+          <div class="meta-stack" style="margin-top:14px;"><div class="meta-card"><b>文献类型</b><span>Journal Article</span></div><div class="meta-card"><b>期刊</b><span>Future Oncol</span></div><div class="meta-card"><b>作者</b><span>Graff T et al.</span></div><div class="meta-card"><b>PMID</b><span>41757741</span></div></div>
+          <p class="source-note"><a href="https://pubmed.ncbi.nlm.nih.gov/41757741/">PubMed 链接</a> | 2026 Mar | NCBI E-utilities 已核对</p>
+        </div>
+        <div class="stack">
+          <div class="panel"><h3>结论</h3><p>双抗进入真实临床后，实施效率、药物组合复杂度和中心运营能力会成为疗法可及性的关键变量。</p></div>
+          <div class="panel"><h3>主要内容</h3><ul class="bullets"><li>比较美国 DLBCL/FL 场景中使用一种或多种双抗带来的运营效率差异。</li><li>研究对象不是疗效终点，而是治疗落地过程中的中心流程和资源消耗。</li><li>与 epcoritamab 门诊化主题互补：一个看患者路径，一个看机构路径。</li></ul></div>
+          <div class="panel"><h3>关键信息</h3><ul class="bullets"><li>PubMed 记录有 PMC 全文，后续可提取流程图或模型结构图。</li><li>该文有 2026 年 5 月 erratum 记录，后续引用时应核对更正内容。</li></ul></div>
+          <div class="panel"><h3>启示</h3><p><strong>已验证证据：</strong>PubMed 记录确认主题为 DLBCL/FL 双抗运营效率。</p><p><strong>作者观点：</strong>运营效率模型的具体结论需阅读全文。</p><p><strong>我的推断：</strong>后续方案设计不能只看药物疗效，也要看门诊流程、监测窗口、药房和护理负担。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="18" data-count="18 / 19">
+    <div class="frame">
+      <div class="inner article-grid">
+        <div>
+          <div class="eyebrow">文献 10 / 近期高相关参考 / 原发难治 DLBCL</div>
+          <h2 class="article-title"><span class="zh-title">不适合 CAR-T 的原发难治 DLBCL 管理</span><span class="en-title">Management of Primary Refractory Diffuse Large B-Cell Lymphoma in Patients Unsuitable for CAR T-Cell Therapy</span></h2>
+          <div class="pill-row"><span class="pill">疾病方向：DLBCL</span><span class="pill">类别：综述 / 后线治疗排序</span><span class="pill alt">临床相关性：高</span></div>
+          <div class="meta-stack" style="margin-top:14px;"><div class="meta-card"><b>文献类型</b><span>Review</span></div><div class="meta-card"><b>期刊</b><span>Eur J Haematol</span></div><div class="meta-card"><b>作者</b><span>Caserta S et al.</span></div><div class="meta-card"><b>PMID</b><span>41793237</span></div></div>
+          <p class="source-note"><a href="https://pubmed.ncbi.nlm.nih.gov/41793237/">PubMed 链接</a> | 2026 Jun | NCBI E-utilities 已核对</p>
+        </div>
+        <div class="stack">
+          <div class="panel"><h3>结论</h3><p>原发难治且不适合 CAR-T 的 DLBCL 是一个独立方案设计场景，不能简单套用 CAR-T 可及人群的排序逻辑。</p></div>
+          <div class="panel"><h3>主要内容</h3><ul class="bullets"><li>综述关注 primary refractory DLBCL，尤其是不适合 CAR-T 的患者。</li><li>核心问题是 CAR-T 不可用时，双抗、ADC、靶向联合和传统挽救方案如何排序。</li><li>与 CAR-T 后双抗、CAR-T/双抗序贯 meta 分析共同构成后线治疗地图。</li></ul></div>
+          <div class="panel"><h3>关键信息</h3><ul class="bullets"><li>PubMed 类型为 Review，2026 年 6 月纸刊，且有 PMC 全文记录。</li><li>后续可优先提取 review 中治疗路径图、可及性分层图或方案排序表。</li></ul></div>
+          <div class="panel"><h3>启示</h3><p><strong>已验证证据：</strong>PubMed 记录确认其对象为不适合 CAR-T 的原发难治 DLBCL。</p><p><strong>作者观点：</strong>具体排序需以全文为准。</p><p><strong>我的推断：</strong>日报的治疗排序页应单独标记“CAR-T unsuitable”，否则会把可及性限制误读成疗效问题。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-order="19" data-count="19 / 19">
+    <div class="frame">
+      <div class="inner">
+        <div class="eyebrow">Daily synthesis</div>
+        <h2 class="article-title">今日综合判断</h2>
+        <div class="summary-grid">
+          <div class="summary-block">
+            <h3>DLBCL</h3>
+            <p>本日最清晰的 DLBCL 主线不是新增某个颠覆性疗效，而是双抗在 <strong>排序、门诊化和安全边界</strong> 上继续细化。CAR-T 后双抗仍然可用，但复发时间决定价值高低；双抗门诊化正在把“实施路径”变成核心研究问题。</p>
+          </div>
+          <div class="summary-block">
+            <h3>CNSL / PCNSL</h3>
+            <p>PCNSL 这边最值得继续盯的是 <strong>BTKi 前移</strong>，以及不同免疫背景下的异质性。新诊断 PCNSL 中 ibrutinib 前移信号强；ID-PCNSL 说明免疫缺陷背景不能被当作普通 PCNSL 的脚注。</p>
+          </div>
+          <div class="summary-block">
+            <h3>机制与转化</h3>
+            <p>今天虽然没有特别强的新机制文献进入最终列表，但从 CAR-T 后双抗应答差异、EBV 阳性预后分层，以及双抗心血管安全信号看，后续最值得监测的转化问题仍是 <strong>耐药生物学、宿主状态和非肿瘤毒性</strong>。</p>
+          </div>
+          <div class="summary-block">
+            <h3>治疗排序 / 方案设计启示</h3>
+            <p>后续固定监测字段建议继续保留：<strong>治疗类别、治疗线数、是否 CAR-T 后、复发时间、给药场景（住院/门诊）、CNS 穿透或 CNS 预防角色、关键毒性</strong>。这比单独记 ORR 更接近真实决策。</p>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>今天的交付策略</h3>
+          <ul class="bullets">
+            <li>本次补跑保留 1 篇窗口内新文献，并补入 9 篇 2026 年近期高相关参考/补充，合计 10 篇；补充文献在页面中明确标记，不作为当天新增文献。</li>
+            <li>每篇文献可采用 1-3 页结构：第 1 页快速浏览，第 2 页结构化摘要 + PICO/PECO + 图表，review/meta 类可增加第 3 页放主要 figure 与流程图；PPT 下载采用可编辑文本框、图表和流程图形状，避免整页截图不可编辑。</li>
+            <li>固定输出路径不变，便于继续使用同一个 <code>file:///</code> 收藏链接。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>既往每日回看</h3>
+          <ul class="bullets">
+            <li><a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/archive/2026-06-03/">2026-06-03：DLBCL/CNSL 新治疗文献 slides</a>，含当天 PDF 和可编辑 PPT 下载。</li>
+            <li><a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/archive/2026-06-02/">2026-06-02：DLBCL/CNSL 新治疗文献 slides</a>，含当天 PDF 和可编辑 PPT 下载。</li>
+            <li><a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/archive/2026-06-01/">2026-06-01：DLBCL/CNSL 新治疗文献 slides</a>，作为上一版基线归档。</li>
+          </ul>
+          <p class="source-note">固定入口始终指向最新日报；归档链接用于回看每天版本，后续每日自动追加。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const orderedSlides = Array.from(document.querySelectorAll('.slide')).sort((a, b) => {
+      return Number(a.dataset.order || 999) - Number(b.dataset.order || 999);
+    });
+    orderedSlides.forEach(slide => document.body.appendChild(slide));
+    const slides = orderedSlides;
+    slides.forEach((slide, index) => {
+      slide.dataset.count = String(index + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+    });
+    const progress = document.querySelector('.progress');
+    const dots = document.querySelector('.dots');
+    let current = 0;
+
+    slides.forEach((slide, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.setAttribute('aria-label', 'Go to slide ' + (index + 1));
+      button.addEventListener('click', () => slide.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+      dots.appendChild(button);
+    });
+
+    const update = () => {
+      progress.style.width = (((current + 1) / slides.length) * 100) + '%';
+      Array.from(dots.children).forEach((dot, i) => dot.classList.toggle('active', i === current));
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          current = slides.indexOf(entry.target);
+          update();
+        }
+      });
+    }, { threshold: 0.55 });
+
+    slides.forEach(slide => observer.observe(slide));
+    update();
+
+    document.addEventListener('keydown', (event) => {
+      const nextKeys = ['ArrowDown', 'ArrowRight', 'PageDown', ' '];
+      const prevKeys = ['ArrowUp', 'ArrowLeft', 'PageUp'];
+      if (nextKeys.includes(event.key)) {
+        event.preventDefault();
+        slides[Math.min(current + 1, slides.length - 1)].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (prevKeys.includes(event.key)) {
+        event.preventDefault();
+        slides[Math.max(current - 1, 0)].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (event.key === 'Home') {
+        slides[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (event.key === 'End') {
+        slides[slides.length - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  </script>
+</body>
+</html>
+
