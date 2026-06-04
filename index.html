@@ -4,1297 +4,1188 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PubMed DLBCL/CNSL 新治疗文献 Slides - 2026-06-04</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;800&family=Noto+Serif+SC:wght@700;900&display=swap');
-
     :root {
-      --bg: #eef4f2;
-      --ink: #122023;
-      --muted: #53666a;
-      --paper: rgba(255,255,255,.88);
-      --line: rgba(18,32,35,.14);
-      --green: #0f7b68;
-      --blue: #245e8f;
-      --red: #b9414b;
-      --gold: #b98222;
-      --shadow: 0 22px 58px rgba(24, 46, 50, .12);
-      --radius: 18px;
-      --pad: clamp(16px, 3vw, 34px);
+      --bg: #f7f8f6;
+      --ink: #202429;
+      --muted: #5e6872;
+      --panel: rgba(255,255,255,0.92);
+      --panel-strong: #ffffff;
+      --line: rgba(32,36,41,0.13);
+      --teal: #006f73;
+      --green: #4a7c59;
+      --red: #a33b3b;
+      --gold: #a86b13;
+      --blue: #315c9b;
+      --violet: #684a8c;
+      --slide-padding: clamp(1rem, 2.4rem, 2.8rem);
+      --content-gap: clamp(0.65rem, 1.05rem, 1.25rem);
+      --element-gap: clamp(0.35rem, 0.7rem, 0.9rem);
+      --title-size: clamp(2rem, 2.9rem, 3.15rem);
+      --h2-size: clamp(1.35rem, 1.75rem, 2rem);
+      --h3-size: clamp(0.95rem, 1.08rem, 1.18rem);
+      --body-size: clamp(0.78rem, 0.92rem, 1rem);
+      --small-size: clamp(0.64rem, 0.76rem, 0.82rem);
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration-normal: 0.42s;
     }
-
     * { box-sizing: border-box; }
-    html, body {
+    html, body { height: 100%; overflow-x: hidden; }
+    html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+    body {
       margin: 0;
-      min-height: 100%;
-      background:
-        linear-gradient(115deg, rgba(15,123,104,.11), transparent 30%),
-        linear-gradient(235deg, rgba(36,94,143,.12), transparent 32%),
-        repeating-linear-gradient(90deg, rgba(18,32,35,.035) 0 1px, transparent 1px 48px),
-        var(--bg);
       color: var(--ink);
-      font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
-      scroll-snap-type: y mandatory;
-      overflow-x: hidden;
+      font-family: "Noto Sans SC", sans-serif;
+      background:
+        linear-gradient(135deg, rgba(0,111,115,0.09) 0 1px, transparent 1px 26px),
+        linear-gradient(45deg, rgba(163,59,59,0.06) 0 1px, transparent 1px 34px),
+        radial-gradient(circle at 12% 18%, rgba(74,124,89,0.18), transparent 28%),
+        radial-gradient(circle at 88% 82%, rgba(49,92,155,0.14), transparent 30%),
+        var(--bg);
     }
-
-    a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-    h1, h2, h3, p { margin: 0; }
-    ul { margin: 0; padding-left: 1.15em; }
-    li { margin: .22em 0; }
-
+    a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
     .slide {
-      min-height: 100vh;
-      min-height: 100dvh;
+      width: 100vw;
       height: 100vh;
       height: 100dvh;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(10px, 2vw, 22px);
       scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
       position: relative;
+      padding: 1.05rem;
     }
-
     .slide::after {
       content: attr(data-count);
       position: absolute;
-      right: clamp(12px, 2vw, 28px);
-      bottom: clamp(8px, 1.4vw, 18px);
+      right: 1.1rem;
+      bottom: 0.78rem;
       color: var(--muted);
-      font-size: clamp(10px, 1vw, 13px);
-      font-weight: 800;
+      font-size: var(--small-size);
+      font-weight: 700;
     }
-
-    .frame {
-      width: min(1260px, calc(100vw - 26px));
-      height: min(720px, calc(100dvh - 26px));
-      overflow: hidden;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(248,252,251,.92));
-      box-shadow: var(--shadow);
-      padding: var(--pad);
+    .slide-content {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: clamp(10px, 1.8vw, 18px);
+      justify-content: center;
+      max-height: 100%;
+      overflow: hidden;
+      padding: var(--slide-padding);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(246,248,247,0.96));
+      box-shadow: 0 18px 54px rgba(32,36,41,0.10);
+      border-radius: 8px;
     }
-
-    .cover {
+    h1, h2, h3, p { margin: 0; }
+    h1, h2 { font-family: "Noto Serif SC", serif; line-height: 1.08; }
+    h1 { font-size: var(--title-size); max-width: 11em; }
+    h2 { font-size: var(--h2-size); }
+    h3 { font-size: var(--h3-size); color: var(--teal); }
+    p, li, dd, dt { font-size: var(--body-size); line-height: 1.45; }
+    ul { margin: 0.45rem 0 0 1.05rem; padding: 0; }
+    li + li { margin-top: 0.25rem; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity var(--duration-normal) var(--ease-out-expo), transform var(--duration-normal) var(--ease-out-expo);
+    }
+    .slide.visible .reveal { opacity: 1; transform: translateY(0); }
+    .slide-top, .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.85rem;
+    }
+    .kicker, .tag, .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.68);
+      padding: 0.32rem 0.55rem;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: var(--small-size);
+      font-weight: 800;
+    }
+    .tag { color: var(--red); background: rgba(163,59,59,0.08); }
+    .cover-grid {
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: clamp(18px, 3vw, 36px);
-      height: 100%;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.35rem;
       min-height: 0;
       align-items: center;
     }
-
-    .kicker, .topline {
-      color: var(--green);
-      font-size: clamp(11px, 1vw, 13px);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-
-    h1 {
-      font-family: "Noto Serif SC", serif;
-      font-size: clamp(34px, 6vh, 62px);
-      line-height: 1.02;
-      max-width: 11ch;
-      margin-top: 12px;
-    }
-
-    .subtitle {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: clamp(14px, 1.7vh, 18px);
-      line-height: 1.55;
-      max-width: 54ch;
-    }
-
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .metric, .panel, .article-meta {
-      border: 1px solid var(--line);
-      background: var(--paper);
-      border-radius: 14px;
-    }
-
-    .metric {
-      padding: 14px;
-      min-height: 90px;
-    }
-
-    .metric b {
-      display: block;
-      color: var(--muted);
-      font-size: clamp(11px, 1vw, 13px);
-    }
-
-    .metric span {
-      display: block;
-      margin-top: 6px;
-      color: var(--blue);
-      font-size: clamp(24px, 4vh, 42px);
-      font-weight: 900;
-    }
-
-    .bar-box {
-      margin-top: 12px;
-      display: grid;
-      gap: 8px;
-    }
-
-    .bar-row {
-      display: grid;
-      grid-template-columns: 118px 1fr 26px;
-      align-items: center;
-      gap: 8px;
-      font-size: clamp(11px, 1vw, 13px);
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .bar-row div {
-      height: 8px;
-      overflow: hidden;
-      background: rgba(18,32,35,.08);
-      border-radius: 999px;
-    }
-
-    .bar-row i {
-      display: block;
-      height: 100%;
-      background: linear-gradient(90deg, var(--green), var(--blue));
-      border-radius: inherit;
-    }
-
-    .cover-note {
-      padding: 14px 16px;
-      border-left: 4px solid var(--green);
-      background: rgba(15,123,104,.07);
-      border-radius: 12px;
-      color: var(--muted);
-      font-size: clamp(12px, 1.2vw, 15px);
-      line-height: 1.45;
-    }
-
-    .topline {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .topline span {
+    .subtitle { color: var(--muted); margin-top: 0.85rem; max-width: 42rem; }
+    .actions { display: flex; gap: 0.55rem; flex-wrap: wrap; margin-top: 1.1rem; }
+    .actions a {
       display: inline-flex;
-      border: 1px solid rgba(15,123,104,.2);
-      background: rgba(15,123,104,.07);
-      border-radius: 999px;
-      padding: 5px 9px;
+      padding: 0.48rem 0.68rem;
+      border-radius: 6px;
+      background: var(--ink);
+      color: white;
+      font-size: var(--small-size);
+      font-weight: 800;
+      text-decoration: none;
     }
-
+    .scope-card, .panel, .article-meta, .judgment-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 0.85rem;
+      min-height: 0;
+      overflow: hidden;
+    }
+    .scope-card p { margin-top: 0.45rem; }
+    .scope-list { display: grid; gap: 0.55rem; margin-top: 0.75rem; }
+    .scope-list .meta-chip { border-radius: 6px; width: 100%; justify-content: space-between; color: var(--ink); }
+    .dashboard {
+      display: grid;
+      gap: 0.5rem;
+    }
+    .dash-row {
+      display: grid;
+      grid-template-columns: 7rem 2.4rem 1fr;
+      gap: 0.7rem;
+      align-items: center;
+      border-left: 5px solid var(--teal);
+      background: rgba(255,255,255,0.72);
+      padding: 0.5rem 0.65rem;
+      border-radius: 6px;
+    }
+    .dash-row:nth-child(2) { border-color: var(--red); }
+    .dash-row:nth-child(3) { border-color: var(--blue); }
+    .dash-row:nth-child(4) { border-color: var(--gold); }
+    .dash-row:nth-child(5) { border-color: var(--violet); }
+    .dash-row:nth-child(6) { border-color: var(--green); }
+    .dash-row span, .dash-row b { font-weight: 900; }
+    .dash-row em { color: var(--muted); font-style: normal; font-size: var(--small-size); }
     .article-layout {
       display: grid;
-      grid-template-columns: minmax(260px, .82fr) minmax(0, 1.18fr);
-      gap: clamp(12px, 2vw, 20px);
+      grid-template-columns: minmax(13rem, 0.72fr) minmax(0, 1.9fr);
+      gap: 1rem;
       min-height: 0;
       flex: 1;
     }
-
     .article-meta {
-      padding: clamp(14px, 2vw, 20px);
-      min-height: 0;
-      overflow: hidden;
       display: flex;
       flex-direction: column;
+      gap: 0.75rem;
+      border-top: 5px solid var(--teal);
     }
-
-    .article-meta h2 {
-      font-family: "Noto Serif SC", serif;
-      font-size: clamp(21px, 3.2vh, 34px);
-      line-height: 1.12;
-      margin-top: 8px;
+    .pmid { font-size: 0.9rem; color: var(--muted); }
+    .pmid strong { color: var(--ink); font-size: 1.25rem; }
+    dl { margin: 0; display: grid; gap: 0.42rem; }
+    dt { color: var(--muted); font-size: var(--small-size); font-weight: 800; }
+    dd { margin: -0.32rem 0 0 0; font-weight: 700; }
+    .article-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-height: 0;
     }
-
-    .english-title {
-      margin-top: 10px;
+    .title-block p {
       color: var(--muted);
-      font-size: clamp(12px, 1.35vh, 15px);
+      margin-top: 0.35rem;
+      font-size: var(--small-size);
       line-height: 1.35;
-      font-weight: 700;
     }
-
-    .meta-grid {
-      margin-top: 14px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      font-size: clamp(11px, 1.15vh, 13px);
-    }
-
-    .meta-grid div {
-      min-width: 0;
-      border-radius: 10px;
-      background: rgba(18,32,35,.045);
-      padding: 8px;
-    }
-
-    .meta-grid .wide { grid-column: 1 / -1; }
-    .meta-grid b {
-      display: block;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    .meta-grid span, .meta-grid a {
-      display: block;
-      font-weight: 800;
-      overflow-wrap: anywhere;
-    }
-
-    .pubmed-link {
-      margin-top: auto;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 34px;
-      border: 1px solid rgba(36,94,143,.22);
-      background: rgba(36,94,143,.08);
-      border-radius: 9px;
-      font-weight: 900;
-      text-decoration: none;
-      font-size: clamp(11px, 1vw, 13px);
-    }
-
     .content-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-template-rows: auto 1fr 1fr;
-      gap: 10px;
+      gap: 0.68rem;
       min-height: 0;
     }
-
-    .panel {
-      padding: clamp(12px, 1.6vw, 16px);
-      min-height: 0;
-      overflow: hidden;
-    }
-
-    .panel h3 {
-      color: var(--blue);
-      font-size: clamp(15px, 1.8vh, 19px);
-      margin-bottom: 7px;
-    }
-
-    .panel p, .panel li {
-      font-size: clamp(11px, 1.35vh, 14px);
-      line-height: 1.42;
-    }
-
-    .panel p + p { margin-top: 5px; }
-    .conclusion { grid-column: 1 / -1; border-left: 4px solid var(--gold); }
-    .implication { grid-column: 1 / -1; border-left: 4px solid var(--red); }
-    .implication b { color: var(--ink); }
-
-    .summary-layout {
+    .panel { padding: 0.72rem; }
+    .panel p, .panel li { font-size: 0.84rem; line-height: 1.35; }
+    .panel.conclusion { border-left: 5px solid var(--red); }
+    .panel.implication {
+      grid-column: span 2;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      grid-template-columns: 0.36fr 1fr 1fr 1fr;
+      gap: 0.52rem;
+      align-items: start;
+      border-left: 5px solid var(--blue);
+    }
+    .panel.implication h3 { grid-row: span 3; }
+    .panel.implication p { padding-left: 0.55rem; border-left: 1px solid var(--line); }
+    .judgment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
       min-height: 0;
-      height: 100%;
     }
-
-    .summary-layout .panel p, .summary-layout .panel li {
-      font-size: clamp(12px, 1.45vh, 15px);
-      line-height: 1.46;
+    .judgment-card h3 { margin-bottom: 0.4rem; }
+    .archive-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.85rem;
     }
-
+    .archive-strip a {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0.32rem 0.48rem;
+      background: rgba(255,255,255,0.72);
+      font-size: var(--small-size);
+      font-weight: 800;
+      text-decoration: none;
+    }
     .progress {
       position: fixed;
-      left: 0;
-      top: 0;
+      inset: 0 auto auto 0;
       height: 4px;
       width: 0;
-      background: linear-gradient(90deg, var(--green), var(--blue), var(--gold));
-      z-index: 5;
+      background: linear-gradient(90deg, var(--teal), var(--red), var(--blue));
+      z-index: 20;
     }
-
-    @media (max-width: 920px), (max-height: 620px) {
-      .slide {
-        height: auto;
-        min-height: 100vh;
-        overflow: visible;
-      }
-      .frame {
-        height: auto;
-        min-height: calc(100dvh - 26px);
-      }
-      .cover, .article-layout, .summary-layout {
-        grid-template-columns: 1fr;
-      }
-      .content-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-      }
-      .conclusion, .implication {
-        grid-column: auto;
-      }
-      h1 { max-width: none; }
+    .dots {
+      position: fixed;
+      right: 0.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: grid;
+      gap: 0.35rem;
+      z-index: 20;
     }
-
-    @media print {
-      .slide { page-break-after: always; padding: 0; }
-      .frame { width: 100vw; height: 100vh; border: 0; border-radius: 0; box-shadow: none; }
-      .progress { display: none; }
+    .dots button {
+      width: 0.44rem;
+      height: 0.44rem;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(32,36,41,0.24);
+      padding: 0;
+    }
+    .dots button.active { background: var(--red); transform: scale(1.35); }
+    @media (max-width: 860px) {
+      .cover-grid, .article-layout, .judgment-grid { grid-template-columns: 1fr; }
+      .article-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .content-grid { grid-template-columns: 1fr; }
+      .panel.implication { grid-column: auto; grid-template-columns: 1fr; }
+      .panel.implication h3 { grid-row: auto; }
+      .panel.implication p { padding-left: 0; border-left: 0; }
+    }
+    @media (max-height: 700px) {
+      .slide { padding: 0.55rem; }
+      .slide-content { padding: 0.85rem; }
+      .panel p, .panel li { font-size: 0.73rem; line-height: 1.25; }
+      .article-meta { gap: 0.42rem; }
+      .title-block p { display: none; }
+    }
+    @media (max-height: 600px) {
+      .dots { display: none; }
+      .panel li + li { margin-top: 0.12rem; }
+      .content-grid { gap: 0.42rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
-  <div class="progress" aria-hidden="true"></div>
+  <div class="progress" id="progress"></div>
+  <nav class="dots" id="dots" aria-label="slide navigation"></nav>
 
-  <section class="slide" data-count="01 / 21">
-    <div class="frame">
-      <div class="cover">
-        <div>
-          <p class="kicker">PubMed daily watch / 2026-06-04</p>
-          <h1>DLBCL / CNSL 新治疗文献</h1>
-          <p class="subtitle">固定页面每日覆盖近 7 天 PubMed 新增或更新 lymphoma 文献。今天优先纳入 DLBCL/LBCL、PCNSL/CNSL、CAR-T、双抗、BTKi、机制/转化、病例报告与真实世界研究；所有 PMID 和链接来自 NCBI E-utilities / PubMed 官方记录。</p>
-          <div class="cover-note">非医疗建议：本页只做文献监测、证据摘要、研究启示和方案设计启示整理，不生成治疗推荐。</div>
-        </div>
-        <div>
-          <div class="metric-grid">
-            <div class="metric"><b>官方 ESearch 命中</b><span>20</span></div>
-            <div class="metric"><b>今日纳入 slides</b><span>19</span></div>
-            <div class="metric"><b>检索窗口</b><span>7天</span></div>
-            <div class="metric"><b>页面数</b><span>21</span></div>
-          </div>
-          <div class="bar-box"><div class="bar-row"><span>CAR-T / 细胞治疗</span><div><i style="width:72%"></i></div><b>6</b></div><div class="bar-row"><span>双抗 / BsAb</span><div><i style="width:24%"></i></div><b>2</b></div><div class="bar-row"><span>BTKi / 耐药</span><div><i style="width:24%"></i></div><b>2</b></div><div class="bar-row"><span>CNSL / PCNSL</span><div><i style="width:48%"></i></div><b>4</b></div><div class="bar-row"><span>机制 / 转化</span><div><i style="width:84%"></i></div><b>7</b></div><div class="bar-row"><span>病例报告</span><div><i style="width:84%"></i></div><b>7</b></div></div>
-          <div class="panel" style="margin-top:12px;">
-            <h3>排除 / 降权说明</h3>
-            <ul><li>PMID 42220784：主题为 Capnocytophaga canimorsus 败血症和主动脉瘤，DLBCL 仅作为既往脾切除背景，不纳入 lymphoma 新治疗/机制 slides。</li></ul>
+  <section class="slide cover-slide" data-count="1/18">
+    <div class="slide-content">
+      <div class="cover-grid">
+        <div class="reveal">
+          <div class="topline"><span class="kicker">PubMed daily watch</span><span class="tag">2026-06-04</span></div>
+          <h1>DLBCL / CNSL 新治疗与机制文献监测</h1>
+          <p class="subtitle">近 7 天 PubMed 入库/更新窗口：2026-05-28 至 2026-06-04。官方 ESearch 命中 46 条，筛选 16 篇高相关文献做成 article-per-slide 中文 Frontend Slides。</p>
+          <div class="actions">
+            <a href="https://raw.githubusercontent.com/zhengyipharmacy-collab/pubmed-lymphoma-slides/master/pubmed-dlbcl-cnsl-btki-2026-06-04.pdf" download>下载当天 PDF</a>
+            <a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/archive/2026-06-04/">查看当天归档</a>
           </div>
         </div>
+        <div class="scope-card reveal">
+          <h3>检索与纳入说明</h3>
+          <p><strong>检索式：</strong>((DLBCL OR &quot;diffuse large B-cell lymphoma&quot; OR &quot;large B-cell lymphoma&quot; OR CNSL OR &quot;central nervous system lymphoma&quot; OR &quot;primary CNS lymphoma&quot; OR &quot;secondary CNS lymphoma&quot;) AND lymphoma)</p>
+          <p><strong>数据源：</strong>NCBI ESearch/EFetch 官方 PubMed XML；本地缓存 pubmed-cache-2026-06-04.xml / pubmed-cache-2026-06-04.json。</p>
+          <p><strong>排除：</strong>低相关诊断陷阱、非治疗/非机制的普通个案、与 DLBCL/CNSL 关系过弱的条目。</p>
+          <div class="scope-list">
+            <span class="meta-chip">已验证：PMID、题名、期刊、日期、摘要要点</span>
+            <span class="meta-chip">作者观点：仅来自摘要 interpretation / conclusion</span>
+            <span class="meta-chip">我的推断：用于研究设计启示，不作为医疗建议</span>
+          </div>
+        </div>
       </div>
+      <div class="dashboard reveal"><div class="dash-row">
+        <span>一线强化</span>
+        <b>1</b>
+        <em>frontMIND: PFS 获益与毒性并行</em>
+      </div><div class="dash-row">
+        <span>CAR-T / 细胞治疗</span>
+        <b>4</b>
+        <em>真实世界可及性、CRS、双靶病例</em>
+      </div><div class="dash-row">
+        <span>双抗</span>
+        <b>1</b>
+        <em>PET 动态指标用于复发风险识别</em>
+      </div><div class="dash-row">
+        <span>BTKi / 耐药</span>
+        <b>2</b>
+        <em>IL-16 耐药轴与 PCNSL CD79B 影像富集</em>
+      </div><div class="dash-row">
+        <span>CNSL / CNS 趋向</span>
+        <b>5</b>
+        <em>PCNSL 微环境、MRI、CNS tropism</em>
+      </div><div class="dash-row">
+        <span>机制 / 转化</span>
+        <b>6</b>
+        <em>TAM、MELK、DOT1L、RFX7 等候选轴</em>
+      </div></div>
     </div>
   </section>
 
-  <section class="slide article-slide" data-count="02 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 01</span>
-        <span>LBCL / CAR-T / 真实世界</span>
-        <span>优先级：高</span>
+  <section class="slide article-slide" data-count="2/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 1 / 16</span>
+        <span class="tag">一线强化 / CD19 抗体联合</span>
       </div>
       <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>CAR-T 获批后真实世界 LBCL 治疗模式变化</h2>
-          <p class="english-title">Real-World Treatment Patterns of Patients with Large B-cell Lymphoma Over Time and into a Post-CAR T Approval Era.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42234934/">42234934</a></div>
-            <div><b>期刊</b><span>Blood Advances</span></div>
-            <div><b>日期</b><span>2026-06-03</span></div>
-            <div><b>类型</b><span>真实世界研究</span></div>
-            <div class="wide"><b>作者</b><span>Perales MA et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42234934/">打开 PubMed 原文记录</a>
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42217458</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42217458/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>高危 DLBCL / HGBL</dd>
+            <dt>期刊</dt><dd>Lancet</dd>
+            <dt>PubMed 日期</dt><dd>2026-05-30</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
         </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>这篇文章把 CAR-T 可及性从“是否有效”推进到“哪些患者在真实世界来不及进入二线或三线”的问题，是今天最有直接方案设计价值的 LBCL 文献。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>Flatiron Health 数据库回顾 2011-2024 年开始一线治疗的 10,016 例 LBCL 患者。</li><li>研究评估一线后死亡、二线/三线治疗启动，以及 CAR-T 适合性分层下的真实世界治疗路径。</li><li>摘要显示 13% 患者在 1 年内死亡且未进入二线，30% 启动二线治疗。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>研究问题不是单药疗效，而是 CAR-T 获批时代真实治疗流向。</li><li>治疗窗口、体能状态和转诊速度会影响患者是否真正到达 CAR-T。</li><li>适合做后续 slides 的“治疗路径漏斗图”。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 官方 XML 记录显示 PMID 42234934 于 2026-06-03 进入 PubMed，主题为 LBCL 真实世界治疗模式与 CAR-T 获批后时代。</p>
-            <p><b>论文作者观点：</b>作者将真实世界 CAR-T 使用不足和患者进入后线治疗前死亡风险作为核心问题。</p>
-            <p><b>我的推断：</b>后续监测不应只记录 ORR/CR，还应固定记录治疗线数、CAR-T 适合性、是否进入二线/三线和转诊可及性。</p>
-          </section>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>frontMIND：tafasitamab+来那度胺+R-CHOP 一线治疗高危 DLBCL/HGBL</h2>
+            <p>Tafasitamab plus lenalidomide and R-CHOP versus R-CHOP for first-line treatment of patients with high-risk diffuse large B-cell lymphoma (frontMIND).</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>在高危初治 DLBCL/HGBL 中，tafa-len-R-CHOP 较 R-CHOP 改善 PFS，但 3 级及以上和致死性治疗相关不良事件更高，OS 尚未成熟。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>全球 298 个中心、899 例随机，比较 tafa-len-R-CHOP 与 R-CHOP。</li><li>中位随访 35.2 个月，PFS HR 0.75，2 年 PFS 71.1% vs 62.9%。</li><li>OS 中期 HR 0.85，仍需后续随访确认。</li><li>3 级及以上 TEAE：87% vs 76%；致死性 TEAE：6% vs 4%。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>近 7 天 PubMed 入库/更新窗口内的高影响一线随机 III 期研究。</li><li>获益与毒性同时上升，适合做“强化一线方案如何筛人”的重点跟踪。</li><li>摘要明确提到 ctDNA 后续分析可能解释更深分子缓解。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要记录了 III 期随机、PFS 改善和更高不良事件负担。</p>
+              <p><strong>论文作者观点：</strong>作者认为该组合可能成为高危 DLBCL/HGBL 的潜在一线选择，但强调 OS 未成熟且需进一步分析。</p>
+              <p><strong>我的推断：</strong>方案设计启示是同时设置疗效、ctDNA 深缓解和早期安全停药阈值，不能只用 PFS 单指标判断价值。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="3/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 2 / 16</span>
+        <span class="tag">CAR-T / 真实世界可及性</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42234934</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42234934/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>LBCL</dd>
+            <dt>期刊</dt><dd>Blood Advances</dd>
+            <dt>PubMed 日期</dt><dd>2026-06-03</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>CAR-T 批准后 LBCL 真实世界治疗路径和可及性</h2>
+            <p>Real-World Treatment Patterns of Patients with Large B-cell Lymphoma Over Time and into a Post-CAR T Approval Era.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>真实世界中 CAR-T 使用率仍低，部分患者在进入二线治疗机会前死亡，提示早转诊和中心协作是治疗路径的关键瓶颈。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>Flatiron 数据库纳入 2011-2024 年启动一线治疗的 10,016 例 LBCL。</li><li>13% 在一线启动后 1 年内死亡且未进入二线；30% 启动二线。</li><li>在被认为适合 CAR-T 的患者中，二线 CAR-T 使用率 25%，三线 36%。</li><li>研究分析了 FDA 适应证批准前后的二线、三线治疗模式变化。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>这是一篇治疗可及性和真实世界路径研究，不是单药疗效试验。</li><li>核心问题从“CAR-T 是否有效”转向“患者是否来得及接受 CAR-T”。</li><li>适合纳入日报的可及性、转诊、中心协同固定字段。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要记录了样本量、死亡前未进入二线比例和 CAR-T 使用比例。</p>
+              <p><strong>论文作者观点：</strong>作者认为需要社区肿瘤医生与 CAR-T 中心早协作，并改善可及性和患者认知。</p>
+              <p><strong>我的推断：</strong>后续研究设计应把“二线前死亡”和“转诊延迟”作为实施终点，否则疗效研究会高估现实获益。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="4/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 3 / 16</span>
+        <span class="tag">双抗 / PET 风险分层</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42223630</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42223630/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>R/R LBCL</dd>
+            <dt>期刊</dt><dd>European Journal of Nuclear Medicine and Molecular Imaging</dd>
+            <dt>PubMed 日期</dt><dd>2026-06-01</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>CD3-CD20 双抗治疗 R/R LBCL 中 FDG-PET 的预后作用</h2>
+            <p>Prognostic role of FDG-PET in patients with relapsed/refractory large B-cell lymphoma treated with CD3-CD20 directed bispecific antibodies.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>双抗治疗 LBCL 中，基线 MTV、首次随访 Deauville 评分和 SUVmean 下降幅度可识别高复发风险患者。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>多中心分析 58 例有基线 PET 的 R/R LBCL，45 例有双抗启动后首次 PET。</li><li>基线 whole-body MTV &gt; 504.7 cm3 对应更短 PFS，中位 1 vs 3 个月。</li><li>首次随访 DS4-5 与更高进展风险相关。</li><li>未达到 SUVmean 降幅 75.5% 与 PFS 和 OS 事件风险增加相关。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>双抗研究开始出现治疗中动态影像风险分层，而非只报告 ORR/CR。</li><li>样本量不大，但指标具有清晰可操作性。</li><li>可作为后续双抗方案中“早期换策略”研究的候选监测点。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要记录了 CD3-CD20 双抗人群、PET 参数和 PFS/OS 关联。</p>
+              <p><strong>论文作者观点：</strong>作者认为纵向半定量 PET 可增强风险分层和个体化管理。</p>
+              <p><strong>我的推断：</strong>如果未来双抗联合或序贯 CAR-T 研究纳入 PET 动态指标，可能更早区分无效暴露与迟发缓解。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="5/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 4 / 16</span>
+        <span class="tag">BTKi / R-CHOP 耐药机制</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42213644</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42213644/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>B 细胞淋巴瘤，含 ABC-DLBCL 模型</dd>
+            <dt>期刊</dt><dd>Blood</dd>
+            <dt>PubMed 日期</dt><dd>2026-05-29</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>IL-16/CD9/PI3K 轴介导 BTK 抑制剂和 R-CHOP 耐药</h2>
+            <p>IL-16 production is a mechanism of resistance to BTK inhibitors and R-CHOP in lymphomas.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>IL-16 可在多种 B 细胞淋巴瘤模型中诱导 BTKi 和 R-CHOP 耐药，阻断 IL-16/CD9/PI3K 轴可恢复敏感性。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>慢性 ibrutinib 暴露建立无 BTK/PLCG2 突变的耐药模型。</li><li>多组学显示 PI3K/AKT、MAPK、MYC 激活和抗凋亡程序上调。</li><li>IL-16 在 MZL、MCL、CLL 和 ABC-DLBCL CD9 阳性模型中可诱导耐药。</li><li>药理或遗传阻断 IL-16/CD9/PI3K 轴可恢复 BTKi 和 R-CHOP 敏感性。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>把 BTKi 耐药从基因突变扩展到细胞因子和膜微区信号。</li><li>对 ABC-DLBCL 和 BTKi 联合策略有转化价值。</li><li>提示血清 IL-16 可能成为无 BTK/PLCG2 突变耐药的追踪候选。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要记录了 IL-16 上调、CD9/PI3K 信号和恢复药物敏感性的实验结果。</p>
+              <p><strong>论文作者观点：</strong>作者支持把 IL-16/CD9 轴作为难治 B 细胞淋巴瘤的治疗靶点。</p>
+              <p><strong>我的推断：</strong>BTKi 联合研究可考虑预设 IL-16、CD9 或 PI3K 活化状态分层，避免把非遗传耐药误判为单纯药物失败。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="6/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 5 / 16</span>
+        <span class="tag">PCNSL / BTK 分层影像</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42213292</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42213292/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>PCNSL</dd>
+            <dt>期刊</dt><dd>Journal of Neuro-Oncology</dd>
+            <dt>PubMed 日期</dt><dd>2026-05-29</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>PCNSL 中用于 CD79B 状态富集的候选 MRI 生物标志物</h2>
+            <p>Candidate MRI biomarkers for CD79B status in primary CNS lymphoma: an exploratory radiogenomic analysis of the UCSF-PCNSL cohort.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>增强核心比例与 CD79B 突变方向一致，但多重校正后未达显著，结果应视为假设生成而非临床可用标志物。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>使用 UCSF-PCNSL 公开队列，146 例影像，63 例有 UCSF500 基因 panel。</li><li>预设检验 CD79B、MCD-like、TP53、CDKN2A/B 与 MRI habitat 指标关系。</li><li>CD79B 突变患者增强核心比例更高，方向在 6/6 scanner batch 中保留。</li><li>多重校正后无检验达到 0.05 阈值，需外部多中心验证。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>直接连接 PCNSL 影像、CD79B/MCD-like 和 BTK 抑制剂分层逻辑。</li><li>作者自己将结论限定为 hypothesis-generating。</li><li>适合放入 CNSL 监测，不应写成可立即指导用药。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要确认该研究为探索性 radiogenomic 分析，且校正后未达统计阈值。</p>
+              <p><strong>论文作者观点：</strong>作者认为增强核心比例是 CD79B 状态的领先候选信号，需要外部复制。</p>
+              <p><strong>我的推断：</strong>CNSL 方案设计可把影像组学作为筛选层而非决策层，先用于富集和前瞻性验证。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="7/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 6 / 16</span>
+        <span class="tag">PCNSL / 免疫微环境</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42226261</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42226261/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>PCNSL</dd>
+            <dt>期刊</dt><dd>Biomarker Research</dd>
+            <dt>PubMed 日期</dt><dd>2026-05-30</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>PCNSL 免疫微环境综述：从风险分层到免疫治疗</h2>
+            <p>Unraveling the immune microenvironment in primary CNS lymphoma.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>PCNSL 预后不仅由肿瘤本身决定，M2 样巨噬细胞、低 CD8+T 细胞和 IL-10 等免疫微环境特征可能影响生存和免疫治疗可行性。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>综述 PCNSL 肿瘤浸润淋巴细胞、巨噬细胞和树突细胞对免疫生态的影响。</li><li>免疫抑制微环境与不良生存相关，T 细胞免疫丰度与较好结局相关。</li><li>HD-MTX 为核心的诱导治疗和强化巩固仍是当前主线。</li><li>checkpoint inhibitor、T-cell engager、CAR-T 等 T 细胞策略已有鼓舞性信号。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>这是综述，不提供新的单一试验疗效数字。</li><li>重要点在于把 CNS 免疫特权、免疫逃逸和治疗策略连接起来。</li><li>为 PCNSL 免疫治疗设计提供风险分层变量框架。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要确认综述主题为 PCNSL 免疫微环境和未来治疗策略。</p>
+              <p><strong>论文作者观点：</strong>作者主张未来风险分层应验证并整合免疫或炎症生物标志物。</p>
+              <p><strong>我的推断：</strong>CNSL 日报应单列“免疫微环境/血脑屏障/免疫特权”标签，避免把系统性 LBCL 逻辑直接外推。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="8/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 7 / 16</span>
+        <span class="tag">PCNSL / 诊断与分层</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42226306</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42226306/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>PCNSL vs GBM</dd>
+            <dt>期刊</dt><dd>Cancer Imaging</dd>
+            <dt>PubMed 日期</dt><dd>2026-06-01</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>td-dMRI 微结构参数区分 PCNSL 与胶质母细胞瘤</h2>
+            <p>Microstructure mapping with time-dependent diffusion MRI differentiates primary central nervous system lymphoma from glioblastoma.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>td-dMRI 的细胞内体积分数 Vin 在 PCNSL 与 GBM 鉴别中 AUC 最高，并与病理核分数强相关。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>纳入 32 例 GBM 和 19 例 PCNSL，使用 OGSE 和 PGSE 序列。</li><li>PCNSL 在强化区表现为更小细胞直径、更低 Dex、更高 Vin 和细胞密度。</li><li>Vin 的 AUC 为 0.901，敏感度 0.737，特异度 0.906。</li><li>Vin 与病理 nuclei fraction 强相关，r=0.76。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>不是治疗研究，但直接影响 PCNSL 术前鉴别和治疗路径选择。</li><li>样本量有限，联合模型因统计不足未稳定建立。</li><li>对 CNSL 监测的价值在于“何时减少误诊和延迟治疗”。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要记录了 PCNSL/GBM 队列、Vin AUC 和病理相关性。</p>
+              <p><strong>论文作者观点：</strong>作者认为 Vin 是有前景的术前鉴别生物标志物。</p>
+              <p><strong>我的推断：</strong>对治疗方案设计的启示是把诊断置信度和分子/免疫分层前置，尤其适用于不宜立即活检或需快速路径判断的场景。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="9/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 8 / 16</span>
+        <span class="tag">DLBCL / 基因预后</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42234135</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42234135/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>中国 DLBCL</dd>
+            <dt>期刊</dt><dd>Annals of Hematology</dd>
+            <dt>PubMed 日期</dt><dd>2026-06-03</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>中国 DLBCL R-CHOP 后基因特征整合预后模型</h2>
+            <p>Integrating genomic features for prognosis in Chinese patients with diffuse large B-cell lymphoma following R-CHOP therapy.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>TP53、SRP72、MYC、BCL2、ASXL2 等突变与较差 PFS 相关，突变评分联合 LDH/骨髓状态优于传统 IPI 的部分预测。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>147 例中国 DLBCL，肿瘤与配对口腔 DNA 靶向测序。</li><li>TP53、SRP72、MYC、BCL2、ASXL2 与较差 PFS 显著相关。</li><li>TP53、SRP72、MYC 与复发风险增加显著相关。</li><li>突变风险评分联合 LDH 或骨髓肿瘤细胞状态提升预后区分。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>研究对象贴近中国人群，适合本地化风险模型跟踪。</li><li>摘要直接提到 stem cell mobilization 或 cellular therapy 的早识别意义。</li><li>不是新药研究，但会影响强化或细胞治疗前置策略。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要记录了样本量、突变基因、HR 和联合模型方向。</p>
+              <p><strong>论文作者观点：</strong>作者认为基因评分联合临床因素有助于早期识别需要后续策略的患者。</p>
+              <p><strong>我的推断：</strong>后续临床研究可把这类基因评分作为前置分层变量，而不是等复发后再补做风险解释。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="10/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 9 / 16</span>
+        <span class="tag">DLBCL / 单细胞与微环境靶点</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42231904</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42231904/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>DLBCL</dd>
+            <dt>期刊</dt><dd>Computational and Structural Biotechnology Journal</dd>
+            <dt>PubMed 日期</dt><dd>2026</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>TNFRSF1A+ 巨噬细胞作为 DLBCL 预后和治疗靶点</h2>
+            <p>Integrative Multiomics and Single-Cell Profiling Identify TNFRSF1A+ Macrophages as a Prognostic and Therapeutic Target in Diffuse Large B-cell Lymphoma.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>TNFRSF1A+ TAM 通过 NF-kB/BAFF 和免疫检查点配体维持免疫抑制生态，可能与 R-CHOP 耐药和不良预后相关。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>整合多组学与单细胞数据定位 TNFRSF1A 至肿瘤相关巨噬细胞。</li><li>网络和扰动分析提示 TNFRSF1A+ TAM 支持 BAFF 分泌和 PD-L1/PD-L2 表达。</li><li>siRNA knockdown 和共培养实验验证轴向干预可削弱 TAM 对淋巴瘤细胞的保护。</li><li>作者提出基于 TNFRSF1A+ TAM signature 的风险模型。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>重点从肿瘤细胞内靶点转向微环境内可干预细胞群。</li><li>curcumin 被提出为潜在调节物，但应视作转化假设。</li><li>可与 PCNSL 免疫微环境综述形成同一天的机制互证主题。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要确认 TNFRSF1A+ TAM、NF-kB/BAFF 和共培养验证结果。</p>
+              <p><strong>论文作者观点：</strong>作者提出 TNFRSF1A/NF-kB/BAFF 轴是 DLBCL 微环境弱点。</p>
+              <p><strong>我的推断：</strong>未来联合方案可能需要同时检测肿瘤细胞基因和 TAM signature，单看 COO 或 IPI 可能不足。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="11/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 10 / 16</span>
+        <span class="tag">DLBCL / 代谢死亡机制</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42228272</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42228272/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>DLBCL</dd>
+            <dt>期刊</dt><dd>Molecular and Cellular Biochemistry</dd>
+            <dt>PubMed 日期</dt><dd>2026-06-02</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>MELK 通过 PI3K/mTOR/S6K-DLAT 轴抑制 DLBCL 铜死亡</h2>
+            <p>MELK inhibits cuproptosis in diffuse large B-cell lymphoma cells via the PI3K/mTOR/S6K-DLAT signaling axis.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>MELK 上调促进 DLBCL 细胞存活并降低铜死亡敏感性，MELK 沉默可增强 elesclomol-Cu 诱导的细胞毒性。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>使用 TCGA/GEO、生物信息学、qRT-PCR、WB 和细胞功能实验。</li><li>MELK 在 DLBCL 组织和细胞系中升高。</li><li>MELK knockdown 抑制增殖、迁移、侵袭，并增强 elesclomol-Cu 诱导铜死亡。</li><li>机制上涉及 DLAT 和 PI3K/mTOR/S6K 信号。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>属于基础和转化机制，不是临床治疗证据。</li><li>把 DLBCL 代谢脆弱性与铜死亡连接起来。</li><li>elesclomol-Cu 是实验诱导条件，不应解读为临床方案。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要记录了 MELK 表达、功能实验和 PI3K/mTOR/S6K-DLAT 机制。</p>
+              <p><strong>论文作者观点：</strong>作者认为靶向 MELK 可能增加铜诱导细胞毒性，提供潜在治疗方向。</p>
+              <p><strong>我的推断：</strong>这类机制可作为早期靶点池，但离 DLBCL 临床联合方案仍需药物可达性和安全窗验证。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="12/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 11 / 16</span>
+        <span class="tag">GCB-DLBCL / 表观遗传机制</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42213647</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42213647/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>GCB-DLBCL</dd>
+            <dt>期刊</dt><dd>Blood</dd>
+            <dt>PubMed 日期</dt><dd>2026-05-29</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>DOT1L 与 EZH2 协同维持 GCB-DLBCL 生发中心身份</h2>
+            <p>DOT1L Shapes ncPRC1-Target Gene Repression to Maintain Germinal Center B Cell Identity of Diffuse Large B cell Lymphoma.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>DOT1L 影响 ncPRC1 复合物和 H2AK119ub1，使 GCB-DLBCL 维持增殖性 GC 身份；DOT1L 抑制可促使向抗增殖浆细胞样状态转变。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>以 EZH2 抑制为锚点开展 genome-wide CRISPRi 筛选。</li><li>发现 USP7、KDM2B、RING1、PCGF1 等 ncPRC1 相关候选基因。</li><li>DOT1L 调控 PRC1/2 target 上的 H2AK119ub1，影响 plasma cell signature 基因沉默。</li><li>DOT1L 抑制与 EZH2 功能依赖共同影响 GCB-DLBCL 身份维持。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>属于表观遗传和分化状态机制研究。</li><li>与 EZH2 抑制剂敏感性和 GCB-DLBCL 亚型治疗逻辑相关。</li><li>不提供临床疗效，但能解释组合表观遗传治疗的生物学基础。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要记录了 CRISPRi 筛选、ncPRC1 组件和 DOT1L/EZH2 共依赖。</p>
+              <p><strong>论文作者观点：</strong>作者支持 DOT1L 通过 PRC1/2 target repression 维持 GCB 身份的模型。</p>
+              <p><strong>我的推断：</strong>GCB-DLBCL 的靶向组合可从“杀伤”转向“解除身份锁定并促分化”，但需避免把细胞状态转换直接等同于临床缓解。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="13/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 12 / 16</span>
+        <span class="tag">B 细胞淋巴瘤 / MYC 调控</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42225953</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42225953/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>DLBCL 相关机制</dd>
+            <dt>期刊</dt><dd>Nature Immunology</dd>
+            <dt>PubMed 日期</dt><dd>2026-06-01</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>RFX7 限制 B 细胞活化中的 MYC 活性并抑制淋巴瘤发生</h2>
+            <p>Regulatory factor X 7 limits Myc activity during B cell activation and suppresses Myc-dependent lymphomagenesis.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>RFX7 缺失增强 MYC 活性、GC B 细胞和浆母细胞反应，并在模型中加速 B 细胞淋巴瘤发生；低 RFX7 mRNA 与较差 DLBCL 预后相关。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>研究 RFX7 截断突变在 B 细胞活化和淋巴瘤发生中的作用。</li><li>低 RFX7 mRNA 与较差 DLBCL 预后相关。</li><li>Rfx7 缺失在 Bcl6 和 p53 loss 模型中加速淋巴瘤病程。</li><li>Myc 半量不足可部分逆转相关改变，Aicda 删除限制模型中淋巴瘤发展。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>基础免疫学机制，连接 MYC、AID 和 B 细胞活化。</li><li>对 MYC 依赖性 DLBCL 风险理解有价值。</li><li>治疗启示仍是机制层面，不是可直接应用的干预。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要确认低 RFX7 mRNA 与较差 DLBCL 预后相关，并提供小鼠模型证据。</p>
+              <p><strong>论文作者观点：</strong>作者认为 RFX7 抑制 B 细胞活化、MYC 活性和 AID 依赖的促淋巴瘤过程。</p>
+              <p><strong>我的推断：</strong>高 MYC 风险研究可关注 RFX7/AID 状态作为生物学上下文，但当前不应转化为治疗推荐。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="14/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 13 / 16</span>
+        <span class="tag">CAR-T / 病例报告</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42231134</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42231134/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>DLBCL</dd>
+            <dt>期刊</dt><dd>Cell Transplantation</dd>
+            <dt>PubMed 日期</dt><dd>2026</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>单肾供者 DLBCL 接受 CD19/CD22 CAR-T cocktail 后长期缓解病例</h2>
+            <p>Long-term complete remission and minimal side effects after CD19/CD22 CAR-T cell cocktail therapy in a living donor with DLBCL: A rare case report.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>一例活体肾供者 DLBCL 接受 CD19/CD22 CAR-T 后仅轻度 CRS、无 AKI/肾损伤，并接近完全代谢缓解。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>病例关注 CAR-T 在单肾人群中的肾脏安全性风险。</li><li>治疗后仅报告轻度 CRS。</li><li>未出现急性肾损伤或肾功能受损迹象。</li><li>患者获得接近完全缓解的良好代谢反应。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>单病例证据等级低，但提示特殊器官储备人群的安全监测问题。</li><li>CD19/CD22 双靶 cocktail 是细胞治疗方向中的一个补充信号。</li><li>适合跟踪 CAR-T 在合并器官风险患者中的真实安全边界。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要确认这是一例 DLBCL 活体肾供者 CAR-T 病例，且未见 AKI/肾损害。</p>
+              <p><strong>论文作者观点：</strong>作者强调 CAR-T 使用增加后，应关注肾脏并发症，尤其是单肾患者。</p>
+              <p><strong>我的推断：</strong>特殊人群 CAR-T 研究可预设肾功能动态、CRS 与用药干预窗口，而不能由单例推断普遍安全。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="15/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 14 / 16</span>
+        <span class="tag">CAR-T / CRS 管理综述</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42233607</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42233607/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>血液肿瘤，含 LBCL</dd>
+            <dt>期刊</dt><dd>Expert Review of Hematology</dd>
+            <dt>PubMed 日期</dt><dd>2026-06-03</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>CAR-T 治疗血液肿瘤中的 CRS 管理综述</h2>
+            <p>Managing cytokine release syndrome in hematological malignancies being treated with CAR-T therapy.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>CRS 仍是 CAR-T 主要安全挑战，早识别、标准化分级和靶向干预是当前管理重点，未来方向包括预测标志物和个体化预防。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>综述 CRS 定义、分级、病理生理和关键临床试验中的发生情况。</li><li>覆盖 large B-cell lymphoma、ALL、MM 等 CAR-T 适应证。</li><li>讨论抗细胞因子治疗、糖皮质激素、早期干预和 anakinra/激素预防。</li><li>作者认为真实世界经验与试验数据相互印证。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>不是 DLBCL 专属研究，但与 LBCL CAR-T 安全管理直接相关。</li><li>适合放在日报的安全性与实施管理部分。</li><li>后续可跟踪 CRS 预测因子、预防策略和新构型 CAR。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要确认该综述覆盖 LBCL CAR-T CRS 管理和真实世界数据。</p>
+              <p><strong>论文作者观点：</strong>作者认为早识别、标准化分级和靶向干预会改善结局。</p>
+              <p><strong>我的推断：</strong>CAR-T 研究摘要若只报告 ORR/CR 而不报告 CRS 预防和处理路径，实际可实施性信息是不完整的。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="16/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 15 / 16</span>
+        <span class="tag">DLBCL / CNS 趋向</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42224449</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42224449/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>DLBCL CNS tropism</dd>
+            <dt>期刊</dt><dd>Leukemia &amp; Lymphoma</dd>
+            <dt>PubMed 日期</dt><dd>2026-06-01</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>CD5/CD6-ALCAM 轴与 BCL2 协同驱动 DLBCL CNS 趋向</h2>
+            <p>Resolution of the Asian Paradox and the molecular synergy of CD5/CD6-ALCAM axis and BCL2 in driving CNS tropism in DLBCL.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>PubMed 当前记录无摘要；标题提示研究聚焦 DLBCL CNS 趋向的分子机制，需阅读全文后确认数据来源、模型和结论强度。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>题名指向 DLBCL CNS tropism 与 CD5/CD6-ALCAM 轴、BCL2 协同。</li><li>该主题与 CNS 复发风险、PCNSL/SCNSL 分层和 BTK/免疫策略设计高度相关。</li><li>PubMed 记录未提供摘要，无法从官方摘要确认样本量、方法和效应量。</li><li>本页仅作高相关信号登记，后续应补全文核查。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>高相关但证据细节不足，必须在页面中显式降权。</li><li>CNS tropism 是 DLBCL/CNSL 交界处的关键机制问题。</li><li>适合加入后续全文追踪清单，而不是作为已证实机制使用。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>已验证的信息仅限 PubMed 题名、期刊、PMID、日期和链接；未见摘要。</p>
+              <p><strong>论文作者观点：</strong>仅从题名可见作者关注 CD5/CD6-ALCAM 轴与 BCL2 在 CNS 趋向中的协同。</p>
+              <p><strong>我的推断：</strong>如果全文支持该轴，后续 CNS 复发风险模型可能需要纳入黏附/趋化与 BCL2 共同状态；当前仍是待核查假设。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+<section class="slide article-slide" data-count="17/18">
+    <div class="slide-content">
+      <div class="slide-top reveal">
+        <span class="kicker">文献 16 / 16</span>
+        <span class="tag">DLBCL / 安全性与合并 HBV</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-meta reveal">
+          <div class="pmid">PMID <strong>42226728</strong></div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42226728/" target="_blank" rel="noreferrer">PubMed 链接</a>
+          <dl>
+            <dt>疾病/场景</dt><dd>初治 DLBCL 合并慢性 HBV</dd>
+            <dt>期刊</dt><dd>British Journal of Haematology</dd>
+            <dt>PubMed 日期</dt><dd>2026-06-02</dd>
+            <dt>窗口标记</dt><dd>近 7 天新增/更新</dd>
+          </dl>
+        </aside>
+        <main class="article-main">
+          <div class="title-block reveal">
+            <h2>高 HBV DNA 负荷 DLBCL 中同步抗病毒与免疫化疗策略</h2>
+            <p>Concurrent antiviral-immunochemotherapy strategy safely overcomes high hepatitis B viral load barrier in diffuse large B-cell lymphoma.</p>
+          </div>
+          <div class="content-grid reveal">
+            <div class="panel conclusion">
+    <h3>结论</h3>
+    <p>多中心队列显示同步启动抗病毒预防和免疫化疗可在高 HBV DNA 负荷 DLBCL 中降低 HBV 再激活并保持及时治疗。</p>
+  </div>
+            <div class="panel ">
+    <h3>主要内容</h3>
+    <ul><li>1120 例新诊断 DLBCL 中分析 112 例慢性 HBV 患者。</li><li>高病毒载量组 30 例，低病毒载量组 82 例。</li><li>总体 3 年 HBV 再激活率 4.2%，高低载量相近。</li><li>3 年 PFS、ORR、CR 率在高低载量组无显著差异。</li></ul>
+  </div>
+            <div class="panel ">
+    <h3>关键信息</h3>
+    <ul><li>不是新抗肿瘤药，但直接影响免疫化疗能否按时实施。</li><li>一例停药后致死性 HBV 再激活提示随访和持续预防很关键。</li><li>适合放在真实世界安全性与方案执行启示中。</li></ul>
+  </div>
+            <div class="panel implication">
+              <h3>启示</h3>
+              <p><strong>已验证证据：</strong>PubMed 摘要记录了样本量、HBVr、肝毒性、PFS/ORR/CR 结果。</p>
+              <p><strong>论文作者观点：</strong>作者认为同步抗病毒预防与免疫化疗安全有效，可让高 HBV DNA DLBCL 患者及时接受治疗。</p>
+              <p><strong>我的推断：</strong>疗效研究落地时应把感染风险管理作为方案组成部分，否则高风险合并症患者会被排除在真实获益之外。</p>
+            </div>
+          </div>
         </main>
       </div>
     </div>
   </section>
 
-  <section class="slide article-slide" data-count="03 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 02</span>
-        <span>LBCL / 双抗 / PET 评估</span>
-        <span>优先级：高</span>
+  <section class="slide judgment-slide" data-count="18/18">
+    <div class="slide-content">
+      <div class="topline reveal"><span class="kicker">今日综合判断</span><span class="tag">2026-06-04</span></div>
+      <h2 class="reveal">今天的信号不是单一药物热点，而是“治疗前移 + 可及性 + 分层机制”同步推进</h2>
+      <div class="judgment-grid reveal">
+        <div class="judgment-card">
+          <h3>已验证证据</h3>
+          <p>近 7 天官方 PubMed 窗口内有 frontMIND III 期、一项 LBCL CAR-T 真实世界路径、一项双抗 PET 预后研究、BTKi/R-CHOP 耐药机制、多个 PCNSL/CNS 趋向相关条目。</p>
+        </div>
+        <div class="judgment-card">
+          <h3>作者观点</h3>
+          <p>多篇摘要共同指向早期识别高风险、改善 CAR-T/双抗实施路径、将免疫微环境和影像/基因标志物纳入分层，但多数机制和影像研究仍需外部验证。</p>
+        </div>
+        <div class="judgment-card">
+          <h3>我的推断</h3>
+          <p>后续 DLBCL/CNSL 研究启示应固定记录三类变量：治疗是否能及时到达患者、疗效前的风险分层是否足够、以及耐药/微环境机制是否能转化为可操作的联合方案。</p>
+        </div>
       </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>CD3-CD20 双抗治疗 R/R LBCL 中 FDG-PET 的预后作用</h2>
-          <p class="english-title">Prognostic role of FDG-PET in patients with relapsed/refractory large B-cell lymphoma treated with CD3-CD20 directed bispecific antibodies: a multicentric analysis.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42223630/">42223630</a></div>
-            <div><b>期刊</b><span>European Journal of Nuclear Medicine and Molecular Imaging</span></div>
-            <div><b>日期</b><span>2026-06-01</span></div>
-            <div><b>类型</b><span>多中心回顾分析</span></div>
-            <div class="wide"><b>作者</b><span>Wollnitza S et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42223630/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>双抗时代的 LBCL 评估不只是给药和毒性管理，纵向 FDG-PET 参数可能成为早期疗效和进展风险判断工具。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>纳入 R/R LBCL 中接受 CD3-CD20 双抗且有基线 PET 的 58 例患者。</li><li>分析 Deauville 评分、全身 MTV、SUVmean 变化等 PET 参数对 PFS/OS 的预后作用。</li><li>基线 MTV &gt;504.7 cm3 与更短 PFS 相关；首次随访 DS4-5 与进展风险升高相关。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>基线高 MTV：中位 PFS 1 vs 3 个月，HR 5.6。</li><li>首次随访 DS4-5：进展风险 HR 11.42。</li><li>未达到 SUVmean 下降 &gt;=75.5% 与 PFS/OS 事件风险升高相关。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要给出患者数、PET 参数和 HR，直接关联 R/R LBCL 双抗治疗。</p>
-            <p><b>论文作者观点：</b>作者认为纵向 PET 指标可用于双抗治疗中的风险分层和预后判断。</p>
-            <p><b>我的推断：</b>未来双抗方案设计可把“基线肿瘤负荷 + 早期 PET 变化”作为固定监测字段，而不是只等最佳缓解。</p>
-          </section>
-        </main>
+      <div class="judgment-grid reveal">
+        <div class="judgment-card">
+          <h3>方案设计启示</h3>
+          <p>一线强化研究要同时看 PFS、OS 成熟度、治疗相关死亡和分子缓解；CAR-T/双抗研究要补充转诊延迟、PET 动态和安全管理路径。</p>
+        </div>
+        <div class="judgment-card">
+          <h3>CNSL 专项启示</h3>
+          <p>PCNSL 不宜简单套用系统性 LBCL 逻辑。CNS 免疫微环境、CD79B/MCD-like 影像富集和 CNS tropism 机制需要单独追踪。</p>
+        </div>
+        <div class="judgment-card">
+          <h3>下次跟进</h3>
+          <p>优先补查 PMID 42224449 全文摘要/数据；继续观察 frontMIND ctDNA 分析、双抗 PET 指标是否被前瞻性验证、IL-16/CD9 轴是否出现转化研究。</p>
+        </div>
       </div>
+      <div class="archive-strip reveal"><a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/archive/2026-06-04/">2026-06-04</a><a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/archive/2026-06-03/">2026-06-03</a><a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/archive/2026-06-02/">2026-06-02</a><a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/archive/2026-06-01/">2026-06-01</a></div>
     </div>
   </section>
 
-  <section class="slide article-slide" data-count="04 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 03</span>
-        <span>DLBCL / 双靶 CAR-T / 安全性</span>
-        <span>优先级：高</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>单肾活体供者 DLBCL 经 CD19/CD22 CAR-T cocktail 后长期缓解</h2>
-          <p class="english-title">Long-term complete remission and minimal side effects after CD19/CD22 CAR-T cell cocktail therapy in a living donor with DLBCL: A rare case report.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42231134/">42231134</a></div>
-            <div><b>期刊</b><span>Cell Transplantation</span></div>
-            <div><b>日期</b><span>2026-06-03</span></div>
-            <div><b>类型</b><span>病例报告</span></div>
-            <div class="wide"><b>作者</b><span>Zhang Q et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42231134/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>这是一个特殊脆弱人群中的双靶 CAR-T 病例信号，价值在于安全性观察和器官储备风险，而不是建立普遍疗效结论。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>病例为既往活体肾供者，后诊断 DLBCL，接受 CD19/CD22 CAR-T cocktail 治疗。</li><li>治疗后仅出现轻度 CRS，摘要未提示急性肾损伤或肾功能损害。</li><li>患者获得接近完全缓解的良好代谢反应。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>双靶点：CD19/CD22 CAR-T cocktail。</li><li>特殊风险：单肾/肾储备有限。</li><li>核心观察：轻度 CRS、未见明显肾损害、代谢反应接近 CR。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认 DLBCL、CD19/CD22 CAR-T cocktail、轻度 CRS 和无急性肾损伤描述。</p>
-            <p><b>论文作者观点：</b>作者强调 CAR-T 使用扩大后，治疗相关肾脏并发症在特殊人群中需要关注。</p>
-            <p><b>我的推断：</b>病例报告适合生成“特殊人群安全性提醒”，不能外推为双靶 CAR-T 对单肾患者普遍安全。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="05 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 04</span>
-        <span>CAR-T / CRS / 安全性</span>
-        <span>优先级：高</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>血液肿瘤 CAR-T 治疗中 CRS 的管理综述</h2>
-          <p class="english-title">Managing cytokine release syndrome in hematological malignancies being treated with CAR-T therapy.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42233607/">42233607</a></div>
-            <div><b>期刊</b><span>Expert Review of Hematology</span></div>
-            <div><b>日期</b><span>2026-06-03</span></div>
-            <div><b>类型</b><span>综述</span></div>
-            <div class="wide"><b>作者</b><span>Alarcon Tomas A et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42233607/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>这篇综述适合做 CAR-T 日报的安全性框架页，尤其用于统一 CRS 分级、早期干预和预防策略的读法。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>综述 CAR-T 相关 CRS 的定义、分级、病理生理和关键临床试验中的发生率。</li><li>覆盖 large B-cell lymphoma、ALL、多发性骨髓瘤等血液肿瘤场景。</li><li>讨论抗细胞因子治疗、糖皮质激素、anakinra 和早期/预防性干预。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>文章类型为 Review，适合做背景框架，不是单一 DLBCL 新药疗效研究。</li><li>CRS 管理与 CAR-T 可及性、门诊化和中心流程直接相关。</li><li>摘要明确提到 pivotal trials 与 real-world data。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认该综述覆盖 CAR-T 在血液肿瘤中的 CRS 管理，并提到 LBCL。</p>
-            <p><b>论文作者观点：</b>作者强调 CRS 仍是 CAR-T 的主要挑战，管理策略需要随治疗范式进化。</p>
-            <p><b>我的推断：</b>后续 CAR-T 文献摘要应固定列出 CRS/ICANS/血液毒性和干预策略，方便跨研究比较。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="06 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 05</span>
-        <span>DLBCL / CAR-T / 转诊路径</span>
-        <span>优先级：中-高</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>肿瘤医生对 CAR-T 转诊的认知、态度和模式</h2>
-          <p class="english-title">Understanding Physician Referral for Chimeric Antigen Receptor T-Cell (CAR-T) Therapy.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42217135/">42217135</a></div>
-            <div><b>期刊</b><span>Journal of Cancer Education</span></div>
-            <div><b>日期</b><span>2026-05-31</span></div>
-            <div><b>类型</b><span>问卷研究</span></div>
-            <div class="wide"><b>作者</b><span>Blue B et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42217135/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>CAR-T 可及性问题不仅来自药物和中心容量，也来自医生转诊认知和信心差异。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>研究邀请佛罗里达肿瘤医生/血液科医生填写 CAR-T 态度、知识和转诊模式问卷。</li><li>涉及 DLBCL、转化 FL、原发纵隔大 B 细胞淋巴瘤和 ALL。</li><li>完成问卷 67 份，摘要显示医生对疗效、毒性和适应证的信心处于中等水平。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>完成率 10%，样本量小，解释时要保守。</li><li>医生经常与患者讨论 CAR-T 的比例约 59.4%。</li><li>适合与真实世界治疗路径研究共同阅读。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认研究对象包括 DLBCL，内容为 CAR-T 转诊和医生知识态度。</p>
-            <p><b>论文作者观点：</b>作者关注社区医生认知和转诊模式中的潜在缺口。</p>
-            <p><b>我的推断：</b>在实际方案落地讨论中，CAR-T 不是单纯疗效产品，还需要教育、转诊触发点和中心协作流程。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="07 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 06</span>
-        <span>CAR-T / PK-PD / 产品功能</span>
-        <span>优先级：中</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>CAR-T 细胞功能的数据驱动计算模型</h2>
-          <p class="english-title">Data-driven computational modeling of CAR-T cell function.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42212152/">42212152</a></div>
-            <div><b>期刊</b><span>Frontiers in Immunology</span></div>
-            <div><b>日期</b><span>2026-05-29</span></div>
-            <div><b>类型</b><span>转化/建模研究</span></div>
-            <div class="wide"><b>作者</b><span>Shah V et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42212152/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>这篇文章把 CAR-T 疗效差异拆到产品功能参数层面，适合跟踪为未来个体化 CAR-T 预测模型的早期方法学。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>研究用 ODE 型 PK/PD 模型描述 CAR-T 细胞杀伤和增殖动力学。</li><li>模型参数来自患者个体 CAR-T 产品的体外实验，关联临床试验 NCT04186520。</li><li>摘要强调产品特异性功能参数可能影响临床应答。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>不是 DLBCL 专属临床疗效研究，而是 CAR-T 功能建模方法。</li><li>关注点从患者肿瘤特征延伸到 CAR-T 产品自身功能差异。</li><li>适合纳入“细胞治疗转化工具”监测。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认该研究为 CAR-T 功能的数据驱动计算建模。</p>
-            <p><b>论文作者观点：</b>作者提出产品特异性参数可能预测个体患者治疗反应。</p>
-            <p><b>我的推断：</b>后续 CAR-T 文献监测应增加“产品质量/功能参数”字段，尤其当研究涉及制造或体外功能检测时。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="08 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 07</span>
-        <span>LBCL / CAR-T / CAAR-T</span>
-        <span>优先级：中</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>从 CAR-T 到 CAAR-T：B 细胞恶性肿瘤中的 idiotype 定向细胞治疗</h2>
-          <p class="english-title">From CAR-T to CAAR-T: redefining targeting strategies in B-cell malignancies through idiotype-directed cellular therapy.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42233022/">42233022</a></div>
-            <div><b>期刊</b><span>Frontiers in Immunology</span></div>
-            <div><b>日期</b><span>2026-06-03</span></div>
-            <div><b>类型</b><span>综述</span></div>
-            <div class="wide"><b>作者</b><span>Buczek T et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42233022/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>CAAR-T 的价值在于讨论更精准靶向 malignant B cells 的可能性，但目前更适合作为概念和平台趋势监测。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>综述当前 CAR-T 多依赖 CD19、BCMA 等谱系/分化抗原的问题。</li><li>提出 CAAR-T 通过识别疾病特异性 BCR/idiotype 以提高选择性。</li><li>摘要明确提到 R/R large B-cell lymphoma 是 CAR-T 已改变管理方式的代表疾病。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>核心问题：on-target off-tumor 毒性、B 细胞缺如、低丙种球蛋白血症和感染风险。</li><li>平台方向：idiotype-directed cellular therapy。</li><li>当前仍以机制和设计逻辑为主，不是 DLBCL 临床落地证据。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认该综述覆盖 B-cell malignancies，并提到 R/R large B-cell lymphoma。</p>
-            <p><b>论文作者观点：</b>作者认为 CAAR-T 是概念上不同于传统 CAR-T 的靶向策略。</p>
-            <p><b>我的推断：</b>日报可把它归为“下一代细胞治疗靶点选择”，但不能与已获批 CAR-T 的临床证据强度等同。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="09 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 08</span>
-        <span>BTKi / R-CHOP / ABC-DLBCL 耐药</span>
-        <span>优先级：高</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>IL-16 是淋巴瘤 BTK 抑制剂和 R-CHOP 耐药机制</h2>
-          <p class="english-title">IL-16 production is a mechanism of resistance to BTK inhibitors and R-CHOP in lymphomas.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42213644/">42213644</a></div>
-            <div><b>期刊</b><span>Blood</span></div>
-            <div><b>日期</b><span>2026-05-29</span></div>
-            <div><b>类型</b><span>机制/转化研究</span></div>
-            <div class="wide"><b>作者</b><span>Arribas AJ et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42213644/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>IL-16 为非遗传性 BTKi 耐药和 ABC-DLBCL R-CHOP 耐药提供了可追踪机制线索，是今天最重要的耐药机制文献。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>研究从 MZL 慢性 ibrutinib 暴露模型切入，寻找 BTK/PLCG2 突变以外的耐药机制。</li><li>多组学发现 PI3K/AKT、MAPK、MYC 激活，凋亡和氧化磷酸化受抑，并出现细胞因子分泌表型。</li><li>IL-16 被证明可在多个 CD9 阳性模型中诱导 ibrutinib 耐药，包括 ABC-like DLBCL。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>机制涉及 BTK inhibitors、BTK degraders 和 R-CHOP 耐药。</li><li>摘要指出血清 IL-16 水平与不良临床结局相关。</li><li>DLBCL 相关性集中在 ABC-like DLBCL 和 R-CHOP 抵抗。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要明确提到 activated B-cell-like diffuse large B-cell lymphoma 与 R-CHOP 耐药。</p>
-            <p><b>论文作者观点：</b>作者将 IL-16 视为耐药的中心介质，并提示其转化治疗意义。</p>
-            <p><b>我的推断：</b>BTKi 监测不能只盯 BTK/PLCG2 突变，细胞因子分泌和微环境驱动的耐药也应进入固定字段。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="10 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 09</span>
-        <span>DLBCL / cuproptosis / 靶点机制</span>
-        <span>优先级：中-高</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>MELK 通过 PI3K/mTOR/S6K-DLAT 轴抑制 DLBCL 细胞 cuproptosis</h2>
-          <p class="english-title">MELK inhibits cuproptosis in diffuse large B-cell lymphoma cells via the PI3K/mTOR/S6K-DLAT signaling axis.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42228272/">42228272</a></div>
-            <div><b>期刊</b><span>Molecular and Cellular Biochemistry</span></div>
-            <div><b>日期</b><span>2026-06-02</span></div>
-            <div><b>类型</b><span>基础/机制研究</span></div>
-            <div class="wide"><b>作者</b><span>Wang X et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42228272/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>MELK-cuproptosis 轴提供了一个 DLBCL 代谢性细胞死亡和潜在靶点方向，但目前证据主要是细胞和生信层面。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>研究用 TCGA/GEO 综合生信筛选 DLBCL hub genes，并在 DLBCL 细胞系中验证 MELK 表达。</li><li>通过 qRT-PCR、WB、细胞活性、迁移和线粒体实验评估 MELK 功能。</li><li>使用 elesclomol 和 CuCl2 诱导 cuproptosis，并通过 DLAT 过表达和 S6K 抑制解析通路。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>MELK 在 DLBCL 组织和细胞系中升高。</li><li>机制轴：PI3K/mTOR/S6K-DLAT。</li><li>目前不是临床治疗研究，需要避免写成可用治疗策略。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认该研究主题为 DLBCL 细胞中 MELK 对 cuproptosis 的调控。</p>
-            <p><b>论文作者观点：</b>作者认为 MELK 可能是 DLBCL 中影响 cuproptosis 的关键分子。</p>
-            <p><b>我的推断：</b>这类基础研究适合进入“机制候选靶点池”，后续重点看是否出现动物模型、患者样本验证或药物可及性。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="11 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 10</span>
-        <span>DLBCL / TME / 免疫微环境</span>
-        <span>优先级：高</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>多组学和单细胞识别 DLBCL 中 TNFRSF1A+ 巨噬细胞靶点</h2>
-          <p class="english-title">Integrative Multiomics and Single-Cell Profiling Identify TNFRSF1A+ Macrophages as a Prognostic and Therapeutic Target in Diffuse Large B-cell Lymphoma.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42231904/">42231904</a></div>
-            <div><b>期刊</b><span>Computational and Structural Biotechnology Journal</span></div>
-            <div><b>日期</b><span>2026-06-03</span></div>
-            <div><b>类型</b><span>多组学/单细胞研究</span></div>
-            <div class="wide"><b>作者</b><span>Yin W et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42231904/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>TNFRSF1A+ TAM 将 DLBCL 耐药线索从肿瘤细胞本身扩展到免疫抑制微环境，值得作为转化研究重点跟踪。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>研究用整合多组学识别 TNFRSF1A 与预后和预测 R-CHOP 抵抗相关。</li><li>单细胞定位显示 TNFRSF1A 主要位于肿瘤相关巨噬细胞。</li><li>配体-受体网络和扰动分析提示其驱动 NF-kB 依赖 BAFF 分泌和 PD-L1/PD-L2 表达。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>核心细胞群：TNFRSF1A+ tumor-associated macrophages。</li><li>机制读法：BAFF、NF-kB、免疫检查点配体。</li><li>摘要提到药物筛选和小干扰实验验证，但转化距离仍需评估。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认该研究直接面向 DLBCL，并提出 TNFRSF1A+ macrophages 的预后和治疗靶点意义。</p>
-            <p><b>论文作者观点：</b>作者认为 TNFRSF1A+ TAM 维持促肿瘤和免疫抑制 niche。</p>
-            <p><b>我的推断：</b>后续 DLBCL 机制文献应把 TAM 亚群、BAFF 轴和检查点配体纳入耐药/联合治疗候选方向。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="12 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 11</span>
-        <span>AIDS-CNS-DLBCL / TME / 机制</span>
-        <span>优先级：高</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>AIDS-CNS-DLBCL 的单细胞 TME 解析</h2>
-          <p class="english-title">Single-cell transcriptomic analyses provide insights into TME related with tumor-promoting in AIDS-CNS-DLBCL.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42208778/">42208778</a></div>
-            <div><b>期刊</b><span>Genomics</span></div>
-            <div><b>日期</b><span>2026-05-29</span></div>
-            <div><b>类型</b><span>单细胞/机制研究</span></div>
-            <div class="wide"><b>作者</b><span>Liang T et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42208778/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>AIDS 相关 CNS-DLBCL 呈现不同于免疫正常 PCNSL 的肿瘤细胞和免疫微环境特征，应作为独立亚群监测。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>研究分析 7 例 AIDS 患者和 2 例免疫正常患者的 scRNA-seq 数据。</li><li>在 AIDS-CNS-DLBCL 中识别具有神经特征的 neuro-signature tumor cells。</li><li>免疫景观显示促炎 TAM 富集，以及具有终末耗竭表型的杀伤 T 细胞。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>机制线索包括 glutamate receptor 表达、神经 niche mimicry 和 ERK 通路激活。</li><li>直接关联 CNS-DLBCL，且明确区分 AIDS 背景。</li><li>样本量小，适合做假说生成，不适合做临床结论。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认研究对象为 AIDS-CNS-DLBCL，并基于单细胞转录组分析 TME。</p>
-            <p><b>论文作者观点：</b>作者认为 AIDS-CNS-DLBCL 中 neuro-signature cells 可驱动肿瘤促进性微环境。</p>
-            <p><b>我的推断：</b>CNSL 日报应固定记录免疫缺陷背景；AIDS-CNS-DLBCL 不能简单并入普通 PCNSL。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="13 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 12</span>
-        <span>PCNSL / 免疫微环境 / 转化</span>
-        <span>优先级：高</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>PCNSL 免疫微环境综述</h2>
-          <p class="english-title">Unraveling the immune microenvironment in primary CNS lymphoma.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42226261/">42226261</a></div>
-            <div><b>期刊</b><span>Biomarker Research</span></div>
-            <div><b>日期</b><span>2026-06-02</span></div>
-            <div><b>类型</b><span>综述</span></div>
-            <div class="wide"><b>作者</b><span>Lorenzen S et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42226261/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>PCNSL 的免疫微环境正在成为预后和潜在免疫治疗设计的核心变量，而不只是病理背景。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>综述 PCNSL 中肿瘤细胞与 CNS 免疫微环境的相互作用。</li><li>重点讨论 TIL、TAM、树突细胞、IL-10、M2-like macrophages 和 CD8+ T cells。</li><li>摘要指出治疗强化改善了 PCNSL 结局，但免疫微环境仍是关键生物学问题。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>不良特征：M2-like macrophages 高、CD8+ T cells 低、IL-10 高。</li><li>有利特征：T-cell immunity 丰度与治疗结局相关。</li><li>适合为 PCNSL 机制和免疫治疗监测提供背景框架。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认该综述聚焦 primary CNS lymphoma 的 immune microenvironment。</p>
-            <p><b>论文作者观点：</b>作者强调免疫 competence 和 CNS 微环境对 PCNSL 预后和治疗结果的重要性。</p>
-            <p><b>我的推断：</b>PCNSL 新治疗监测应增加微环境字段，尤其是 TAM、T cell abundance、IL-10 和免疫抑制表型。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="14 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 13</span>
-        <span>PCNSL / 影像 / 诊断分层</span>
-        <span>优先级：中</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>时间依赖扩散 MRI 区分 PCNSL 与胶质母细胞瘤</h2>
-          <p class="english-title">Microstructure mapping with time-dependent diffusion MRI differentiates primary central nervous system lymphoma from glioblastoma.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42226306/">42226306</a></div>
-            <div><b>期刊</b><span>Cancer Imaging</span></div>
-            <div><b>日期</b><span>2026-06-02</span></div>
-            <div><b>类型</b><span>影像诊断研究</span></div>
-            <div class="wide"><b>作者</b><span>Wu J et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42226306/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>这不是新治疗文献，但对 PCNSL 早期诊断和入组分层有价值，尤其适合放在 CNSL 工具类监测。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>研究比较 GBM 与 PCNSL 的 time-dependent diffusion MRI 微结构参数。</li><li>纳入 32 例 GBM 和 19 例 PCNSL，使用 OGSE 和 PGSE 序列。</li><li>比较 Vin、cell diameter、cellularity、Dex 等参数，并用 ROC/AUC 评估诊断性能。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>目标：术前区分 PCNSL 与 GBM。</li><li>关联：治疗决策和是否先活检/避免激素干扰等流程问题。</li><li>不涉及具体药物疗效，归类为诊断工具。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认研究对象包括 PCNSL，并评估 MRI 参数区分 PCNSL 与 GBM。</p>
-            <p><b>论文作者观点：</b>作者认为 td-dMRI 微结构参数可帮助术前鉴别诊断。</p>
-            <p><b>我的推断：</b>CNSL 日报应保留诊断/分层工具类文献，因为它们会影响患者能否及时进入正确治疗路径。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="15 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 14</span>
-        <span>BTKi / Richter-like flare / 病例</span>
-        <span>优先级：中</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>BTKi 暂停后脾脏 pseudo-Richter transformation 病例</h2>
-          <p class="english-title">When pseudo-Richter transformation hits the spleen: a case report and literature review.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42230407/">42230407</a></div>
-            <div><b>期刊</b><span>Journal of Hematopathology</span></div>
-            <div><b>日期</b><span>2026-06-03</span></div>
-            <div><b>类型</b><span>病例报告与文献回顾</span></div>
-            <div class="wide"><b>作者</b><span>Onieva R et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42230407/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>该病例不属于 DLBCL 新治疗证据，但提示 BTKi 暂停后的快速 flare 可模拟 Richter transformation，适合做安全/停药风险提醒。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>CLL/SLL 患者因 ibrutinib 暂停后出现快速临床恶化和脾破裂。</li><li>重新引入 BTKi 后病情改善，诊断为 pseudo-Richter transformation。</li><li>作者通过 PubMed 检索找到 9 例类似患者并总结临床病理特征。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>涉及 BTKi：ibrutinib 和 zanubrutinib 被作为治疗背景提及。</li><li>Richter transformation 与 DLBCL 相关，但本病例核心是 CLL/SLL flare。</li><li>归类为“BTKi 停药/反跳风险”，不是 DLBCL 治疗推荐。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认该病例与 ibrutinib withdrawal、pseudo-Richter transformation 和 splenic rupture 相关。</p>
-            <p><b>论文作者观点：</b>作者强调 BTKi 暂停后可出现组织中的 pseudo-Richter transformation。</p>
-            <p><b>我的推断：</b>BTKi 监测应额外记录停药、围手术期和感染暂停场景，因为这些可能影响安全管理和病情解读。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="16 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 15</span>
-        <span>DLBCL / 罕见结外病例</span>
-        <span>优先级：中</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>年轻男性隐匿性原发前列腺 DLBCL 病例</h2>
-          <p class="english-title">Occult primary prostate lymphoma in a young male: A case report.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42221697/">42221697</a></div>
-            <div><b>期刊</b><span>Urology Case Reports</span></div>
-            <div><b>日期</b><span>2026-06-01</span></div>
-            <div><b>类型</b><span>病例报告</span></div>
-            <div class="wide"><b>作者</b><span>Jacinto RM et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42221697/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>前列腺原发 DLBCL 极罕见，核心价值是提醒结外 DLBCL 可被常见泌尿问题掩盖。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>病例为年轻男性原发前列腺 DLBCL，临床表现可模拟更常见前列腺疾病。</li><li>摘要强调误诊可能导致管理不足。</li><li>由于罕见，目前没有统一最佳治疗方案共识。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>疾病：primary diffuse large B-cell prostate lymphoma。</li><li>类型：case report。</li><li>与新治疗关系较弱，但符合结外 DLBCL 病例监测。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认该病例为原发前列腺 DLBCL。</p>
-            <p><b>论文作者观点：</b>作者强调临床医生需要提高识别意识，以便及时诊断和处理。</p>
-            <p><b>我的推断：</b>病例类 slide 应重点保留“易误诊场景”和“何时需活检”，而不是尝试提炼治疗优劣。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="17 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 16</span>
-        <span>DLBCL / 结外病例</span>
-        <span>优先级：中</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>DLBCL 表现为大腿肿块病例</h2>
-          <p class="english-title">Diffuse Large B-Cell Lymphoma Presenting as a Thigh Mass: A Case Report.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42204946/">42204946</a></div>
-            <div><b>期刊</b><span>The Permanente Journal</span></div>
-            <div><b>日期</b><span>2026-05-28</span></div>
-            <div><b>类型</b><span>病例报告</span></div>
-            <div class="wide"><b>作者</b><span>Badran S et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42204946/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>大腿软组织肿块表现的 DLBCL 价值在于鉴别诊断，提示结外病灶可模拟肉瘤。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>76 岁女性因右大腿肿胀和疼痛就诊，影像提示类似肉瘤的软组织肿块。</li><li>活检病理确认 DLBCL。</li><li>摘要强调结外 DLBCL 可能被误认为其他恶性肿瘤。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>结外部位：大腿软组织。</li><li>诊断关键：活检。</li><li>不提供新治疗证据，作为病例识别提醒。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认该病例为 DLBCL 表现为 thigh mass。</p>
-            <p><b>论文作者观点：</b>作者提醒评估肢体肿块时应保留 lymphoma 的鉴别诊断。</p>
-            <p><b>我的推断：</b>结外 DLBCL 病例适合聚合为“误诊模式库”，帮助后续汇总诊断路径。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="18 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 17</span>
-        <span>DLBCL / 皮肤表现 / 病例</span>
-        <span>优先级：中</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>DLBCL 非典型溃疡性皮肤表现病例</h2>
-          <p class="english-title">Atypical Ulcerated Cutaneous Presentation of Diffuse Large B-Cell Lymphoma: A Case Report.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42220719/">42220719</a></div>
-            <div><b>期刊</b><span>Cureus</span></div>
-            <div><b>日期</b><span>2026-06-01</span></div>
-            <div><b>类型</b><span>病例报告</span></div>
-            <div class="wide"><b>作者</b><span>Nogueira P et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42220719/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>这篇病例强化了 DLBCL 非典型皮肤/软组织表现可能导致延迟诊断，进展速度本身是重要信号。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>48 岁男性出现快速增大的肩部溃疡性肿块，伴出血和严重贫血。</li><li>影像显示坏死性软组织肿块，病理确认 centroblastic subtype DLBCL。</li><li>患者病程快速进展，在完成 PET 分期前死亡。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>Ki-67 70-80%，提示高增殖。</li><li>核心信号：迅速进展、溃疡、出血、贫血。</li><li>病例提示早期活检的重要性。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认该病例为 DLBCL 的 atypical ulcerated cutaneous presentation。</p>
-            <p><b>论文作者观点：</b>作者强调早期活检非典型或快速进展皮肤病变。</p>
-            <p><b>我的推断：</b>病例监测可建立“需要快速活检”的临床线索列表，但不能由单例推断治疗策略。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="19 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 18</span>
-        <span>IVLBCL / CNS 症状 / 病例</span>
-        <span>优先级：中</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>IVLBCL 明确诊断前多次自发缓解病例</h2>
-          <p class="english-title">Multiple Spontaneous Remissions of Intravascular Large B-Cell Lymphoma before a Definitive Diagnosis: A Case Report.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42219313/">42219313</a></div>
-            <div><b>期刊</b><span>Internal Medicine</span></div>
-            <div><b>日期</b><span>2026-06-01</span></div>
-            <div><b>类型</b><span>病例报告</span></div>
-            <div class="wide"><b>作者</b><span>Tatsuoka K et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42219313/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>IVLBCL 可出现反复自限性缓解，容易推迟诊断；神经症状、LDH 和 sIL-2R 波动值得关注。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>60 岁男性头痛和认知损害，伴 LDH 与 soluble IL-2 receptor 升高。</li><li>初期随机皮肤活检和骨髓检查未获诊断，症状曾自然缓解。</li><li>10 个月后发热、神经恶化、低氧和 LDH 持续升高，最终经随机皮肤活检确诊 IVLBCL。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>亚型：intravascular large B-cell lymphoma。</li><li>CNS 相关表现：头痛、认知损害、神经恶化。</li><li>诊断工具：random skin biopsy。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认该病例为 IVLBCL 且明确诊断前经历三次 spontaneous remission。</p>
-            <p><b>论文作者观点：</b>作者认为反复自发缓解是 IVLBCL 极罕见现象。</p>
-            <p><b>我的推断：</b>CNS 症状相关 LBCL 病例应记录 LDH/sIL-2R 和随机皮肤活检结果，避免把缓解误读为排除淋巴瘤。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="20 / 21">
-    <div class="frame">
-      <div class="topline">
-        <span>文献 19</span>
-        <span>EBV+ DLBCL / 克隆演化 / 病例</span>
-        <span>优先级：中</span>
-      </div>
-      <div class="article-layout">
-        <aside class="article-meta">
-          <p class="kicker">PubMed verified</p>
-          <h2>EBV 阳性 DLBCL 17 年后经克隆扩增出现浆母细胞淋巴瘤</h2>
-          <p class="english-title">Plasmablastic lymphoma through clonal expansion 17 years after EBV-positive DLBCL: case report and review.</p>
-          <div class="meta-grid">
-            <div><b>PMID</b><a href="https://pubmed.ncbi.nlm.nih.gov/42219296/">42219296</a></div>
-            <div><b>期刊</b><span>Journal of Clinical and Experimental Hematopathology</span></div>
-            <div><b>日期</b><span>2026-06-01</span></div>
-            <div><b>类型</b><span>病例报告与文献回顾</span></div>
-            <div class="wide"><b>作者</b><span>Ishii K et al.</span></div>
-          </div>
-          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42219296/">打开 PubMed 原文记录</a>
-        </aside>
-        <main class="content-grid">
-          <section class="panel conclusion">
-            <h3>结论</h3>
-            <p>这篇病例强调长期缓解后的 EBV 相关克隆演化问题，价值在于病理和克隆追踪，而不是新治疗方案。</p>
-          </section>
-          <section class="panel">
-            <h3>主要内容</h3>
-            <ul><li>患者 17 年前诊断 EBV-positive DLBCL，经 6 个周期 R-CHOP 后持续缓解。</li><li>17 年后出现 EBV-positive plasmablastic lymphoma，EPOCH 后部分缓解并接受自体移植，达到 CR。</li><li>研究使用 NGS 免疫球蛋白基因谱分析 DLBCL 与 PBL 标本的克隆关系。</li></ul>
-          </section>
-          <section class="panel">
-            <h3>关键信息</h3>
-            <ul><li>时间跨度：17 年。</li><li>病理主题：EBV-positive DLBCL 到 PBL 的克隆扩增。</li><li>治疗信息存在，但主要是病例过程描述。</li></ul>
-          </section>
-          <section class="panel implication">
-            <h3>启示</h3>
-            <p><b>已验证证据：</b>PubMed 摘要确认该病例涉及 EBV-positive DLBCL 后 17 年发生 PBL，并使用 NGS 克隆分析。</p>
-            <p><b>论文作者观点：</b>作者关注两次淋巴瘤之间的克隆关系和罕见转化。</p>
-            <p><b>我的推断：</b>长期随访病例可为克隆演化提供线索，但不能替代前瞻性风险分层证据。</p>
-          </section>
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" data-count="21 / 21">
-    <div class="frame">
-      <p class="kicker">Daily synthesis</p>
-      <h2 style="font-family:'Noto Serif SC',serif;font-size:clamp(30px,5vh,48px);line-height:1.08;">今日综合判断</h2>
-      <div class="summary-layout">
-        <section class="panel">
-          <h3>DLBCL / LBCL 治疗路径</h3>
-          <p>今天最强的临床信号来自真实世界治疗路径、CAR-T 后时代可及性、双抗治疗中的 PET 早期判断，以及特殊人群 CAR-T 安全性病例。后续日报应固定记录治疗线数、CAR-T 适合性、是否真实进入后线、转诊/中心流程和早期影像参数。</p>
-        </section>
-        <section class="panel">
-          <h3>CNSL / PCNSL</h3>
-          <p>CNSL 方向今天以微环境和诊断工具为主：AIDS-CNS-DLBCL、PCNSL immune microenvironment、td-dMRI 区分 PCNSL 与 GBM。治疗药物证据不强，但这些研究会影响分层、入组和后续免疫治疗设计。</p>
-        </section>
-        <section class="panel">
-          <h3>机制 / 转化</h3>
-          <p>IL-16 耐药机制、MELK-cuproptosis 轴、TNFRSF1A+ TAM 和 AIDS-CNS-DLBCL 单细胞图谱值得连续跟踪。已验证证据主要停留在机制、模型和组学层面；我的推断是这些方向更可能先进入联合治疗假说，而不是立即改变临床路径。</p>
-        </section>
-        <section class="panel">
-          <h3>下次复用字段</h3>
-          <ul>
-            <li>固定字段：治疗类别、治疗线数、CAR-T 前/后、复发间隔、住院/门诊、CNS 角色、关键毒性、微环境/耐药机制。</li>
-            <li>病例字段：结外部位、误诊模式、是否有 CNS/免疫缺陷背景、关键病理和活检触发点。</li>
-            <li>已纳入 PMID：42234934, 42223630, 42231134, 42233607, 42217135, 42212152, 42233022, 42213644, 42228272, 42231904, 42208778, 42226261, 42226306, 42230407, 42221697, 42204946, 42220719, 42219313, 42219296</li>
-          </ul>
-        </section>
-        <section class="panel">
-          <h3>既往每日回看</h3>
-          <ul><li><a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/archive/2026-06-03/">2026-06-03 既往归档</a></li><li><a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/archive/2026-06-02/">2026-06-02 既往归档</a></li><li><a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/archive/2026-06-01/">2026-06-01 既往归档</a></li></ul>
-        </section>
-        <section class="panel">
-          <h3>固定入口</h3>
-          <p><a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/">https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/</a></p>
-          <p>本页更新时间：2026-06-04 Asia/Shanghai。今日版本已保留本地 HTML；若 Git 推送成功，公网固定链接显示同一份 index.html。</p>
-        </section>
-      </div>
-    </div>
-  </section>
   <script>
-    const slides = [...document.querySelectorAll('.slide')];
-    const progress = document.querySelector('.progress');
-    const update = () => {
-      const current = Math.round(window.scrollY / Math.max(1, window.innerHeight));
-      progress.style.width = Math.min(100, ((current + 1) / slides.length) * 100) + '%';
-    };
-    addEventListener('scroll', update, { passive: true });
-    addEventListener('keydown', event => {
-      const current = Math.round(window.scrollY / Math.max(1, window.innerHeight));
-      if (['ArrowDown', 'ArrowRight', 'PageDown', ' '].includes(event.key)) {
-        event.preventDefault();
-        slides[Math.min(current + 1, slides.length - 1)].scrollIntoView({ behavior: 'smooth' });
+    class SlidePresentation {
+      constructor() {
+        this.slides = Array.from(document.querySelectorAll(".slide"));
+        this.current = 0;
+        this.progress = document.getElementById("progress");
+        this.dots = document.getElementById("dots");
+        this.buildDots();
+        this.observe();
+        this.bindKeys();
+        this.bindScroll();
       }
-      if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(event.key)) {
-        event.preventDefault();
-        slides[Math.max(current - 1, 0)].scrollIntoView({ behavior: 'smooth' });
+      buildDots() {
+        this.dots.innerHTML = "";
+        this.slides.forEach((_, index) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.title = "Slide " + (index + 1);
+          button.addEventListener("click", () => this.go(index));
+          this.dots.appendChild(button);
+        });
+        this.update();
       }
-    });
-    update();
+      observe() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              this.current = this.slides.indexOf(entry.target);
+              this.update();
+            }
+          });
+        }, { threshold: 0.55 });
+        this.slides.forEach((slide) => observer.observe(slide));
+        this.slides[0]?.classList.add("visible");
+      }
+      bindKeys() {
+        window.addEventListener("keydown", (event) => {
+          if (["ArrowDown", "PageDown", " "].includes(event.key)) {
+            event.preventDefault();
+            this.go(Math.min(this.current + 1, this.slides.length - 1));
+          }
+          if (["ArrowUp", "PageUp"].includes(event.key)) {
+            event.preventDefault();
+            this.go(Math.max(this.current - 1, 0));
+          }
+          if (event.key === "Home") this.go(0);
+          if (event.key === "End") this.go(this.slides.length - 1);
+        });
+      }
+      bindScroll() {
+        let startY = 0;
+        window.addEventListener("touchstart", (event) => { startY = event.touches[0].clientY; }, { passive: true });
+        window.addEventListener("touchend", (event) => {
+          const dy = startY - event.changedTouches[0].clientY;
+          if (Math.abs(dy) > 45) this.go(Math.max(0, Math.min(this.slides.length - 1, this.current + (dy > 0 ? 1 : -1))));
+        }, { passive: true });
+      }
+      go(index) {
+        this.slides[index]?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      update() {
+        const pct = ((this.current + 1) / this.slides.length) * 100;
+        this.progress.style.width = pct + "%";
+        Array.from(this.dots.children).forEach((dot, index) => dot.classList.toggle("active", index === this.current));
+      }
+    }
+    new SlidePresentation();
   </script>
 </body>
 </html>
