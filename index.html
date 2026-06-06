@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
@@ -362,7 +362,7 @@
   <div class="progress" id="progress"></div>
   <nav class="dots" id="dots" aria-label="slide navigation"></nav>
 
-  <section class="slide cover-slide" data-count="1/14">
+  <section class="slide cover-slide" data-count="1/20">
     <div class="slide-inner">
       <div class="cover-layout">
         <div>
@@ -372,19 +372,19 @@
           <div class="stats">
         <div class="stat">
           <span>EDAT 新入库</span>
-          <strong>42</strong>
+          <strong>44</strong>
         </div>
         <div class="stat">
           <span>PDAT 发表日期</span>
-          <strong>65</strong>
+          <strong>68</strong>
         </div>
         <div class="stat">
           <span>MDAT 记录更新</span>
-          <strong>212</strong>
+          <strong>219</strong>
         </div>
         <div class="stat">
           <span>精选入页</span>
-          <strong>12</strong>
+          <strong>18</strong>
         </div></div>
           <div class="fixed-link">
             <span>固定公网主页：</span>
@@ -397,7 +397,7 @@
         </div>
         <div class="cover-note">
           <h3>检索与筛选说明</h3>
-          <p>PubMed 官方 ESearch/EFetch 重新检索；窗口为 2026-05-31 至 2026-06-06，合并 EDAT、PDAT、MDAT 覆盖近 7 天新增入库、发表日期和记录更新。本版按用户要求重筛为“临床证据版”：仅纳入临床试验、前瞻/回顾临床队列、真实世界、临床安全性、诊断/预后临床验证和系统综述/Meta；排除基础研究、机制研究、体外实验、in silico、单纯组学模型和纯转化假设。</p>
+          <p>PubMed 官方 ESearch/EFetch 于 2026-06-06 晚间重新检索；窗口为 2026-05-31 至 2026-06-06，合并 EDAT、PDAT、MDAT 覆盖近 7 天新入库、发表日期和记录更新。本版按“快速浏览但不只临床试验”口径更新：优先纳入临床试验、真实世界、CNSL 诊断/穿透、安全性、预后工具，并补入关键机制/转化和高相关治疗个案。MDAT 命中的旧发表文章已标注为更新记录，不等同于近 7 天新发表。未入页提醒：PMID 41981078 是 ASCT 后序贯 CD19/CD22 CAR-T 的高相关 letter，但 PubMed 摘要为空，暂列后续全文跟进；PMID 42249470 等诊断个案治疗启示较弱，未占正文页。</p>
           <p><strong>检索式：</strong>((DLBCL[Title/Abstract] OR &quot;diffuse large B-cell lymphoma&quot;[Title/Abstract] OR &quot;large B-cell lymphoma&quot;[Title/Abstract] OR LBCL[Title/Abstract] OR PCNSL[Title/Abstract] OR &quot;primary CNS lymphoma&quot;[Title/Abstract] OR &quot;primary central nervous system lymphoma&quot;[Title/Abstract] OR CNSL[Title/Abstract] OR &quot;central nervous system lymphoma&quot;[Title/Abstract] OR &quot;secondary CNS lymphoma&quot;[Title/Abstract] OR &quot;secondary central nervous system lymphoma&quot;[Title/Abstract]) AND lymphoma[Title/Abstract])</p>
           <p><strong>覆盖方向：</strong>BTKi、双抗、CAR-T/细胞治疗、ADC、免疫治疗、靶向联合、病例/病例系列、基础/机制/转化、耐药、CNS 穿透/药代、安全性和真实世界。</p>
           <table class="article-table">
@@ -405,6 +405,22 @@
             <tbody>
       <tr>
         <td>1</td>
+        <td>双抗 + ADC / III 期随机临床试验</td>
+        <td>R/R LBCL</td>
+        <td><a href="https://pubmed.ncbi.nlm.nih.gov/41037766/" target="_blank" rel="noreferrer">41037766</a></td>
+        <td>SUNMO III 期：mosunetuzumab + polatuzumab 治疗移植不适合 R/R LBCL</td>
+        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/41037766/" target="_blank" rel="noreferrer">打开文献</a></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>一线强化 / CD19 抗体联合</td>
+        <td>高危 DLBCL / HGBL</td>
+        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42217458/" target="_blank" rel="noreferrer">42217458</a></td>
+        <td>frontMIND：tafasitamab + 来那度胺 + R-CHOP 一线治疗高危 DLBCL/HGBL</td>
+        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42217458/" target="_blank" rel="noreferrer">打开文献</a></td>
+      </tr>
+      <tr>
+        <td>3</td>
         <td>ADC / 临床系统综述</td>
         <td>R/R DLBCL</td>
         <td><a href="https://pubmed.ncbi.nlm.nih.gov/42244006/" target="_blank" rel="noreferrer">42244006</a></td>
@@ -412,36 +428,20 @@
         <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42244006/" target="_blank" rel="noreferrer">打开文献</a></td>
       </tr>
       <tr>
-        <td>2</td>
-        <td>PCNSL / 前瞻诊断队列</td>
-        <td>PCNSL / secondary CNS lymphoma</td>
-        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42242260/" target="_blank" rel="noreferrer">42242260</a></td>
-        <td>PRICELUS：CSF MYD88、IL-10、CXCL13 诊断 CNS 淋巴瘤的多中心前瞻队列</td>
-        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42242260/" target="_blank" rel="noreferrer">打开文献</a></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>预后模型 / 临床验证</td>
-        <td>DLBCL</td>
-        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42240061/" target="_blank" rel="noreferrer">42240061</a></td>
-        <td>DLBCL 一线治疗后 CR 人群的动态复发风险工具</td>
-        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42240061/" target="_blank" rel="noreferrer">打开文献</a></td>
-      </tr>
-      <tr>
         <td>4</td>
-        <td>CAR-T / 真实世界治疗路径</td>
-        <td>LBCL</td>
-        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42234934/" target="_blank" rel="noreferrer">42234934</a></td>
-        <td>CAR-T 批准后 LBCL 真实世界治疗路径与可及性</td>
-        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42234934/" target="_blank" rel="noreferrer">打开文献</a></td>
+        <td>BTKi 联合 / I 期临床试验</td>
+        <td>R/R DLBCL</td>
+        <td><a href="https://pubmed.ncbi.nlm.nih.gov/41824782/" target="_blank" rel="noreferrer">41824782</a></td>
+        <td>Zanubrutinib + lenalidomide 治疗 R/R DLBCL 的 I 期多中心研究</td>
+        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/41824782/" target="_blank" rel="noreferrer">打开文献</a></td>
       </tr>
       <tr>
         <td>5</td>
-        <td>DLBCL / 感染安全性临床队列</td>
-        <td>DLBCL 合并慢性 HBV</td>
-        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42226728/" target="_blank" rel="noreferrer">42226728</a></td>
-        <td>高 HBV DNA 负荷 DLBCL 中同步抗病毒与免疫化疗的多中心队列</td>
-        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42226728/" target="_blank" rel="noreferrer">打开文献</a></td>
+        <td>免疫联合 / II 期临床试验</td>
+        <td>R/R DLBCL</td>
+        <td><a href="https://pubmed.ncbi.nlm.nih.gov/41656201/" target="_blank" rel="noreferrer">41656201</a></td>
+        <td>R2-GemOx-PD1i 治疗 R/R DLBCL 的多中心单臂 II 期试验</td>
+        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/41656201/" target="_blank" rel="noreferrer">打开文献</a></td>
       </tr>
       <tr>
         <td>6</td>
@@ -453,11 +453,11 @@
       </tr>
       <tr>
         <td>7</td>
-        <td>BTKi 联合 / I 期临床试验</td>
+        <td>双抗 / 个案与局部治疗</td>
         <td>R/R DLBCL</td>
-        <td><a href="https://pubmed.ncbi.nlm.nih.gov/41824782/" target="_blank" rel="noreferrer">41824782</a></td>
-        <td>Zanubrutinib + lenalidomide 治疗 R/R DLBCL 的 I 期多中心研究</td>
-        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/41824782/" target="_blank" rel="noreferrer">打开文献</a></td>
+        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42236241/" target="_blank" rel="noreferrer">42236241</a></td>
+        <td>epcoritamab 联合局部放疗获得难治 DLBCL 长期缓解个案</td>
+        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42236241/" target="_blank" rel="noreferrer">打开文献</a></td>
       </tr>
       <tr>
         <td>8</td>
@@ -477,14 +477,30 @@
       </tr>
       <tr>
         <td>10</td>
-        <td>免疫联合 / II 期临床试验</td>
-        <td>R/R DLBCL</td>
-        <td><a href="https://pubmed.ncbi.nlm.nih.gov/41656201/" target="_blank" rel="noreferrer">41656201</a></td>
-        <td>R2-GemOx-PD1i 治疗 R/R DLBCL 的多中心单臂 II 期试验</td>
-        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/41656201/" target="_blank" rel="noreferrer">打开文献</a></td>
+        <td>PCNSL / 前瞻诊断队列</td>
+        <td>PCNSL / secondary CNS lymphoma</td>
+        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42242260/" target="_blank" rel="noreferrer">42242260</a></td>
+        <td>PRICELUS：CSF MYD88、IL-10、CXCL13 诊断 CNS 淋巴瘤的多中心前瞻队列</td>
+        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42242260/" target="_blank" rel="noreferrer">打开文献</a></td>
       </tr>
       <tr>
         <td>11</td>
+        <td>CAR-T / 真实世界治疗路径</td>
+        <td>LBCL</td>
+        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42234934/" target="_blank" rel="noreferrer">42234934</a></td>
+        <td>CAR-T 批准后 LBCL 真实世界治疗路径与可及性</td>
+        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42234934/" target="_blank" rel="noreferrer">打开文献</a></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>CAR-T / 异体现货型细胞治疗 I 期</td>
+        <td>R/R LBCL</td>
+        <td><a href="https://pubmed.ncbi.nlm.nih.gov/39946666/" target="_blank" rel="noreferrer">39946666</a></td>
+        <td>ALPHA/ALPHA2：异体 CD19 CAR-T cema-cel / ALLO-501 治疗 R/R LBCL</td>
+        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/39946666/" target="_blank" rel="noreferrer">打开文献</a></td>
+      </tr>
+      <tr>
+        <td>13</td>
         <td>CAR-T / 临床安全性队列</td>
         <td>R/R DLBCL / FL</td>
         <td><a href="https://pubmed.ncbi.nlm.nih.gov/42173255/" target="_blank" rel="noreferrer">42173255</a></td>
@@ -492,12 +508,44 @@
         <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42173255/" target="_blank" rel="noreferrer">打开文献</a></td>
       </tr>
       <tr>
-        <td>12</td>
+        <td>14</td>
         <td>BTKi / 临床感染安全性 Meta</td>
         <td>含 CNS lymphoma / B-cell malignancies</td>
         <td><a href="https://pubmed.ncbi.nlm.nih.gov/41954633/" target="_blank" rel="noreferrer">41954633</a></td>
         <td>BTKi 治疗后侵袭性真菌感染的系统综述与 Meta 分析</td>
         <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/41954633/" target="_blank" rel="noreferrer">打开文献</a></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>DLBCL / 感染安全性临床队列</td>
+        <td>DLBCL 合并慢性 HBV</td>
+        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42226728/" target="_blank" rel="noreferrer">42226728</a></td>
+        <td>高 HBV DNA 负荷 DLBCL 中同步抗病毒与免疫化疗的多中心队列</td>
+        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42226728/" target="_blank" rel="noreferrer">打开文献</a></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>预后模型 / 临床验证</td>
+        <td>DLBCL</td>
+        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42240061/" target="_blank" rel="noreferrer">42240061</a></td>
+        <td>DLBCL 一线治疗后 CR 人群的动态复发风险工具</td>
+        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42240061/" target="_blank" rel="noreferrer">打开文献</a></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>机制 / 微环境靶点</td>
+        <td>DLBCL</td>
+        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42231904/" target="_blank" rel="noreferrer">42231904</a></td>
+        <td>TNFRSF1A+ 巨噬细胞：DLBCL 微环境中的预后和潜在靶点</td>
+        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42231904/" target="_blank" rel="noreferrer">打开文献</a></td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>PCNSL / 免疫微环境</td>
+        <td>PCNSL</td>
+        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42226261/" target="_blank" rel="noreferrer">42226261</a></td>
+        <td>PCNSL 免疫微环境综述：从风险分层到免疫治疗</td>
+        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42226261/" target="_blank" rel="noreferrer">打开文献</a></td>
       </tr></tbody>
           </table>
         </div>
@@ -506,11 +554,113 @@
   </section>
 
   
-  <section class="slide article-slide" data-count="2/14">
+  <section class="slide article-slide" data-count="2/20">
     <div class="slide-inner">
       <header class="slide-header">
         <div>
-          <p class="eyebrow">文献 1 / 12</p>
+          <p class="eyebrow">文献 1 / 18</p>
+          <h2>SUNMO III 期：mosunetuzumab + polatuzumab 治疗移植不适合 R/R LBCL</h2>
+          <p class="paper-title">Mosunetuzumab Plus Polatuzumab Vedotin in Transplant-Ineligible Refractory/Relapsed Large B-Cell Lymphoma: Primary Results of the Phase III SUNMO Trial.</p>
+        </div>
+        <div class="paper-actions">
+          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/41037766/" target="_blank" rel="noreferrer">PMID 41037766</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/41037766/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+        </div>
+      </header>
+      <div class="tag-strip"><span>双抗 + ADC / III 期随机临床试验</span><span>R/R LBCL</span><span>MDAT 近7天窗口命中；原始发表日期早于本周，不是近7天新发表</span></div>
+      
+      <div class="pico-grid">
+        <div><b>P</b><span>不适合自体移植或治愈意图治疗的 R/R LBCL 患者</span></div>
+        <div><b>I</b><span>Mosunetuzumab + polatuzumab vedotin 固定疗程联合方案</span></div>
+        <div><b>C</b><span>Rituximab + gemcitabine + oxaliplatin</span></div>
+        <div><b>O</b><span>ORR、CR、PFS、OS、安全性、CRS 和患者报告结局</span></div>
+      </div>
+      <div class="article-grid">
+        <section class="panel conclusion">
+          <h3>结论</h3>
+          <p>SUNMO III 期显示，mosunetuzumab + polatuzumab 较 R-GemOx 显著提高 ORR 和 PFS，且 CRS 事件较少，提示固定疗程门诊方案在移植不适合 R/R LBCL 中具有重要临床信号。</p>
+        </section>
+        <section class="panel">
+          <h3>主要内容</h3>
+          <ul><li>208 例移植不适合 R/R LBCL 按 2:1 随机接受 Mosun-Pola 或 R-GemOx。</li><li>中位随访 23.2 个月；中位 PFS 为 11.5 个月 vs 3.8 个月，HR 0.41，P &lt; 0.0001。</li><li>ORR 为 70% vs 40%，CR 为 51% vs 24%。</li><li>Mosun-Pola 组 2 级及以上 CRS 和托珠单抗使用均低于 5%，患者报告结局较 R-GemOx 改善。</li></ul>
+        </section>
+        <section class="panel">
+          <h3>关键信息</h3>
+          <ul><li>这是双抗和 ADC 联合的 III 期随机证据，临床优先级高。</li><li>比较对象是 R-GemOx，便于放入移植不适合 R/R LBCL 的现实路径中解读。</li><li>需要继续关注 OS、后续治疗序贯、感染和神经毒性等完整安全性信息。</li></ul>
+        </section>
+        <section class="panel implication">
+          <h3>启示</h3>
+          <dl>
+            <div><dt>已验证证据</dt><dd>PubMed 摘要确认研究设计、样本量、PFS、ORR/CR、CRS 和患者报告结局数据。</dd></div>
+            <div><dt>论文作者观点</dt><dd>作者认为 Mosun-Pola 较 R-GemOx 显示更优疗效，且 CRS 少、安全性可管理。</dd></div>
+            <div><dt>我的推断</dt><dd>后续方案设计可把“固定疗程、门诊可实施、双抗+ADC 序贯位置”作为核心变量；这不是治疗推荐。</dd></div>
+          </dl>
+        </section>
+      </div>
+      <footer class="article-footer">
+        <span>Journal of clinical oncology : official journal of the American Society of Clinical Oncology</span>
+        <span>2025 Dec 20</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/41037766/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/41037766/</a>
+      </footer>
+    </div>
+  </section>
+
+  <section class="slide article-slide" data-count="3/20">
+    <div class="slide-inner">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">文献 2 / 18</p>
+          <h2>frontMIND：tafasitamab + 来那度胺 + R-CHOP 一线治疗高危 DLBCL/HGBL</h2>
+          <p class="paper-title">Tafasitamab plus lenalidomide and R-CHOP versus R-CHOP for first-line treatment of patients with high-risk diffuse large B-cell lymphoma (frontMIND): a global, phase 3, randomised, double-blind, placebo-controlled trial.</p>
+        </div>
+        <div class="paper-actions">
+          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42217458/" target="_blank" rel="noreferrer">PMID 42217458</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42217458/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+        </div>
+      </header>
+      <div class="tag-strip"><span>一线强化 / CD19 抗体联合</span><span>高危 DLBCL / HGBL</span><span>EDAT/PDAT/MDAT 窗口内；高影响 III 期研究</span></div>
+      
+      <div class="pico-grid">
+        <div><b>P</b><span>未治疗高危 DLBCL/HGBL，18-80 岁，全球 III 期人群</span></div>
+        <div><b>I</b><span>tafasitamab + 来那度胺 + R-CHOP</span></div>
+        <div><b>C</b><span>R-CHOP + 匹配安慰剂</span></div>
+        <div><b>O</b><span>PFS、OS 中期、安全性和治疗相关不良事件</span></div>
+      </div>
+      <div class="article-grid">
+        <section class="panel conclusion">
+          <h3>结论</h3>
+          <p>tafa-len-R-CHOP 相比 R-CHOP 改善 PFS，但治疗相关高级别不良事件和死亡性不良事件负担更高，OS 仍需更成熟随访。</p>
+        </section>
+        <section class="panel">
+          <h3>主要内容</h3>
+          <ul><li>全球 298 个中心，899 例随机分配至 tafa-len-R-CHOP 或 R-CHOP。</li><li>中位随访 35.2 个月，PFS HR 0.75，2 年 PFS 71.1% vs 62.9%。</li><li>3 级及以上治疗期间不良事件为 87% vs 76%。</li><li>OS 中期分析尚未成熟，摘要提示后续 ctDNA 分析可能解释更深层缓解。</li></ul>
+        </section>
+        <section class="panel">
+          <h3>关键信息</h3>
+          <ul><li>一线强化信号明确，但安全性成本同步上升。</li><li>适合持续追踪 PFS、OS 成熟度、ctDNA 和亚组获益。</li><li>与 BTKi、ADC、双抗序贯相比，属于“前移治疗强度”的策略信号。</li></ul>
+        </section>
+        <section class="panel implication">
+          <h3>启示</h3>
+          <dl>
+            <div><dt>已验证证据</dt><dd>PubMed 摘要记录 III 期随机设计、PFS 改善和更高不良事件负担。</dd></div>
+            <div><dt>论文作者观点</dt><dd>作者认为该组合可能成为高危 DLBCL/HGBL 的潜在一线选择，但强调 OS 未成熟且需要进一步分析。</dd></div>
+            <div><dt>我的推断</dt><dd>研究方案评价不应只看 PFS，还应同步预设安全性、治疗相关死亡和分子缓解终点；这不是治疗推荐。</dd></div>
+          </dl>
+        </section>
+      </div>
+      <footer class="article-footer">
+        <span>Lancet</span>
+        <span>2026 May 30</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42217458/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42217458/</a>
+      </footer>
+    </div>
+  </section>
+
+  <section class="slide article-slide" data-count="4/20">
+    <div class="slide-inner">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">文献 3 / 18</p>
           <h2>Loncastuximab tesirine 单药治疗 R/R DLBCL 的系统综述与 Meta 分析</h2>
           <p class="paper-title">Efficacy and safety of loncastuximab tesirine in relapsed or refractory diffuse large B-cell lymphoma: a systematic review and meta-analysis.</p>
         </div>
@@ -557,266 +707,11 @@
     </div>
   </section>
 
-  <section class="slide article-slide" data-count="3/14">
+  <section class="slide article-slide" data-count="5/20">
     <div class="slide-inner">
       <header class="slide-header">
         <div>
-          <p class="eyebrow">文献 2 / 12</p>
-          <h2>PRICELUS：CSF MYD88、IL-10、CXCL13 诊断 CNS 淋巴瘤的多中心前瞻队列</h2>
-          <p class="paper-title">Diagnosis of primary CNS lymphoma through molecular and immune biomarkers in cerebrospinal fluid (PRICELUS): a multicentre, prospective, cohort study.</p>
-        </div>
-        <div class="paper-actions">
-          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42242260/" target="_blank" rel="noreferrer">PMID 42242260</a>
-          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42242260/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
-        </div>
-      </header>
-      <div class="tag-strip"><span>PCNSL / 前瞻诊断队列</span><span>PCNSL / secondary CNS lymphoma</span><span>临床证据；EDAT/PDAT/MDAT 窗口内；PubMed 2026-06-05 新入库</span></div>
-      
-      <div class="pico-grid">
-        <div><b>P</b><span>疑似 primary CNS lymphoma 且接受 CSF 分析的成人患者</span></div>
-        <div><b>I</b><span>CSF MYD88 L265P、IL-10、CXCL13 联合检测</span></div>
-        <div><b>C</b><span>最终临床诊断与常规诊断路径</span></div>
-        <div><b>O</b><span>敏感性、特异性、阴性预测值、潜在非侵入性诊断支持</span></div>
-      </div>
-      <div class="article-grid">
-        <section class="panel conclusion">
-          <h3>结论</h3>
-          <p>在疑似 PCNSL 的 255 例前瞻队列中，CSF MYD88、IL-10、CXCL13 联合检测显示较高诊断价值；三项全阴性时阴性预测值为 99.4%。</p>
-        </section>
-        <section class="panel">
-          <h3>主要内容</h3>
-          <ul><li>荷兰 5 家医院纳入疑似 PCNSL 且接受 CSF 分析的成人患者。</li><li>50 例最终诊断为 CNS lymphoma，其中 44 例 PCNSL、6 例 secondary CNS lymphoma。</li><li>CSF MYD88 检出敏感性 56.0%，特异性 98.5%。</li><li>MYD88 阳性并伴 IL-10 或 CXCL13 升高时特异性达到 100.0%；三项均阴性时 NPV 为 99.4%。</li></ul>
-        </section>
-        <section class="panel">
-          <h3>关键信息</h3>
-          <ul><li>前瞻、多中心、临床诊断验证研究，非基础研究。</li><li>价值在于为疑似 PCNSL 的非侵入性诊断路径提供临床证据。</li><li>作者提醒算法和诊断树来自同一队列，仍需外部验证。</li></ul>
-        </section>
-        <section class="panel implication">
-          <h3>启示</h3>
-          <dl>
-            <div><dt>已验证证据</dt><dd>摘要确认队列规模、病例构成、MYD88/IL-10/CXCL13 表现和 NPV。</dd></div>
-            <div><dt>论文作者观点</dt><dd>作者认为联合 CSF biomarker 在特定场景中可能支持非侵入性诊断决策。</dd></div>
-            <div><dt>我的推断</dt><dd>CNSL 临床试验可把 CSF 标志物作为入组确认、疗效监测和分层字段，但不能替代完整临床诊断。</dd></div>
-          </dl>
-        </section>
-      </div>
-      <footer class="article-footer">
-        <span>The Lancet Haematology</span>
-        <span>2026 Jun</span>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/42242260/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42242260/</a>
-      </footer>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="4/14">
-    <div class="slide-inner">
-      <header class="slide-header">
-        <div>
-          <p class="eyebrow">文献 3 / 12</p>
-          <h2>DLBCL 一线治疗后 CR 人群的动态复发风险工具</h2>
-          <p class="paper-title">Development and Validation of a Novel Conditional Event-Free Survival Tool in Diffuse Large B-Cell Lymphoma.</p>
-        </div>
-        <div class="paper-actions">
-          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42240061/" target="_blank" rel="noreferrer">PMID 42240061</a>
-          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42240061/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
-        </div>
-      </header>
-      <div class="tag-strip"><span>预后模型 / 临床验证</span><span>DLBCL</span><span>临床证据；EDAT/PDAT/MDAT 窗口内；PubMed 2026-06-04 新入库</span></div>
-      
-      <div class="pico-grid">
-        <div><b>P</b><span>一线免疫化疗后 CR 或治疗结束 12 周内无事件的 DLBCL 患者</span></div>
-        <div><b>I</b><span>conditional EFS 动态预测工具</span></div>
-        <div><b>C</b><span>传统基线风险模型/固定起点风险评估</span></div>
-        <div><b>O</b><span>复发/事件风险预测、C-index、外部验证表现</span></div>
-      </div>
-      <div class="article-grid">
-        <section class="panel conclusion">
-          <h3>结论</h3>
-          <p>研究基于 2 个观察队列和 4 个随机试验建立并外部验证 conditional EFS 工具，用基线风险和已缓解时间动态估计 DLBCL 一线治疗后复发风险。</p>
-        </section>
-        <section class="panel">
-          <h3>主要内容</h3>
-          <ul><li>开发数据来自 2757 例新诊断 DLBCL，均接受免疫化疗并达到 CR 或治疗结束 12 周内未发生事件。</li><li>模型核心变量为年龄、ECOG、Ann Arbor 分期和 LDH，再叠加已缓解时间。</li><li>开发队列 C-index 0.65，外部验证队列 C-index 0.64。</li><li>工具用于治疗完成后的随访风险沟通和长期规划，而不是新药疗效评价。</li></ul>
-        </section>
-        <section class="panel">
-          <h3>关键信息</h3>
-          <ul><li>临床队列 + RCT pooled data + 外部验证，符合临床研究标准。</li><li>强调“治疗后动态风险”，不是只用基线 IPI。</li><li>可用于临床研究中定义随访强度、survivorship 和复发风险沟通变量。</li></ul>
-        </section>
-        <section class="panel implication">
-          <h3>启示</h3>
-          <dl>
-            <div><dt>已验证证据</dt><dd>摘要确认样本来源、变量、外部验证和 C-index。</dd></div>
-            <div><dt>论文作者观点</dt><dd>作者认为动态风险工具有助于数据驱动的监测建议和患者长期规划。</dd></div>
-            <div><dt>我的推断</dt><dd>后续临床研究可把已缓解时间作为动态风险维度；这不是个体随访建议。</dd></div>
-          </dl>
-        </section>
-      </div>
-      <footer class="article-footer">
-        <span>American Journal of Hematology</span>
-        <span>2026 Jun 04</span>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/42240061/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42240061/</a>
-      </footer>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="5/14">
-    <div class="slide-inner">
-      <header class="slide-header">
-        <div>
-          <p class="eyebrow">文献 4 / 12</p>
-          <h2>CAR-T 批准后 LBCL 真实世界治疗路径与可及性</h2>
-          <p class="paper-title">Real-World Treatment Patterns of Patients with Large B-cell Lymphoma Over Time and into a Post-CAR T Approval Era.</p>
-        </div>
-        <div class="paper-actions">
-          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42234934/" target="_blank" rel="noreferrer">PMID 42234934</a>
-          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42234934/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
-        </div>
-      </header>
-      <div class="tag-strip"><span>CAR-T / 真实世界治疗路径</span><span>LBCL</span><span>临床证据；EDAT/PDAT/MDAT 窗口内；PubMed 2026-06-03 新入库</span></div>
-      
-      <div class="pico-grid">
-        <div><b>P</b><span>真实世界启动一线治疗的 LBCL 患者及潜在 CAR-T 适合者</span></div>
-        <div><b>I</b><span>CAR-T 批准时代的治疗路径观察</span></div>
-        <div><b>C</b><span>不同治疗线、FDA 适应证批准前后、fit vs non-fit 人群</span></div>
-        <div><b>O</b><span>二线前死亡、二线/三线 CAR-T 使用率、治疗路径可及性</span></div>
-      </div>
-      <div class="article-grid">
-        <section class="panel conclusion">
-          <h3>结论</h3>
-          <p>Flatiron 数据显示，真实世界中相当一部分 LBCL 患者在有机会接受二线治疗前死亡；即使被认为适合 CAR-T，二线和三线 CAR-T 使用率仍偏低。</p>
-        </section>
-        <section class="panel">
-          <h3>主要内容</h3>
-          <ul><li>纳入 2011-2024 年启动一线治疗的 10,016 例 LBCL。</li><li>13% 患者一线启动后 1 年内死亡且未进入二线，30% 启动二线治疗。</li><li>在被认为适合且 fit for CAR-T 的患者中，二线 CAR-T 使用率 25%，三线使用率 36%。</li><li>研究强调社区肿瘤医生与 CAR-T 中心早期协作、可及性和患者认知。</li></ul>
-        </section>
-        <section class="panel">
-          <h3>关键信息</h3>
-          <ul><li>真实世界临床路径研究，重点不是药物本身 ORR，而是患者能否走到有效治疗。</li><li>把 CAR-T 研究从疗效延伸到转诊、时间窗和可及性。</li><li>可作为后续实施研究和区域路径优化的临床证据。</li></ul>
-        </section>
-        <section class="panel implication">
-          <h3>启示</h3>
-          <dl>
-            <div><dt>已验证证据</dt><dd>摘要确认样本量、二线前死亡比例、二线/三线 CAR-T 使用比例。</dd></div>
-            <div><dt>论文作者观点</dt><dd>作者认为需要更早的社区-中心协作、改善可及性和患者认知策略。</dd></div>
-            <div><dt>我的推断</dt><dd>未来临床研究应把转诊时间、CAR-T eligibility、二线前死亡和中心协作纳入固定字段。</dd></div>
-          </dl>
-        </section>
-      </div>
-      <footer class="article-footer">
-        <span>Blood Advances</span>
-        <span>2026 Jun 03</span>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/42234934/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42234934/</a>
-      </footer>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="6/14">
-    <div class="slide-inner">
-      <header class="slide-header">
-        <div>
-          <p class="eyebrow">文献 5 / 12</p>
-          <h2>高 HBV DNA 负荷 DLBCL 中同步抗病毒与免疫化疗的多中心队列</h2>
-          <p class="paper-title">Concurrent antiviral-immunochemotherapy strategy safely overcomes high hepatitis B viral load barrier in diffuse large B-cell lymphoma: A multicentre cohort study.</p>
-        </div>
-        <div class="paper-actions">
-          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42226728/" target="_blank" rel="noreferrer">PMID 42226728</a>
-          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42226728/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
-        </div>
-      </header>
-      <div class="tag-strip"><span>DLBCL / 感染安全性临床队列</span><span>DLBCL 合并慢性 HBV</span><span>临床证据；EDAT/PDAT/MDAT 窗口内；PubMed 2026-06-02 新入库</span></div>
-      
-      <div class="pico-grid">
-        <div><b>P</b><span>新诊断 DLBCL 合并慢性 HBV，含高基线 HBV DNA 患者</span></div>
-        <div><b>I</b><span>同步抗病毒预防与免疫化疗</span></div>
-        <div><b>C</b><span>低 HBV DNA 负荷人群及不同病毒动力学</span></div>
-        <div><b>O</b><span>HBV DNA 抑制、HBVr、肝毒性、PFS、ORR、CR</span></div>
-      </div>
-      <div class="article-grid">
-        <section class="panel conclusion">
-          <h3>结论</h3>
-          <p>112 例慢性 HBV 合并新诊断 DLBCL 队列显示，同步启动抗病毒预防和免疫化疗可在高病毒负荷患者中控制 HBV DNA，并保持较低 HBV 再激活率。</p>
-        </section>
-        <section class="panel">
-          <h3>主要内容</h3>
-          <ul><li>多中心回顾分析 1120 例新诊断 DLBCL 中的 112 例慢性 HBV 患者。</li><li>按基线 HBV DNA 分为低负荷 82 例和高负荷 30 例。</li><li>高负荷患者使用以 entecavir 为主的抗病毒治疗后 HBV DNA 可降至不可测。</li><li>3 年累计 HBV reactivation 总体 4.2%；高负荷 4.5%、低负荷 4.1%；3 年 PFS 与 ORR/CR 相近。</li></ul>
-        </section>
-        <section class="panel">
-          <h3>关键信息</h3>
-          <ul><li>临床安全性和治疗可及性研究，直接关系免疫化疗启动时机。</li><li>研究问题是“高 HBV DNA 是否必须延迟免疫化疗”。</li><li>仍需注意停用抗病毒后致死性 HBV reactivation 个案。</li></ul>
-        </section>
-        <section class="panel implication">
-          <h3>启示</h3>
-          <dl>
-            <div><dt>已验证证据</dt><dd>摘要确认队列规模、病毒负荷分层、HBVr 比例和临床结局比较。</dd></div>
-            <div><dt>论文作者观点</dt><dd>作者认为同步抗病毒预防与免疫化疗安全有效，可使高 HBV DNA 患者及时接受治疗。</dd></div>
-            <div><dt>我的推断</dt><dd>后续 DLBCL 临床研究应把 HBV DNA、抗病毒启动时间、停药后监测和肝毒性作为安全性字段。</dd></div>
-          </dl>
-        </section>
-      </div>
-      <footer class="article-footer">
-        <span>British Journal of Haematology</span>
-        <span>2026 Jun 02</span>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/42226728/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42226728/</a>
-      </footer>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="7/14">
-    <div class="slide-inner">
-      <header class="slide-header">
-        <div>
-          <p class="eyebrow">文献 6 / 12</p>
-          <h2>CD3-CD20 双抗治疗 R/R LBCL 中 FDG-PET 动态指标的临床预后价值</h2>
-          <p class="paper-title">Prognostic role of FDG-PET in patients with relapsed/refractory large B-cell lymphoma treated with CD3-CD20 directed bispecific antibodies: a multicentric analysis.</p>
-        </div>
-        <div class="paper-actions">
-          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42223630/" target="_blank" rel="noreferrer">PMID 42223630</a>
-          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42223630/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
-        </div>
-      </header>
-      <div class="tag-strip"><span>双抗 / 临床影像预后</span><span>R/R LBCL</span><span>临床证据；EDAT/PDAT/MDAT 窗口内；PubMed 2026-06-01 新入库</span></div>
-      
-      <div class="pico-grid">
-        <div><b>P</b><span>接受 CD3-CD20 双抗治疗的 R/R LBCL 患者</span></div>
-        <div><b>I</b><span>基线与治疗后 FDG-PET 半定量动态评估</span></div>
-        <div><b>C</b><span>不同 MTV、Deauville score、SUVmean 降幅人群</span></div>
-        <div><b>O</b><span>PFS、OS、进展风险和风险分层能力</span></div>
-      </div>
-      <div class="article-grid">
-        <section class="panel conclusion">
-          <h3>结论</h3>
-          <p>58 例接受 CD3-CD20 双抗的 R/R LBCL 多中心分析显示，基线 MTV、首次随访 Deauville score 和 SUVmean 降幅可识别高进展风险患者。</p>
-        </section>
-        <section class="panel">
-          <h3>主要内容</h3>
-          <ul><li>纳入 58 例有基线 PET 的 R/R LBCL，其中 45 例有双抗启动后首次 PET。</li><li>基线 whole-body MTV &gt; 504.7 cm3 与更短 PFS 相关。</li><li>首次随访 DS4-5 与更高进展风险和较短生存相关。</li><li>未达到 SUVmean 下降 75.5% 与 PFS 和 OS 事件风险增加相关。</li></ul>
-        </section>
-        <section class="panel">
-          <h3>关键信息</h3>
-          <ul><li>这是双抗治疗中的临床影像预后研究，不是基础机制研究。</li><li>有助于把双抗疗效监测从 ORR/CR 扩展到早期动态风险分层。</li><li>样本量有限，但指标具备临床流程可操作性。</li></ul>
-        </section>
-        <section class="panel implication">
-          <h3>启示</h3>
-          <dl>
-            <div><dt>已验证证据</dt><dd>摘要确认 58 例多中心队列、PET 参数和 PFS/OS 关联。</dd></div>
-            <div><dt>论文作者观点</dt><dd>作者认为纵向半定量 PET 可增强双抗治疗人群风险分层和个体化管理。</dd></div>
-            <div><dt>我的推断</dt><dd>双抗临床研究应预设基线 MTV、早期 Deauville score 和 SUVmean 降幅，作为换策略或联合研究的探索性指标。</dd></div>
-          </dl>
-        </section>
-      </div>
-      <footer class="article-footer">
-        <span>European Journal of Nuclear Medicine and Molecular Imaging</span>
-        <span>2026 Jun 01</span>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/42223630/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42223630/</a>
-      </footer>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="8/14">
-    <div class="slide-inner">
-      <header class="slide-header">
-        <div>
-          <p class="eyebrow">文献 7 / 12</p>
+          <p class="eyebrow">文献 4 / 18</p>
           <h2>Zanubrutinib + lenalidomide 治疗 R/R DLBCL 的 I 期多中心研究</h2>
           <p class="paper-title">Phase 1 study of zanubrutinib plus lenalidomide for patients with relapsed/refractory diffuse large B-cell lymphoma.</p>
         </div>
@@ -863,113 +758,11 @@
     </div>
   </section>
 
-  <section class="slide article-slide" data-count="9/14">
+  <section class="slide article-slide" data-count="6/20">
     <div class="slide-inner">
       <header class="slide-header">
         <div>
-          <p class="eyebrow">文献 8 / 12</p>
-          <h2>Glofitamab 治疗 R/R PCNSL 的多中心真实世界：疗效、CNS 穿透与 CSF ctDNA</h2>
-          <p class="paper-title">Multicenter Real-World Analysis of Glofitamab in Relapsed/Refractory Primary CNS Lymphoma: Clinical Activity, CNS Penetration, and ctDNA Dynamics.</p>
-        </div>
-        <div class="paper-actions">
-          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42035265/" target="_blank" rel="noreferrer">PMID 42035265</a>
-          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42035265/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
-        </div>
-      </header>
-      <div class="tag-strip"><span>PCNSL / 双抗真实世界</span><span>R/R PCNSL</span><span>临床证据；MDAT 窗口内记录更新；近期高相关临床研究</span></div>
-      
-      <div class="pico-grid">
-        <div><b>P</b><span>成人 R/R PCNSL 患者</span></div>
-        <div><b>I</b><span>Glofitamab 单药，部分作为 CAR-T/ASCT 桥接</span></div>
-        <div><b>C</b><span>治疗前后影像、CSF 药物浓度和 ctDNA 动态</span></div>
-        <div><b>O</b><span>ORR、CR、PFS、OS、CNS 穿透、CSF ctDNA、神经毒性</span></div>
-      </div>
-      <div class="article-grid">
-        <section class="panel conclusion">
-          <h3>结论</h3>
-          <p>16 例 R/R PCNSL 多中心真实世界研究显示，glofitamab 单药 interim ORR 75%、CR 50%，可在部分患者 CSF 中检测到药物，并可用 CSF ctDNA 动态辅助监测。</p>
-        </section>
-        <section class="panel">
-          <h3>主要内容</h3>
-          <ul><li>纳入 16 名成人 R/R PCNSL，接受 glofitamab 单药。</li><li>分析配对血浆和 CSF 评估 CNS drug penetration，并进行序贯 CSF ctDNA profiling。</li><li>中位 PFS 15.4 个月，OS 未达到；部分患者用作 CAR-T 或 ASCT 桥接。</li><li>glofitamab 在 60% 患者 CSF 中可检测到；2 例发生 3 级及以上神经毒性并经激素恢复。</li></ul>
-        </section>
-        <section class="panel">
-          <h3>关键信息</h3>
-          <ul><li>CNSL 双抗方向的临床真实世界证据。</li><li>同时提供疗效、CNS 穿透和 CSF ctDNA 动态信息。</li><li>样本量小，且后续 CAR-T/ASCT 可能影响长期结局。</li></ul>
-        </section>
-        <section class="panel implication">
-          <h3>启示</h3>
-          <dl>
-            <div><dt>已验证证据</dt><dd>摘要确认样本量、ORR/CR、PFS、CSF 检出率、ctDNA 动态和神经毒性。</dd></div>
-            <div><dt>论文作者观点</dt><dd>作者认为 glofitamab 在 R/R PCNSL 中显示早期临床活性和可测 CNS 穿透，需前瞻验证。</dd></div>
-            <div><dt>我的推断</dt><dd>CNSL 临床研究应同步记录 CSF 药物浓度、CSF ctDNA、影像反应和桥接/巩固治疗路径。</dd></div>
-          </dl>
-        </section>
-      </div>
-      <footer class="article-footer">
-        <span>American Journal of Hematology</span>
-        <span>2026 Jul</span>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/42035265/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42035265/</a>
-      </footer>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="10/14">
-    <div class="slide-inner">
-      <header class="slide-header">
-        <div>
-          <p class="eyebrow">文献 9 / 12</p>
-          <h2>Pen-RMA 治疗新诊断 PCNSL 的 II 期临床试验</h2>
-          <p class="paper-title">Penpulimab combined with rituximab, high-dose methotrexate, and cytarabine (Pen-RMA) in newly diagnosed primary central nervous system lymphoma (PCNSL): a phase 2 trial.</p>
-        </div>
-        <div class="paper-actions">
-          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/41672977/" target="_blank" rel="noreferrer">PMID 41672977</a>
-          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/41672977/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
-        </div>
-      </header>
-      <div class="tag-strip"><span>PCNSL / II 期临床试验</span><span>newly diagnosed PCNSL</span><span>临床证据；MDAT 窗口内记录更新；近期高相关临床研究</span></div>
-      
-      <div class="pico-grid">
-        <div><b>P</b><span>新诊断 PCNSL 患者</span></div>
-        <div><b>I</b><span>Penpulimab + rituximab + HD-MTX + cytarabine 诱导，随后按年龄/反应巩固或维持</span></div>
-        <div><b>C</b><span>不同巩固路径和历史 PCNSL 治疗背景</span></div>
-        <div><b>O</b><span>ORR、CR、2 年 PFS/OS、TRAE、CSF ctDNA</span></div>
-      </div>
-      <div class="article-grid">
-        <section class="panel conclusion">
-          <h3>结论</h3>
-          <p>NCT05347641 评估 penpulimab + rituximab + HD-MTX + cytarabine，新诊断 PCNSL 中诱导后 ORR 95.7%、CR 91.3%，2 年 PFS 70.7%、OS 75.0%。</p>
-        </section>
-        <section class="panel">
-          <h3>主要内容</h3>
-          <ul><li>患者接受 6 个周期 Pen-RMA，每 3 周一次。</li><li>26 例入组，23 例进入 ITT 分析，中位年龄 65 岁。</li><li>年轻且达到至少 PR 的患者接受 ASCT 后 penpulimab 维持；年长或不适合 ASCT 者按反应接受维持或 WBRT 联合维持。</li><li>3 级及以上治疗相关不良事件发生于 7/23 例；13 例影像 CR 和 1 例 PR 患者进行 CSF ctDNA 监测。</li></ul>
-        </section>
-        <section class="panel">
-          <h3>关键信息</h3>
-          <ul><li>明确临床 II 期试验，适合替代基础研究内容。</li><li>PCNSL 方向同时涉及 PD-1、HD-MTX、ASCT/WBRT 和维持治疗路径。</li><li>样本量小，需进一步验证和长期随访。</li></ul>
-        </section>
-        <section class="panel implication">
-          <h3>启示</h3>
-          <dl>
-            <div><dt>已验证证据</dt><dd>摘要确认试验号、治疗方案、样本量、ORR/CR、2 年 PFS/OS 和安全性。</dd></div>
-            <div><dt>论文作者观点</dt><dd>作者认为 Pen-RMA 在 PCNSL 中显示鼓舞性抗肿瘤活性和可管理毒性。</dd></div>
-            <div><dt>我的推断</dt><dd>PCNSL 方案设计可把免疫治疗、巩固策略和 CSF ctDNA 动态整合到同一临床路径评估中。</dd></div>
-          </dl>
-        </section>
-      </div>
-      <footer class="article-footer">
-        <span>Blood Cancer Journal</span>
-        <span>2026 Feb 11</span>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/41672977/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/41672977/</a>
-      </footer>
-    </div>
-  </section>
-
-  <section class="slide article-slide" data-count="11/14">
-    <div class="slide-inner">
-      <header class="slide-header">
-        <div>
-          <p class="eyebrow">文献 10 / 12</p>
+          <p class="eyebrow">文献 5 / 18</p>
           <h2>R2-GemOx-PD1i 治疗 R/R DLBCL 的多中心单臂 II 期试验</h2>
           <p class="paper-title">Penpulimab in combination with lenalidomide and R-GemOx regimen (R2-GemOx-PD1i) in relapsed or refractory diffuse large B-cell lymphoma: a multicenter, single-arm, phase 2 trial.</p>
         </div>
@@ -1016,11 +809,368 @@
     </div>
   </section>
 
-  <section class="slide article-slide" data-count="12/14">
+  <section class="slide article-slide" data-count="7/20">
     <div class="slide-inner">
       <header class="slide-header">
         <div>
-          <p class="eyebrow">文献 11 / 12</p>
+          <p class="eyebrow">文献 6 / 18</p>
+          <h2>CD3-CD20 双抗治疗 R/R LBCL 中 FDG-PET 动态指标的临床预后价值</h2>
+          <p class="paper-title">Prognostic role of FDG-PET in patients with relapsed/refractory large B-cell lymphoma treated with CD3-CD20 directed bispecific antibodies: a multicentric analysis.</p>
+        </div>
+        <div class="paper-actions">
+          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42223630/" target="_blank" rel="noreferrer">PMID 42223630</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42223630/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+        </div>
+      </header>
+      <div class="tag-strip"><span>双抗 / 临床影像预后</span><span>R/R LBCL</span><span>临床证据；EDAT/PDAT/MDAT 窗口内；PubMed 2026-06-01 新入库</span></div>
+      
+      <div class="pico-grid">
+        <div><b>P</b><span>接受 CD3-CD20 双抗治疗的 R/R LBCL 患者</span></div>
+        <div><b>I</b><span>基线与治疗后 FDG-PET 半定量动态评估</span></div>
+        <div><b>C</b><span>不同 MTV、Deauville score、SUVmean 降幅人群</span></div>
+        <div><b>O</b><span>PFS、OS、进展风险和风险分层能力</span></div>
+      </div>
+      <div class="article-grid">
+        <section class="panel conclusion">
+          <h3>结论</h3>
+          <p>58 例接受 CD3-CD20 双抗的 R/R LBCL 多中心分析显示，基线 MTV、首次随访 Deauville score 和 SUVmean 降幅可识别高进展风险患者。</p>
+        </section>
+        <section class="panel">
+          <h3>主要内容</h3>
+          <ul><li>纳入 58 例有基线 PET 的 R/R LBCL，其中 45 例有双抗启动后首次 PET。</li><li>基线 whole-body MTV &gt; 504.7 cm3 与更短 PFS 相关。</li><li>首次随访 DS4-5 与更高进展风险和较短生存相关。</li><li>未达到 SUVmean 下降 75.5% 与 PFS 和 OS 事件风险增加相关。</li></ul>
+        </section>
+        <section class="panel">
+          <h3>关键信息</h3>
+          <ul><li>这是双抗治疗中的临床影像预后研究，不是基础机制研究。</li><li>有助于把双抗疗效监测从 ORR/CR 扩展到早期动态风险分层。</li><li>样本量有限，但指标具备临床流程可操作性。</li></ul>
+        </section>
+        <section class="panel implication">
+          <h3>启示</h3>
+          <dl>
+            <div><dt>已验证证据</dt><dd>摘要确认 58 例多中心队列、PET 参数和 PFS/OS 关联。</dd></div>
+            <div><dt>论文作者观点</dt><dd>作者认为纵向半定量 PET 可增强双抗治疗人群风险分层和个体化管理。</dd></div>
+            <div><dt>我的推断</dt><dd>双抗临床研究应预设基线 MTV、早期 Deauville score 和 SUVmean 降幅，作为换策略或联合研究的探索性指标。</dd></div>
+          </dl>
+        </section>
+      </div>
+      <footer class="article-footer">
+        <span>European Journal of Nuclear Medicine and Molecular Imaging</span>
+        <span>2026 Jun 01</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42223630/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42223630/</a>
+      </footer>
+    </div>
+  </section>
+
+  <section class="slide article-slide" data-count="8/20">
+    <div class="slide-inner">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">文献 7 / 18</p>
+          <h2>epcoritamab 联合局部放疗获得难治 DLBCL 长期缓解个案</h2>
+          <p class="paper-title">[Long-term remission in refractory diffuse large B-cell lymphoma with concurrent epcoritamab and radiotherapy].</p>
+        </div>
+        <div class="paper-actions">
+          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42236241/" target="_blank" rel="noreferrer">PMID 42236241</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42236241/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+        </div>
+      </header>
+      <div class="tag-strip"><span>双抗 / 个案与局部治疗</span><span>R/R DLBCL</span><span>EDAT/MDAT 窗口内；英文摘要</span></div>
+      
+      <div class="pico-grid">
+        <div><b>P</b><span>87 岁难治 DLBCL 个案，epcoritamab 后局部残留病灶</span></div>
+        <div><b>I</b><span>继续 epcoritamab 同时加用局部放疗</span></div>
+        <div><b>C</b><span>个案内治疗前后影像变化；无独立对照</span></div>
+        <div><b>O</b><span>完全代谢缓解、持续缓解周期和不良事件</span></div>
+      </div>
+      <div class="article-grid">
+        <section class="panel conclusion">
+          <h3>结论</h3>
+          <p>一例 87 岁难治 DLBCL 在 epcoritamab 治疗中对局部残留病灶加用放疗后获得完全代谢缓解，并持续超过 27 个治疗周期。</p>
+        </section>
+        <section class="panel">
+          <h3>主要内容</h3>
+          <ul><li>患者第三线 epcoritamab 第 5 周期后仍有脾脏和纵隔 FDG 高代谢病灶。</li><li>在继续 epcoritamab 同时，对两个部位给予 36 Gy/18 次 VMAT。</li><li>联合治疗后达到完全代谢缓解，未见显著不良事件。</li><li>作者认为局部放疗可能作为双抗治疗中的互补策略。</li></ul>
+        </section>
+        <section class="panel">
+          <h3>关键信息</h3>
+          <ul><li>单病例，证据等级低，但对“免疫治疗中局部残留病灶”很有启发。</li><li>覆盖高龄、重度预处理和局部难治场景。</li><li>不能外推为常规治疗路径。</li></ul>
+        </section>
+        <section class="panel implication">
+          <h3>启示</h3>
+          <dl>
+            <div><dt>已验证证据</dt><dd>摘要确认个案、放疗剂量、持续 epcoritamab 和完全代谢缓解。</dd></div>
+            <div><dt>论文作者观点</dt><dd>作者认为放疗与系统治疗无交叉耐药，可能补充双抗治疗。</dd></div>
+            <div><dt>我的推断</dt><dd>未来可设计小队列探索双抗中局部进展/残留病灶的放疗时机；单例不能支持治疗推荐。</dd></div>
+          </dl>
+        </section>
+      </div>
+      <footer class="article-footer">
+        <span>Rinsho Ketsueki</span>
+        <span>2026</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42236241/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42236241/</a>
+      </footer>
+    </div>
+  </section>
+
+  <section class="slide article-slide" data-count="9/20">
+    <div class="slide-inner">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">文献 8 / 18</p>
+          <h2>Glofitamab 治疗 R/R PCNSL 的多中心真实世界：疗效、CNS 穿透与 CSF ctDNA</h2>
+          <p class="paper-title">Multicenter Real-World Analysis of Glofitamab in Relapsed/Refractory Primary CNS Lymphoma: Clinical Activity, CNS Penetration, and ctDNA Dynamics.</p>
+        </div>
+        <div class="paper-actions">
+          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42035265/" target="_blank" rel="noreferrer">PMID 42035265</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42035265/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+        </div>
+      </header>
+      <div class="tag-strip"><span>PCNSL / 双抗真实世界</span><span>R/R PCNSL</span><span>临床证据；MDAT 窗口内记录更新；近期高相关临床研究</span></div>
+      
+      <div class="pico-grid">
+        <div><b>P</b><span>成人 R/R PCNSL 患者</span></div>
+        <div><b>I</b><span>Glofitamab 单药，部分作为 CAR-T/ASCT 桥接</span></div>
+        <div><b>C</b><span>治疗前后影像、CSF 药物浓度和 ctDNA 动态</span></div>
+        <div><b>O</b><span>ORR、CR、PFS、OS、CNS 穿透、CSF ctDNA、神经毒性</span></div>
+      </div>
+      <div class="article-grid">
+        <section class="panel conclusion">
+          <h3>结论</h3>
+          <p>16 例 R/R PCNSL 多中心真实世界研究显示，glofitamab 单药 interim ORR 75%、CR 50%，可在部分患者 CSF 中检测到药物，并可用 CSF ctDNA 动态辅助监测。</p>
+        </section>
+        <section class="panel">
+          <h3>主要内容</h3>
+          <ul><li>纳入 16 名成人 R/R PCNSL，接受 glofitamab 单药。</li><li>分析配对血浆和 CSF 评估 CNS drug penetration，并进行序贯 CSF ctDNA profiling。</li><li>中位 PFS 15.4 个月，OS 未达到；部分患者用作 CAR-T 或 ASCT 桥接。</li><li>glofitamab 在 60% 患者 CSF 中可检测到；2 例发生 3 级及以上神经毒性并经激素恢复。</li></ul>
+        </section>
+        <section class="panel">
+          <h3>关键信息</h3>
+          <ul><li>CNSL 双抗方向的临床真实世界证据。</li><li>同时提供疗效、CNS 穿透和 CSF ctDNA 动态信息。</li><li>样本量小，且后续 CAR-T/ASCT 可能影响长期结局。</li></ul>
+        </section>
+        <section class="panel implication">
+          <h3>启示</h3>
+          <dl>
+            <div><dt>已验证证据</dt><dd>摘要确认样本量、ORR/CR、PFS、CSF 检出率、ctDNA 动态和神经毒性。</dd></div>
+            <div><dt>论文作者观点</dt><dd>作者认为 glofitamab 在 R/R PCNSL 中显示早期临床活性和可测 CNS 穿透，需前瞻验证。</dd></div>
+            <div><dt>我的推断</dt><dd>CNSL 临床研究应同步记录 CSF 药物浓度、CSF ctDNA、影像反应和桥接/巩固治疗路径。</dd></div>
+          </dl>
+        </section>
+      </div>
+      <footer class="article-footer">
+        <span>American Journal of Hematology</span>
+        <span>2026 Jul</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42035265/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42035265/</a>
+      </footer>
+    </div>
+  </section>
+
+  <section class="slide article-slide" data-count="10/20">
+    <div class="slide-inner">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">文献 9 / 18</p>
+          <h2>Pen-RMA 治疗新诊断 PCNSL 的 II 期临床试验</h2>
+          <p class="paper-title">Penpulimab combined with rituximab, high-dose methotrexate, and cytarabine (Pen-RMA) in newly diagnosed primary central nervous system lymphoma (PCNSL): a phase 2 trial.</p>
+        </div>
+        <div class="paper-actions">
+          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/41672977/" target="_blank" rel="noreferrer">PMID 41672977</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/41672977/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+        </div>
+      </header>
+      <div class="tag-strip"><span>PCNSL / II 期临床试验</span><span>newly diagnosed PCNSL</span><span>临床证据；MDAT 窗口内记录更新；近期高相关临床研究</span></div>
+      
+      <div class="pico-grid">
+        <div><b>P</b><span>新诊断 PCNSL 患者</span></div>
+        <div><b>I</b><span>Penpulimab + rituximab + HD-MTX + cytarabine 诱导，随后按年龄/反应巩固或维持</span></div>
+        <div><b>C</b><span>不同巩固路径和历史 PCNSL 治疗背景</span></div>
+        <div><b>O</b><span>ORR、CR、2 年 PFS/OS、TRAE、CSF ctDNA</span></div>
+      </div>
+      <div class="article-grid">
+        <section class="panel conclusion">
+          <h3>结论</h3>
+          <p>NCT05347641 评估 penpulimab + rituximab + HD-MTX + cytarabine，新诊断 PCNSL 中诱导后 ORR 95.7%、CR 91.3%，2 年 PFS 70.7%、OS 75.0%。</p>
+        </section>
+        <section class="panel">
+          <h3>主要内容</h3>
+          <ul><li>患者接受 6 个周期 Pen-RMA，每 3 周一次。</li><li>26 例入组，23 例进入 ITT 分析，中位年龄 65 岁。</li><li>年轻且达到至少 PR 的患者接受 ASCT 后 penpulimab 维持；年长或不适合 ASCT 者按反应接受维持或 WBRT 联合维持。</li><li>3 级及以上治疗相关不良事件发生于 7/23 例；13 例影像 CR 和 1 例 PR 患者进行 CSF ctDNA 监测。</li></ul>
+        </section>
+        <section class="panel">
+          <h3>关键信息</h3>
+          <ul><li>明确临床 II 期试验，适合替代基础研究内容。</li><li>PCNSL 方向同时涉及 PD-1、HD-MTX、ASCT/WBRT 和维持治疗路径。</li><li>样本量小，需进一步验证和长期随访。</li></ul>
+        </section>
+        <section class="panel implication">
+          <h3>启示</h3>
+          <dl>
+            <div><dt>已验证证据</dt><dd>摘要确认试验号、治疗方案、样本量、ORR/CR、2 年 PFS/OS 和安全性。</dd></div>
+            <div><dt>论文作者观点</dt><dd>作者认为 Pen-RMA 在 PCNSL 中显示鼓舞性抗肿瘤活性和可管理毒性。</dd></div>
+            <div><dt>我的推断</dt><dd>PCNSL 方案设计可把免疫治疗、巩固策略和 CSF ctDNA 动态整合到同一临床路径评估中。</dd></div>
+          </dl>
+        </section>
+      </div>
+      <footer class="article-footer">
+        <span>Blood Cancer Journal</span>
+        <span>2026 Feb 11</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/41672977/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/41672977/</a>
+      </footer>
+    </div>
+  </section>
+
+  <section class="slide article-slide" data-count="11/20">
+    <div class="slide-inner">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">文献 10 / 18</p>
+          <h2>PRICELUS：CSF MYD88、IL-10、CXCL13 诊断 CNS 淋巴瘤的多中心前瞻队列</h2>
+          <p class="paper-title">Diagnosis of primary CNS lymphoma through molecular and immune biomarkers in cerebrospinal fluid (PRICELUS): a multicentre, prospective, cohort study.</p>
+        </div>
+        <div class="paper-actions">
+          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42242260/" target="_blank" rel="noreferrer">PMID 42242260</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42242260/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+        </div>
+      </header>
+      <div class="tag-strip"><span>PCNSL / 前瞻诊断队列</span><span>PCNSL / secondary CNS lymphoma</span><span>临床证据；EDAT/PDAT/MDAT 窗口内；PubMed 2026-06-05 新入库</span></div>
+      
+      <div class="pico-grid">
+        <div><b>P</b><span>疑似 primary CNS lymphoma 且接受 CSF 分析的成人患者</span></div>
+        <div><b>I</b><span>CSF MYD88 L265P、IL-10、CXCL13 联合检测</span></div>
+        <div><b>C</b><span>最终临床诊断与常规诊断路径</span></div>
+        <div><b>O</b><span>敏感性、特异性、阴性预测值、潜在非侵入性诊断支持</span></div>
+      </div>
+      <div class="article-grid">
+        <section class="panel conclusion">
+          <h3>结论</h3>
+          <p>在疑似 PCNSL 的 255 例前瞻队列中，CSF MYD88、IL-10、CXCL13 联合检测显示较高诊断价值；三项全阴性时阴性预测值为 99.4%。</p>
+        </section>
+        <section class="panel">
+          <h3>主要内容</h3>
+          <ul><li>荷兰 5 家医院纳入疑似 PCNSL 且接受 CSF 分析的成人患者。</li><li>50 例最终诊断为 CNS lymphoma，其中 44 例 PCNSL、6 例 secondary CNS lymphoma。</li><li>CSF MYD88 检出敏感性 56.0%，特异性 98.5%。</li><li>MYD88 阳性并伴 IL-10 或 CXCL13 升高时特异性达到 100.0%；三项均阴性时 NPV 为 99.4%。</li></ul>
+        </section>
+        <section class="panel">
+          <h3>关键信息</h3>
+          <ul><li>前瞻、多中心、临床诊断验证研究，非基础研究。</li><li>价值在于为疑似 PCNSL 的非侵入性诊断路径提供临床证据。</li><li>作者提醒算法和诊断树来自同一队列，仍需外部验证。</li></ul>
+        </section>
+        <section class="panel implication">
+          <h3>启示</h3>
+          <dl>
+            <div><dt>已验证证据</dt><dd>摘要确认队列规模、病例构成、MYD88/IL-10/CXCL13 表现和 NPV。</dd></div>
+            <div><dt>论文作者观点</dt><dd>作者认为联合 CSF biomarker 在特定场景中可能支持非侵入性诊断决策。</dd></div>
+            <div><dt>我的推断</dt><dd>CNSL 临床试验可把 CSF 标志物作为入组确认、疗效监测和分层字段，但不能替代完整临床诊断。</dd></div>
+          </dl>
+        </section>
+      </div>
+      <footer class="article-footer">
+        <span>The Lancet Haematology</span>
+        <span>2026 Jun</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42242260/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42242260/</a>
+      </footer>
+    </div>
+  </section>
+
+  <section class="slide article-slide" data-count="12/20">
+    <div class="slide-inner">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">文献 11 / 18</p>
+          <h2>CAR-T 批准后 LBCL 真实世界治疗路径与可及性</h2>
+          <p class="paper-title">Real-World Treatment Patterns of Patients with Large B-cell Lymphoma Over Time and into a Post-CAR T Approval Era.</p>
+        </div>
+        <div class="paper-actions">
+          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42234934/" target="_blank" rel="noreferrer">PMID 42234934</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42234934/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+        </div>
+      </header>
+      <div class="tag-strip"><span>CAR-T / 真实世界治疗路径</span><span>LBCL</span><span>临床证据；EDAT/PDAT/MDAT 窗口内；PubMed 2026-06-03 新入库</span></div>
+      
+      <div class="pico-grid">
+        <div><b>P</b><span>真实世界启动一线治疗的 LBCL 患者及潜在 CAR-T 适合者</span></div>
+        <div><b>I</b><span>CAR-T 批准时代的治疗路径观察</span></div>
+        <div><b>C</b><span>不同治疗线、FDA 适应证批准前后、fit vs non-fit 人群</span></div>
+        <div><b>O</b><span>二线前死亡、二线/三线 CAR-T 使用率、治疗路径可及性</span></div>
+      </div>
+      <div class="article-grid">
+        <section class="panel conclusion">
+          <h3>结论</h3>
+          <p>Flatiron 数据显示，真实世界中相当一部分 LBCL 患者在有机会接受二线治疗前死亡；即使被认为适合 CAR-T，二线和三线 CAR-T 使用率仍偏低。</p>
+        </section>
+        <section class="panel">
+          <h3>主要内容</h3>
+          <ul><li>纳入 2011-2024 年启动一线治疗的 10,016 例 LBCL。</li><li>13% 患者一线启动后 1 年内死亡且未进入二线，30% 启动二线治疗。</li><li>在被认为适合且 fit for CAR-T 的患者中，二线 CAR-T 使用率 25%，三线使用率 36%。</li><li>研究强调社区肿瘤医生与 CAR-T 中心早期协作、可及性和患者认知。</li></ul>
+        </section>
+        <section class="panel">
+          <h3>关键信息</h3>
+          <ul><li>真实世界临床路径研究，重点不是药物本身 ORR，而是患者能否走到有效治疗。</li><li>把 CAR-T 研究从疗效延伸到转诊、时间窗和可及性。</li><li>可作为后续实施研究和区域路径优化的临床证据。</li></ul>
+        </section>
+        <section class="panel implication">
+          <h3>启示</h3>
+          <dl>
+            <div><dt>已验证证据</dt><dd>摘要确认样本量、二线前死亡比例、二线/三线 CAR-T 使用比例。</dd></div>
+            <div><dt>论文作者观点</dt><dd>作者认为需要更早的社区-中心协作、改善可及性和患者认知策略。</dd></div>
+            <div><dt>我的推断</dt><dd>未来临床研究应把转诊时间、CAR-T eligibility、二线前死亡和中心协作纳入固定字段。</dd></div>
+          </dl>
+        </section>
+      </div>
+      <footer class="article-footer">
+        <span>Blood Advances</span>
+        <span>2026 Jun 03</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42234934/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42234934/</a>
+      </footer>
+    </div>
+  </section>
+
+  <section class="slide article-slide" data-count="13/20">
+    <div class="slide-inner">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">文献 12 / 18</p>
+          <h2>ALPHA/ALPHA2：异体 CD19 CAR-T cema-cel / ALLO-501 治疗 R/R LBCL</h2>
+          <p class="paper-title">Allogeneic Chimeric Antigen Receptor T-Cell Products Cemacabtagene Ansegedleucel/ALLO-501 in Relapsed/Refractory Large B-Cell Lymphoma: Phase I Experience From the ALPHA2/ALPHA Clinical Studies.</p>
+        </div>
+        <div class="paper-actions">
+          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/39946666/" target="_blank" rel="noreferrer">PMID 39946666</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/39946666/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+        </div>
+      </header>
+      <div class="tag-strip"><span>CAR-T / 异体现货型细胞治疗 I 期</span><span>R/R LBCL</span><span>MDAT 近7天窗口命中；原始发表日期早于本周，不是近7天新发表</span></div>
+      
+      <div class="pico-grid">
+        <div><b>P</b><span>CD19 CAR-T 初治的 R/R LBCL 患者</span></div>
+        <div><b>I</b><span>健康供者来源异体 CD19 CAR-T cema-cel / ALLO-501</span></div>
+        <div><b>C</b><span>I 期剂量/产品经验；非随机对照</span></div>
+        <div><b>O</b><span>ORR、CR、DOR、CAR-T 扩增/持久性、GVHD、CRS、ICANS、血液学毒性</span></div>
+      </div>
+      <div class="article-grid">
+        <section class="panel conclusion">
+          <h3>结论</h3>
+          <p>I 期 ALPHA2/ALPHA 经验显示，异体 CD19 CAR-T 在 CD19 CAR-T 初治 R/R LBCL 中达到 ORR 58%、CR 42%，且未报告 GVHD、ICANS 或 3 级及以上 CRS。</p>
+        </section>
+        <section class="panel">
+          <h3>主要内容</h3>
+          <ul><li>33 例 CD19 CAR-T 初治 R/R LBCL 接受供者来源、HLA 不匹配的 cema-cel/ALLO-501。</li><li>淋巴清除方案包括 fludarabine、cyclophosphamide 和抗 CD52 抗体 ALLO-647。</li><li>可观察到 CAR-T 扩增，部分患者持久性可达 4 个月。</li><li>CR 患者中位 DOR 为 23.1 个月；最常见 TEAE 为血液学毒性。</li></ul>
+        </section>
+        <section class="panel">
+          <h3>关键信息</h3>
+          <ul><li>异体现货型 CAR-T 直接回应可及性和等待时间问题。</li><li>样本量小、I 期性质明确，不能与已上市自体 CAR-T 直接作疗效替代判断。</li><li>GVHD、ICANS 和高级别 CRS 未见报告，是值得后续验证的安全性信号。</li></ul>
+        </section>
+        <section class="panel implication">
+          <h3>启示</h3>
+          <dl>
+            <div><dt>已验证证据</dt><dd>PubMed 摘要确认样本量、治疗构成、ORR/CR、DOR、安全性和未见 GVHD/ICANS/高级别 CRS。</dd></div>
+            <div><dt>论文作者观点</dt><dd>作者认为异体 CD19 CAR-T 显示有希望的总体反应和持久 CR，并支持继续评估 cema-cel。</dd></div>
+            <div><dt>我的推断</dt><dd>未来 LBCL 细胞治疗研究应把制造等待时间、桥接治疗、供者来源免疫风险和可及性作为固定字段；这不是治疗推荐。</dd></div>
+          </dl>
+        </section>
+      </div>
+      <footer class="article-footer">
+        <span>Journal of clinical oncology : official journal of the American Society of Clinical Oncology</span>
+        <span>2025 May 10</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/39946666/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/39946666/</a>
+      </footer>
+    </div>
+  </section>
+
+  <section class="slide article-slide" data-count="14/20">
+    <div class="slide-inner">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">文献 13 / 18</p>
           <h2>CD19 CAR-T 后 prolonged CRS 与低纤维蛋白原血症相关</h2>
           <p class="paper-title">Prolonged Cytokine Release Syndrome is Associated with Hypofibrinogenemia after CD19-Directed CAR T-Cell Therapy in Adult Patients with Relapsed/Refractory Lymphoma.</p>
         </div>
@@ -1067,11 +1217,11 @@
     </div>
   </section>
 
-  <section class="slide article-slide" data-count="13/14">
+  <section class="slide article-slide" data-count="15/20">
     <div class="slide-inner">
       <header class="slide-header">
         <div>
-          <p class="eyebrow">文献 12 / 12</p>
+          <p class="eyebrow">文献 14 / 18</p>
           <h2>BTKi 治疗后侵袭性真菌感染的系统综述与 Meta 分析</h2>
           <p class="paper-title">Invasive Fungal Infections Following Bruton Tyrosine Kinase Inhibitor Treatment: A Systematic Review and Meta-analysis.</p>
         </div>
@@ -1118,22 +1268,226 @@
     </div>
   </section>
 
-  <section class="slide judgment-slide" data-count="14/14">
+  <section class="slide article-slide" data-count="16/20">
+    <div class="slide-inner">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">文献 15 / 18</p>
+          <h2>高 HBV DNA 负荷 DLBCL 中同步抗病毒与免疫化疗的多中心队列</h2>
+          <p class="paper-title">Concurrent antiviral-immunochemotherapy strategy safely overcomes high hepatitis B viral load barrier in diffuse large B-cell lymphoma: A multicentre cohort study.</p>
+        </div>
+        <div class="paper-actions">
+          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42226728/" target="_blank" rel="noreferrer">PMID 42226728</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42226728/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+        </div>
+      </header>
+      <div class="tag-strip"><span>DLBCL / 感染安全性临床队列</span><span>DLBCL 合并慢性 HBV</span><span>临床证据；EDAT/PDAT/MDAT 窗口内；PubMed 2026-06-02 新入库</span></div>
+      
+      <div class="pico-grid">
+        <div><b>P</b><span>新诊断 DLBCL 合并慢性 HBV，含高基线 HBV DNA 患者</span></div>
+        <div><b>I</b><span>同步抗病毒预防与免疫化疗</span></div>
+        <div><b>C</b><span>低 HBV DNA 负荷人群及不同病毒动力学</span></div>
+        <div><b>O</b><span>HBV DNA 抑制、HBVr、肝毒性、PFS、ORR、CR</span></div>
+      </div>
+      <div class="article-grid">
+        <section class="panel conclusion">
+          <h3>结论</h3>
+          <p>112 例慢性 HBV 合并新诊断 DLBCL 队列显示，同步启动抗病毒预防和免疫化疗可在高病毒负荷患者中控制 HBV DNA，并保持较低 HBV 再激活率。</p>
+        </section>
+        <section class="panel">
+          <h3>主要内容</h3>
+          <ul><li>多中心回顾分析 1120 例新诊断 DLBCL 中的 112 例慢性 HBV 患者。</li><li>按基线 HBV DNA 分为低负荷 82 例和高负荷 30 例。</li><li>高负荷患者使用以 entecavir 为主的抗病毒治疗后 HBV DNA 可降至不可测。</li><li>3 年累计 HBV reactivation 总体 4.2%；高负荷 4.5%、低负荷 4.1%；3 年 PFS 与 ORR/CR 相近。</li></ul>
+        </section>
+        <section class="panel">
+          <h3>关键信息</h3>
+          <ul><li>临床安全性和治疗可及性研究，直接关系免疫化疗启动时机。</li><li>研究问题是“高 HBV DNA 是否必须延迟免疫化疗”。</li><li>仍需注意停用抗病毒后致死性 HBV reactivation 个案。</li></ul>
+        </section>
+        <section class="panel implication">
+          <h3>启示</h3>
+          <dl>
+            <div><dt>已验证证据</dt><dd>摘要确认队列规模、病毒负荷分层、HBVr 比例和临床结局比较。</dd></div>
+            <div><dt>论文作者观点</dt><dd>作者认为同步抗病毒预防与免疫化疗安全有效，可使高 HBV DNA 患者及时接受治疗。</dd></div>
+            <div><dt>我的推断</dt><dd>后续 DLBCL 临床研究应把 HBV DNA、抗病毒启动时间、停药后监测和肝毒性作为安全性字段。</dd></div>
+          </dl>
+        </section>
+      </div>
+      <footer class="article-footer">
+        <span>British Journal of Haematology</span>
+        <span>2026 Jun 02</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42226728/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42226728/</a>
+      </footer>
+    </div>
+  </section>
+
+  <section class="slide article-slide" data-count="17/20">
+    <div class="slide-inner">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">文献 16 / 18</p>
+          <h2>DLBCL 一线治疗后 CR 人群的动态复发风险工具</h2>
+          <p class="paper-title">Development and Validation of a Novel Conditional Event-Free Survival Tool in Diffuse Large B-Cell Lymphoma.</p>
+        </div>
+        <div class="paper-actions">
+          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42240061/" target="_blank" rel="noreferrer">PMID 42240061</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42240061/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+        </div>
+      </header>
+      <div class="tag-strip"><span>预后模型 / 临床验证</span><span>DLBCL</span><span>临床证据；EDAT/PDAT/MDAT 窗口内；PubMed 2026-06-04 新入库</span></div>
+      
+      <div class="pico-grid">
+        <div><b>P</b><span>一线免疫化疗后 CR 或治疗结束 12 周内无事件的 DLBCL 患者</span></div>
+        <div><b>I</b><span>conditional EFS 动态预测工具</span></div>
+        <div><b>C</b><span>传统基线风险模型/固定起点风险评估</span></div>
+        <div><b>O</b><span>复发/事件风险预测、C-index、外部验证表现</span></div>
+      </div>
+      <div class="article-grid">
+        <section class="panel conclusion">
+          <h3>结论</h3>
+          <p>研究基于 2 个观察队列和 4 个随机试验建立并外部验证 conditional EFS 工具，用基线风险和已缓解时间动态估计 DLBCL 一线治疗后复发风险。</p>
+        </section>
+        <section class="panel">
+          <h3>主要内容</h3>
+          <ul><li>开发数据来自 2757 例新诊断 DLBCL，均接受免疫化疗并达到 CR 或治疗结束 12 周内未发生事件。</li><li>模型核心变量为年龄、ECOG、Ann Arbor 分期和 LDH，再叠加已缓解时间。</li><li>开发队列 C-index 0.65，外部验证队列 C-index 0.64。</li><li>工具用于治疗完成后的随访风险沟通和长期规划，而不是新药疗效评价。</li></ul>
+        </section>
+        <section class="panel">
+          <h3>关键信息</h3>
+          <ul><li>临床队列 + RCT pooled data + 外部验证，符合临床研究标准。</li><li>强调“治疗后动态风险”，不是只用基线 IPI。</li><li>可用于临床研究中定义随访强度、survivorship 和复发风险沟通变量。</li></ul>
+        </section>
+        <section class="panel implication">
+          <h3>启示</h3>
+          <dl>
+            <div><dt>已验证证据</dt><dd>摘要确认样本来源、变量、外部验证和 C-index。</dd></div>
+            <div><dt>论文作者观点</dt><dd>作者认为动态风险工具有助于数据驱动的监测建议和患者长期规划。</dd></div>
+            <div><dt>我的推断</dt><dd>后续临床研究可把已缓解时间作为动态风险维度；这不是个体随访建议。</dd></div>
+          </dl>
+        </section>
+      </div>
+      <footer class="article-footer">
+        <span>American Journal of Hematology</span>
+        <span>2026 Jun 04</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42240061/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42240061/</a>
+      </footer>
+    </div>
+  </section>
+
+  <section class="slide article-slide" data-count="18/20">
+    <div class="slide-inner">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">文献 17 / 18</p>
+          <h2>TNFRSF1A+ 巨噬细胞：DLBCL 微环境中的预后和潜在靶点</h2>
+          <p class="paper-title">Integrative Multiomics and Single-Cell Profiling Identify TNFRSF1A+ Macrophages as a Prognostic and Therapeutic Target in Diffuse Large B-cell Lymphoma.</p>
+        </div>
+        <div class="paper-actions">
+          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42231904/" target="_blank" rel="noreferrer">PMID 42231904</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42231904/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+        </div>
+      </header>
+      <div class="tag-strip"><span>机制 / 微环境靶点</span><span>DLBCL</span><span>EDAT/PDAT/MDAT 窗口内</span></div>
+      
+      <div class="pico-grid">
+        <div><b>P</b><span>DLBCL 多组学/单细胞队列及体外共培养模型</span></div>
+        <div><b>I</b><span>TNFRSF1A+ 肿瘤相关巨噬细胞和 TNFRSF1A/NF-kB/BAFF 轴</span></div>
+        <div><b>C</b><span>低/高 TNFRSF1A TAM 签名及敲低/扰动前后</span></div>
+        <div><b>O</b><span>预后、R-CHOP 耐药预测、TAM 支持效应和候选靶点</span></div>
+      </div>
+      <div class="article-grid">
+        <section class="panel conclusion">
+          <h3>结论</h3>
+          <p>多组学和单细胞分析提示 TNFRSF1A+ TAM 与 R-CHOP 耐药预测和免疫抑制微环境相关，TNFRSF1A/NF-kB/BAFF 轴可能是微环境脆弱点。</p>
+        </section>
+        <section class="panel">
+          <h3>主要内容</h3>
+          <ul><li>整合多组学、单细胞和配体-受体网络定位 TNFRSF1A 至肿瘤相关巨噬细胞。</li><li>TNFRSF1A+ TAM 通过 NF-kB 依赖 BAFF 分泌和 PD-L1/PD-L2 表达支持肿瘤。</li><li>siRNA 敲低和共培养实验验证破坏该轴可削弱 TAM 对淋巴瘤细胞的保护。</li><li>作者还提出 curcumin 可能调节相关信号，但该点更偏探索。</li></ul>
+        </section>
+        <section class="panel">
+          <h3>关键信息</h3>
+          <ul><li>把 DLBCL 耐药从肿瘤细胞扩展到 TAM 生态位。</li><li>有实验验证，但仍以计算和体外模型为主。</li><li>适合进入“机制/转化研究”栏，不应过度解读为可用疗法。</li></ul>
+        </section>
+        <section class="panel implication">
+          <h3>启示</h3>
+          <dl>
+            <div><dt>已验证证据</dt><dd>摘要确认 TNFRSF1A+ TAM、NF-kB/BAFF 轴和体外验证。</dd></div>
+            <div><dt>论文作者观点</dt><dd>作者提出 TNFRSF1A+ TAM 是 DLBCL 进展和治疗靶向的潜在脆弱点。</dd></div>
+            <div><dt>我的推断</dt><dd>未来联合方案可考虑微环境分层和 TAM 相关标志物，但 curcumin 相关结论需要更高层级验证。</dd></div>
+          </dl>
+        </section>
+      </div>
+      <footer class="article-footer">
+        <span>Computational and Structural Biotechnology Journal</span>
+        <span>2026</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42231904/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42231904/</a>
+      </footer>
+    </div>
+  </section>
+
+  <section class="slide article-slide" data-count="19/20">
+    <div class="slide-inner">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">文献 18 / 18</p>
+          <h2>PCNSL 免疫微环境综述：从风险分层到免疫治疗</h2>
+          <p class="paper-title">Unraveling the immune microenvironment in primary CNS lymphoma.</p>
+        </div>
+        <div class="paper-actions">
+          <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42226261/" target="_blank" rel="noreferrer">PMID 42226261</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42226261/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+        </div>
+      </header>
+      <div class="tag-strip"><span>PCNSL / 免疫微环境</span><span>PCNSL</span><span>EDAT/PDAT/MDAT 窗口内</span></div>
+      
+      <div class="pico-grid">
+        <div><b>P</b><span>PCNSL 文献和免疫微环境研究证据</span></div>
+        <div><b>I</b><span>免疫微环境变量：M2 巨噬细胞、CD8+T、IL-10、T-cell 策略</span></div>
+        <div><b>C</b><span>不同免疫生态和现有 HD-MTX/巩固治疗框架</span></div>
+        <div><b>O</b><span>生存、免疫治疗可行性、风险分层和未来研究方向</span></div>
+      </div>
+      <div class="article-grid">
+        <section class="panel conclusion">
+          <h3>结论</h3>
+          <p>PCNSL 预后不只由肿瘤细胞决定，M2 样巨噬细胞、低 CD8+ T 细胞和 IL-10 等免疫微环境特征与结局和免疫治疗可行性相关。</p>
+        </section>
+        <section class="panel">
+          <h3>主要内容</h3>
+          <ul><li>综述 PCNSL 肿瘤浸润淋巴细胞、巨噬细胞和树突细胞对免疫生态的影响。</li><li>免疫抑制微环境与不良生存相关，T 细胞免疫丰度与更好结局相关。</li><li>HD-MTX 为核心的诱导和强化巩固仍是当前主线。</li><li>checkpoint inhibitor、T-cell engager、CAR-T 等 T 细胞策略已有鼓舞性信号。</li></ul>
+        </section>
+        <section class="panel">
+          <h3>关键信息</h3>
+          <ul><li>这是综述，不提供新的单一试验疗效数字。</li><li>重要点在于把 CNS 免疫特权、免疫逃逸和治疗策略连接起来。</li><li>为 PCNSL 免疫治疗研究提供风险分层变量框架。</li></ul>
+        </section>
+        <section class="panel implication">
+          <h3>启示</h3>
+          <dl>
+            <div><dt>已验证证据</dt><dd>摘要确认综述主题为 PCNSL 免疫微环境和未来治疗策略。</dd></div>
+            <div><dt>论文作者观点</dt><dd>作者主张未来风险分层应验证并整合免疫或炎症生物标志物。</dd></div>
+            <div><dt>我的推断</dt><dd>CNSL 日报应单列“免疫微环境/血脑屏障/免疫特权”标签，避免把系统性 LBCL 逻辑直接外推。</dd></div>
+          </dl>
+        </section>
+      </div>
+      <footer class="article-footer">
+        <span>Biomarker Research</span>
+        <span>2026 May 30</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42226261/" target="_blank" rel="noreferrer">https://pubmed.ncbi.nlm.nih.gov/42226261/</a>
+      </footer>
+    </div>
+  </section>
+
+  <section class="slide judgment-slide" data-count="20/20">
     <div class="slide-inner">
       <p class="eyebrow">今日综合判断 · 2026-06-06</p>
       <h2>今天的信号不是单一药物热点，而是“疗效前移 + 治疗可及 + CNS/微环境分层 + 安全管理”同步推进</h2>
       <div class="judgment-grid">
         <section class="panel">
           <h3>已验证证据</h3>
-          <p>本次重新检索 PubMed 官方窗口 EDAT 42、PDAT 65、MDAT 212，去重 227 条候选；按“临床证据版”重筛后纳入 12 篇，均为临床试验、临床队列、真实世界、临床安全性、诊断/预后临床验证或系统综述/Meta。</p>
+          <p>本轮 PubMed 官方窗口复跑命中 EDAT 44、PDAT 68、MDAT 219，去重候选 227 条；最终入页 18 篇，覆盖双抗+ADC、ADC、BTKi 联合、CAR-T/异体 CAR-T、PCNSL、真实世界、安全性、预后工具和机制/转化。</p>
         </section>
         <section class="panel">
           <h3>论文作者观点</h3>
-          <p>这些临床研究共同强调：R/R DLBCL 的 ADC、BTKi 联合、PD-1 联合、双抗、CAR-T 与 PCNSL 方案，都需要把患者选择、治疗路径、CNS/CSF 指标、感染/凝血/神经毒性和真实世界可及性放在同一临床评价框架里。</p>
+          <p>入页研究的作者观点共同指向：R/R LBCL 和 PCNSL 的治疗证据正在从单药疗效扩展到固定疗程联合、细胞治疗可及性、CNS/CSF 监测、感染/凝血/神经毒性管理和动态风险分层。</p>
         </section>
         <section class="panel">
           <h3>我的推断</h3>
-          <p>今天的临床版信号是：治疗选择已经足够多，真正影响研究设计的是“谁能及时接受治疗、如何分层、如何监测 CNS/CSF、如何管理感染和细胞治疗毒性”。后续日报应默认优先临床证据，基础/机制内容仅在用户明确要求时补充。</p>
+          <p>我的推断是，后续日报应默认保留“治疗路径变量”：治疗线数、移植/CAR-T 适合性、桥接或巩固策略、CNS/CSF 指标、基线肿瘤负荷、微环境/分子分层和关键安全性窗口；这些用于研究设计启示，不构成医疗建议。</p>
         </section>
       </div>
       <div class="judgment-grid">
