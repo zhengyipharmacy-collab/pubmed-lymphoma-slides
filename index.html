@@ -4,357 +4,384 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PubMed DLBCL/CNSL 新治疗文献监测 - 2026-06-12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #101316;
-      --ink: #f2f5f3;
-      --muted: #aeb8b1;
-      --line: rgba(242, 245, 243, 0.16);
-      --panel: rgba(255, 255, 255, 0.075);
-      --panel-strong: rgba(255, 255, 255, 0.12);
-      --accent: #65d6ad;
-      --accent-2: #f2c14e;
-      --accent-3: #8ec5ff;
-      --danger: #ff8a80;
-      font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+      color-scheme: light;
+      --paper: #f5f2ea;
+      --ink: #182026;
+      --muted: #5b646b;
+      --line: rgba(24, 32, 38, 0.16);
+      --panel: rgba(255, 255, 255, 0.74);
+      --panel-strong: #ffffff;
+      --green: #286a5b;
+      --red: #9c3d35;
+      --blue: #2f5f9d;
+      --gold: #b26b16;
+      --shadow: rgba(24, 32, 38, 0.12);
+      --pad: clamp(0.7rem, 1.45vw, 1.45rem);
+      --gap: clamp(0.45rem, 0.8vw, 0.8rem);
+      --body: clamp(0.68rem, 0.78vw, 0.9rem);
+      --small: clamp(0.58rem, 0.68vw, 0.78rem);
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html, body { height: 100%; overflow-x: hidden; }
+    html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
     body {
       margin: 0;
-      background:
-        linear-gradient(135deg, rgba(101, 214, 173, 0.12), transparent 34%),
-        linear-gradient(315deg, rgba(142, 197, 255, 0.14), transparent 28%),
-        var(--bg);
       color: var(--ink);
+      font-family: "Noto Sans SC", sans-serif;
+      background:
+        linear-gradient(135deg, rgba(40, 106, 91, 0.10) 0 1px, transparent 1px 28px),
+        linear-gradient(45deg, rgba(156, 61, 53, 0.08) 0 1px, transparent 1px 38px),
+        radial-gradient(circle at 12% 18%, rgba(178, 107, 22, 0.16), transparent 25%),
+        radial-gradient(circle at 84% 74%, rgba(47, 95, 157, 0.12), transparent 28%),
+        var(--paper);
     }
-    a { color: inherit; text-decoration: none; }
+    a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
     .progress {
       position: fixed;
       inset: 0 auto auto 0;
-      height: 4px;
       width: 0;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      z-index: 20;
-      transition: width 0.2s ease;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--gold), var(--red));
+      z-index: 30;
+      transition: width 0.18s ease;
     }
     .dots {
       position: fixed;
-      right: 1rem;
+      right: 0.7rem;
       top: 50%;
       transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-      z-index: 15;
+      display: grid;
+      gap: 0.35rem;
+      z-index: 25;
     }
     .dots button {
-      width: 0.62rem;
-      height: 0.62rem;
-      border: 1px solid var(--line);
+      width: 0.48rem;
+      height: 0.48rem;
+      border: 1px solid rgba(24, 32, 38, 0.28);
       border-radius: 50%;
-      background: rgba(255,255,255,0.22);
+      background: rgba(255, 255, 255, 0.55);
+      padding: 0;
       cursor: pointer;
     }
-    .dots button.active { background: var(--accent); border-color: var(--accent); }
+    .dots button.active { background: var(--red); transform: scale(1.35); }
     .slide {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 1.1rem 3.2rem 1.1rem 1.1rem;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
       scroll-snap-align: start;
+      display: flex;
+      padding: 0.85rem 2rem 0.85rem 0.85rem;
+      position: relative;
+    }
+    .slide::after {
+      content: attr(data-count);
+      position: absolute;
+      right: 0.9rem;
+      bottom: 0.55rem;
+      color: var(--muted);
+      font-size: var(--small);
+      font-weight: 900;
     }
     .slide-inner {
-      width: min(1480px, 100%);
-      min-height: calc(100vh - 2.2rem);
+      width: min(1540px, 100%);
+      height: 100%;
+      min-height: 0;
       margin: 0 auto;
       border: 1px solid var(--line);
-      background: rgba(16, 19, 22, 0.86);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
-      padding: clamp(1rem, 1.7vw, 2rem);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(248, 247, 243, 0.94));
+      box-shadow: 0 24px 60px var(--shadow);
+      padding: var(--pad);
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-    }
-    .cover-layout {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 1rem;
-      flex: 1;
-      min-height: 0;
-    }
-    .eyebrow {
-      margin: 0 0 0.5rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      font-weight: 700;
+      gap: var(--gap);
+      overflow: hidden;
     }
     h1, h2, h3, p { margin: 0; }
+    h1, h2 { font-family: "Noto Serif SC", serif; letter-spacing: 0; }
     h1 {
-      font-size: clamp(2.2rem, 4.8vw, 5rem);
-      line-height: 1;
-      max-width: 12ch;
+      font-size: clamp(2rem, 4.2vw, 4.6rem);
+      line-height: 1.04;
+      max-width: 10.8em;
     }
     h2 {
-      font-size: clamp(1.45rem, 2.2vw, 2.55rem);
-      line-height: 1.1;
-      letter-spacing: 0;
+      font-size: clamp(1.15rem, 1.65vw, 2.05rem);
+      line-height: 1.15;
     }
     h3 {
-      color: var(--accent-2);
-      font-size: 0.94rem;
-      margin-bottom: 0.45rem;
+      color: var(--green);
+      font-size: clamp(0.74rem, 0.88vw, 0.98rem);
+      margin-bottom: 0.32rem;
+      font-weight: 900;
+    }
+    p, li, dd, td, th { font-size: var(--body); line-height: 1.36; }
+    .eyebrow {
+      color: var(--red);
+      font-size: var(--small);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+    .cover-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: var(--gap);
+      min-height: 0;
+      flex: 1;
+    }
+    .cover-main, .cover-note, .panel, .stat-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      min-height: 0;
+      overflow: hidden;
+    }
+    .cover-main {
+      padding: clamp(1rem, 2.4vw, 2.5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .subtitle {
-      margin-top: 1rem;
       color: var(--muted);
-      font-size: clamp(0.95rem, 1.25vw, 1.16rem);
-      line-height: 1.55;
-      max-width: 68ch;
+      margin-top: 0.85rem;
+      max-width: 58rem;
     }
     .stats {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.7rem;
-      margin-top: 1.15rem;
+      gap: 0.5rem;
+      margin-top: 1rem;
     }
-    .stat {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      padding: 0.8rem;
-      min-height: 5.8rem;
+    .stat-card {
+      padding: 0.65rem;
+      min-height: 5.2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .stat span { color: var(--muted); font-size: 0.82rem; }
-    .stat strong { font-size: clamp(1.8rem, 3.2vw, 3rem); line-height: 1; }
-    .cover-note, .panel {
-      background: var(--panel);
+    .stat-card span { color: var(--muted); font-size: var(--small); font-weight: 800; }
+    .stat-card strong { color: var(--green); font-size: clamp(1.55rem, 2.4vw, 2.8rem); line-height: 1; }
+    .download-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.95rem;
+    }
+    .download-links a, .pmid, .open-paper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       border: 1px solid var(--line);
-      padding: 0.9rem;
+      border-radius: 6px;
+      background: var(--ink);
+      color: white;
+      padding: 0.46rem 0.68rem;
+      text-decoration: none;
+      font-size: var(--small);
+      font-weight: 900;
+      white-space: nowrap;
     }
-    .cover-note p {
-      color: var(--muted);
-      font-size: 0.86rem;
-      line-height: 1.48;
-      margin-top: 0.55rem;
+    .download-links a:nth-child(2), .open-paper {
+      background: var(--panel-strong);
+      color: var(--red);
     }
+    .cover-note {
+      padding: var(--pad);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .cover-note p { color: var(--muted); }
     .article-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.76rem;
-      line-height: 1.22;
+      table-layout: fixed;
+      font-size: var(--small);
     }
     .article-table th, .article-table td {
       border-bottom: 1px solid var(--line);
-      padding: 0.34rem 0.28rem;
+      padding: 0.32rem;
       text-align: left;
       vertical-align: top;
+      word-break: break-word;
     }
-    .article-table th { color: var(--accent-3); font-weight: 700; }
-    .article-table td:nth-child(5) { color: var(--muted); }
+    .article-table th { color: var(--green); font-size: var(--small); }
+    .article-table td { font-size: var(--small); line-height: 1.25; }
+    .article-table th:nth-child(1), .article-table td:nth-child(1) { width: 2rem; }
+    .article-table th:nth-child(4), .article-table td:nth-child(4) { width: 5.8rem; }
     .slide-header {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: 1rem;
       align-items: start;
+      gap: var(--gap);
     }
     .paper-title {
-      margin-top: 0.45rem;
       color: var(--muted);
-      line-height: 1.35;
-      font-size: clamp(0.82rem, 1vw, 1rem);
-    }
-    .pmid {
-      display: inline-flex;
-      justify-content: center;
-      min-width: 8.8rem;
-      border: 1px solid rgba(101,214,173,0.55);
-      color: var(--accent);
-      padding: 0.55rem 0.7rem;
-      font-weight: 700;
-      white-space: nowrap;
+      font-size: var(--small);
+      line-height: 1.28;
+      margin-top: 0.28rem;
     }
     .paper-actions {
       display: flex;
       flex-direction: column;
-      gap: 0.42rem;
-      align-items: stretch;
+      gap: 0.35rem;
     }
-    .open-paper, .open-inline {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid rgba(242, 193, 78, 0.62);
-      background: rgba(242, 193, 78, 0.12);
-      color: var(--accent-2);
-      padding: 0.46rem 0.66rem;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-    .open-inline {
-      padding: 0.22rem 0.36rem;
-      font-size: 0.72rem;
-    }
+    .pmid { background: var(--green); min-width: 8.2rem; }
     .tag-strip {
       display: flex;
-      gap: 0.5rem;
       flex-wrap: wrap;
+      gap: 0.36rem;
     }
     .tag-strip span {
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.62);
       color: var(--muted);
-      padding: 0.34rem 0.52rem;
-      font-size: 0.78rem;
+      padding: 0.22rem 0.46rem;
+      font-size: var(--small);
+      font-weight: 800;
     }
     .pico-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.55rem;
+      gap: 0.45rem;
     }
     .pico-grid div {
-      border: 1px solid rgba(142, 197, 255, 0.22);
-      background: rgba(142, 197, 255, 0.075);
-      padding: 0.5rem;
-      min-height: 4.4rem;
-      display: grid;
-      grid-template-columns: 1.35rem minmax(0, 1fr);
-      gap: 0.42rem;
-      align-items: start;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(47, 95, 157, 0.07);
+      padding: 0.42rem;
+      min-height: 3.9rem;
     }
     .pico-grid b {
-      display: grid;
+      display: inline-grid;
       place-items: center;
       width: 1.25rem;
       height: 1.25rem;
-      background: var(--accent-3);
-      color: #101316;
-      font-size: 0.76rem;
-      line-height: 1;
+      margin-right: 0.25rem;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      font-size: 0.72rem;
     }
     .pico-grid span {
+      color: var(--blue);
+      font-size: var(--small);
+      font-weight: 900;
+    }
+    .pico-grid p {
+      margin-top: 0.22rem;
       color: var(--muted);
-      font-size: clamp(0.66rem, 0.74vw, 0.78rem);
-      line-height: 1.25;
+      font-size: var(--small);
+      line-height: 1.22;
     }
     .article-grid {
       display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      grid-template-rows: auto auto;
-      gap: 0.75rem;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      grid-template-rows: minmax(0, 0.58fr) minmax(0, 0.74fr);
+      gap: 0.55rem;
       flex: 1;
       min-height: 0;
     }
     .panel {
-      min-height: 0;
-      overflow: hidden;
+      padding: 0.55rem;
     }
-    .panel.conclusion {
-      border-left: 4px solid var(--accent);
-    }
+    .panel.conclusion { border-left: 5px solid var(--red); }
     .panel p, .panel li, .panel dd {
       color: var(--muted);
-      font-size: clamp(0.78rem, 0.9vw, 0.94rem);
-      line-height: 1.42;
+      font-size: clamp(0.62rem, 0.72vw, 0.82rem);
+      line-height: 1.28;
     }
     .panel ul {
       margin: 0;
-      padding-left: 1.05rem;
+      padding-left: 1rem;
     }
-    .panel li + li { margin-top: 0.34rem; }
+    .panel li + li { margin-top: 0.16rem; }
     .implication {
       grid-column: 1 / -1;
+      border-left: 5px solid var(--blue);
     }
     .implication dl {
       margin: 0;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.65rem;
+      gap: 0.45rem;
     }
     .implication div {
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.045);
-      padding: 0.66rem;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.55);
+      padding: 0.44rem;
+      min-height: 0;
     }
     .implication dt {
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 800;
-      margin-bottom: 0.32rem;
+      color: var(--red);
+      font-size: var(--small);
+      font-weight: 900;
+      margin-bottom: 0.2rem;
     }
     .article-footer {
       display: flex;
-      gap: 0.7rem;
       flex-wrap: wrap;
-      color: var(--muted);
+      gap: 0.55rem;
       border-top: 1px solid var(--line);
-      padding-top: 0.55rem;
-      font-size: 0.78rem;
+      padding-top: 0.42rem;
+      color: var(--muted);
+      font-size: var(--small);
     }
+    .judgment-slide .slide-inner { justify-content: center; }
     .judgment-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.85rem;
-      margin-top: 1rem;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
     }
     .judgment-grid .panel {
-      min-height: 14rem;
+      min-height: 12.5rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
     }
-    .fixed-link {
-      margin-top: auto;
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      padding-top: 1rem;
+    .fixed-note {
       color: var(--muted);
-      font-size: 0.9rem;
-    }
-    .fixed-link a { color: var(--accent); font-weight: 700; }
-    .download-links {
-      width: 100%;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    .download-links a {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 0.32rem 0.72rem;
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--ink);
-      font-weight: 800;
-    }
-    .download-links a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      margin-top: 0.8rem;
+      font-size: var(--small);
     }
     @media (max-width: 980px) {
-      .slide { padding: 0.7rem 2.2rem 0.7rem 0.7rem; }
-      .slide-inner { min-height: calc(100vh - 1.4rem); }
-      .cover-layout, .article-grid, .judgment-grid { grid-template-columns: 1fr; }
-      .pico-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .slide { padding: 0.6rem 1.65rem 0.6rem 0.6rem; }
+      .cover-grid, .article-grid, .judgment-grid { grid-template-columns: 1fr; }
+      .pico-grid, .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .implication dl { grid-template-columns: 1fr; }
-      .article-table { font-size: 0.68rem; }
+      .article-table th:nth-child(2), .article-table td:nth-child(2),
+      .article-table th:nth-child(3), .article-table td:nth-child(3) { display: none; }
     }
     @media (max-height: 760px) {
-      .slide-inner { gap: 0.65rem; padding: 0.75rem; }
-      .panel p, .panel li, .panel dd { font-size: 0.72rem; line-height: 1.25; }
-      .panel li + li { margin-top: 0.18rem; }
-      .paper-title, .tag-strip span, .article-footer { font-size: 0.68rem; }
-      .pico-grid { gap: 0.38rem; }
-      .pico-grid div { min-height: 3.35rem; padding: 0.38rem; }
-      .pico-grid span { font-size: 0.62rem; line-height: 1.14; }
-      h2 { font-size: 1.35rem; }
-      h3 { margin-bottom: 0.25rem; }
-      .implication div { padding: 0.45rem; }
+      .slide { padding-top: 0.45rem; padding-bottom: 0.45rem; }
+      .slide-inner { padding: 0.62rem; gap: 0.42rem; }
+      h2 { font-size: clamp(1rem, 1.32vw, 1.45rem); }
+      .paper-title { display: none; }
+      .pico-grid div { min-height: 3.1rem; padding: 0.32rem; }
+      .panel { padding: 0.42rem; }
+      .panel p, .panel li, .panel dd { font-size: 0.6rem; line-height: 1.18; }
+      .panel li + li { margin-top: 0.1rem; }
+      .implication div { padding: 0.32rem; }
+      .article-footer { display: none; }
+    }
+    @media (max-height: 600px) {
+      .dots { display: none; }
+      .tag-strip { display: none; }
+      .pico-grid { display: none; }
+      .article-grid { grid-template-rows: minmax(0, 0.5fr) minmax(0, 0.7fr); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
@@ -364,87 +391,78 @@
 
   <section class="slide cover-slide" data-count="1/7">
     <div class="slide-inner">
-      <div class="cover-layout">
-        <div>
+      <div class="cover-grid">
+        <main class="cover-main">
           <p class="eyebrow">PubMed daily watch · 2026-06-12</p>
           <h1>DLBCL / CNSL 新治疗与机制文献监测</h1>
-          <p class="subtitle">近 7 天官方 PubMed 窗口：2026-06-06 至 2026-06-12。每篇文章单独成页，按“标题、结论、主要内容、关键信息、启示”快速浏览；启示严格区分已验证证据、作者观点和我的推断。</p>
+          <p class="subtitle">近 7 天官方 PubMed 窗口：2026-06-06 至 2026-06-12。每篇文章单独 1 页 slide，并明确区分已验证证据、论文作者观点和我的推断；本页只做文献监测和研究设计启示，不提供医疗建议。</p>
           <div class="stats">
-        <div class="stat">
+        <div class="stat-card">
           <span>EDAT 新入库</span>
           <strong>38</strong>
         </div>
-        <div class="stat">
+        <div class="stat-card">
           <span>PDAT 发表日期</span>
           <strong>33</strong>
         </div>
-        <div class="stat">
+        <div class="stat-card">
           <span>MDAT 记录更新</span>
           <strong>274</strong>
         </div>
-        <div class="stat">
-          <span>精选入页</span>
+        <div class="stat-card">
+          <span>精选文献</span>
           <strong>5</strong>
         </div></div>
-          <div class="fixed-link">
-            <span>固定公网主页：</span>
-            <a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/" target="_blank" rel="noreferrer">https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/</a>
-            <div class="download-links">
-              <a href="pubmed-dlbcl-cnsl-btki-2026-06-12.pdf" target="_blank" rel="noreferrer">下载 PDF</a>
-              <a href="pubmed-dlbcl-cnsl-btki-2026-06-12.pptx" target="_blank" rel="noreferrer">下载 PPTX</a>
-            </div>
+          <div class="download-links">
+            <a href="pubmed-dlbcl-cnsl-btki-2026-06-12.pdf" target="_blank" rel="noreferrer">下载 PDF</a>
+            <a href="pubmed-dlbcl-cnsl-btki-2026-06-12.pptx" target="_blank" rel="noreferrer">下载 PPTX</a>
+            <a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/" target="_blank" rel="noreferrer">固定公网链接</a>
           </div>
-        </div>
-        <div class="cover-note">
+        </main>
+        <aside class="cover-note">
           <h3>检索与筛选说明</h3>
           <p>PubMed 官方 ESearch/EFetch 于 2026-06-12 检索；窗口为 2026-06-06 至 2026-06-12，合并 EDAT、PDAT、MDAT 覆盖近 7 天新增、发表和记录更新。官方计数为 EDAT 38、PDAT 33、MDAT 274，去重候选池 280 条。本日沿用 5 papers/day 和 pubmed-history.json 去重，选择 5 篇未跨日重复 PMID；ADC 方向今日未重复选入，因为近几日已覆盖 polatuzumab/loncastuximab 等 ADC 信号，今天新增高优先级更集中在 CNS 预防、双抗、CAR-T 药代和免疫微环境机制。</p>
           <p><strong>检索式：</strong>((DLBCL[Title/Abstract] OR &quot;diffuse large B-cell lymphoma&quot;[Title/Abstract] OR &quot;large B-cell lymphoma&quot;[Title/Abstract] OR LBCL[Title/Abstract] OR PCNSL[Title/Abstract] OR &quot;primary CNS lymphoma&quot;[Title/Abstract] OR &quot;primary central nervous system lymphoma&quot;[Title/Abstract] OR CNSL[Title/Abstract] OR &quot;central nervous system lymphoma&quot;[Title/Abstract] OR &quot;secondary CNS lymphoma&quot;[Title/Abstract] OR &quot;secondary central nervous system lymphoma&quot;[Title/Abstract]) AND lymphoma[Title/Abstract])</p>
-          <p><strong>覆盖方向：</strong>BTKi、双抗、CAR-T/细胞治疗、ADC、免疫治疗、靶向联合、病例/病例系列、基础/机制/转化、耐药、CNS 穿透/药代、安全性和真实世界。</p>
           <table class="article-table">
-            <thead><tr><th>#</th><th>方向</th><th>疾病</th><th>PMID</th><th>标题</th><th>打开链接</th></tr></thead>
+            <thead><tr><th>#</th><th>方向</th><th>疾病</th><th>PMID</th><th>标题</th></tr></thead>
             <tbody>
-      <tr>
-        <td>1</td>
-        <td>CNS 预防 / LBCL / HD-MTX</td>
-        <td>超高危 large B-cell lymphoma</td>
-        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42274647/" target="_blank" rel="noreferrer">42274647</a></td>
-        <td>超高危 LBCL 的 HD-MTX CNS 预防：1,923 例国际多中心回顾分析未显示 CNS 复发显著下降</td>
-        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42274647/" target="_blank" rel="noreferrer">打开文献</a></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>双抗 / CD20xCD3 / R/R DLBCL</td>
-        <td>ASCT 不适合 R/R DLBCL</td>
-        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42269085/" target="_blank" rel="noreferrer">42269085</a></td>
-        <td>STARGLO 3 年随访：固定疗程 glofitamab-GemOx 在 ASCT 不适合 R/R DLBCL 中持续优于 R-GemOx</td>
-        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42269085/" target="_blank" rel="noreferrer">打开文献</a></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>CAR-T / lymphodepletion / 药代</td>
-        <td>R/R large B-cell lymphoma</td>
-        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42269079/" target="_blank" rel="noreferrer">42269079</a></td>
-        <td>R/R LBCL CAR-T 中氟达拉滨暴露窗口：前瞻性 PK 监测提示 AUC 适中者 PFS 更优</td>
-        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42269079/" target="_blank" rel="noreferrer">打开文献</a></td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>免疫微环境 / EBV+ DLBCL / 转化机制</td>
-        <td>EBV 阳性 DLBCL</td>
-        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42271039/" target="_blank" rel="noreferrer">42271039</a></td>
-        <td>EBV+ DLBCL 免疫生物学：系统抗病毒 T 细胞缺陷与 LMP1 驱动的抑制性髓系生态位共同塑形</td>
-        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42271039/" target="_blank" rel="noreferrer">打开文献</a></td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>免疫治疗机制 / 巨噬细胞 / DLBCL 耐药</td>
-        <td>DLBCL</td>
-        <td><a href="https://pubmed.ncbi.nlm.nih.gov/42270158/" target="_blank" rel="noreferrer">42270158</a></td>
-        <td>DLBCL 肿瘤来源 HMGB2 外泌体轴：TRIM65 介导 NLRP3 降解，推动 M2 样巨噬极化和抗 CD20 耐受</td>
-        <td><a class="open-inline" href="https://pubmed.ncbi.nlm.nih.gov/42270158/" target="_blank" rel="noreferrer">打开文献</a></td>
-      </tr></tbody>
+        <tr>
+          <td>1</td>
+          <td>CNS 预防 / LBCL / HD-MTX</td>
+          <td>超高危 large B-cell lymphoma</td>
+          <td><a href="https://pubmed.ncbi.nlm.nih.gov/42274647/" target="_blank" rel="noreferrer">42274647</a></td>
+          <td>超高危 LBCL 的 HD-MTX CNS 预防：1,923 例国际多中心回顾分析未显示 CNS 复发显著下降</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>双抗 / CD20xCD3 / R/R DLBCL</td>
+          <td>ASCT 不适合 R/R DLBCL</td>
+          <td><a href="https://pubmed.ncbi.nlm.nih.gov/42269085/" target="_blank" rel="noreferrer">42269085</a></td>
+          <td>STARGLO 3 年随访：固定疗程 glofitamab-GemOx 在 ASCT 不适合 R/R DLBCL 中持续优于 R-GemOx</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>CAR-T / lymphodepletion / 药代</td>
+          <td>R/R large B-cell lymphoma</td>
+          <td><a href="https://pubmed.ncbi.nlm.nih.gov/42269079/" target="_blank" rel="noreferrer">42269079</a></td>
+          <td>R/R LBCL CAR-T 中氟达拉滨暴露窗口：前瞻性 PK 监测提示 AUC 适中者 PFS 更优</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>免疫微环境 / EBV+ DLBCL / 转化机制</td>
+          <td>EBV 阳性 DLBCL</td>
+          <td><a href="https://pubmed.ncbi.nlm.nih.gov/42271039/" target="_blank" rel="noreferrer">42271039</a></td>
+          <td>EBV+ DLBCL 免疫生物学：系统抗病毒 T 细胞缺陷与 LMP1 驱动的抑制性髓系生态位共同塑形</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>免疫治疗机制 / 巨噬细胞 / DLBCL 耐药</td>
+          <td>DLBCL</td>
+          <td><a href="https://pubmed.ncbi.nlm.nih.gov/42270158/" target="_blank" rel="noreferrer">42270158</a></td>
+          <td>DLBCL 肿瘤来源 HMGB2 外泌体轴：TRIM65 介导 NLRP3 降解，推动 M2 样巨噬极化和抗 CD20 耐受</td>
+        </tr></tbody>
           </table>
-        </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -460,17 +478,36 @@
         </div>
         <div class="paper-actions">
           <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42274647/" target="_blank" rel="noreferrer">PMID 42274647</a>
-          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42274647/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42274647/" target="_blank" rel="noreferrer">打开 PubMed</a>
         </div>
       </header>
+
       <div class="tag-strip"><span>CNS 预防 / LBCL / HD-MTX</span><span>超高危 large B-cell lymphoma</span><span>EDAT/PDAT/MDAT 命中；2026-06-12 近 7 天新增入库/发表/更新</span></div>
       
-      <div class="pico-grid">
-        <div><b>P</b><span>符合 CNS-IPI 5-6、特定结外部位或 ≥3 结外部位的超高危 LBCL 患者</span></div>
-        <div><b>I</b><span>HD-MTX CNS 预防</span></div>
-        <div><b>C</b><span>未使用 HD-MTX CNS 预防</span></div>
-        <div><b>O</b><span>3 年 CNS 复发率、孤立 CNS 复发率、6 个月 landmark CNS 复发</span></div>
-      </div>
+    <div class="pico-grid">
+      
+          <div>
+            <b>P</b>
+            <span>人群</span>
+            <p>符合 CNS-IPI 5-6、特定结外部位或 ≥3 结外部位的超高危 LBCL 患者</p>
+          </div>
+          <div>
+            <b>I</b>
+            <span>干预/暴露</span>
+            <p>HD-MTX CNS 预防</p>
+          </div>
+          <div>
+            <b>C</b>
+            <span>比较</span>
+            <p>未使用 HD-MTX CNS 预防</p>
+          </div>
+          <div>
+            <b>O</b>
+            <span>结局</span>
+            <p>3 年 CNS 复发率、孤立 CNS 复发率、6 个月 landmark CNS 复发</p>
+          </div>
+    </div>
+
       <div class="article-grid">
         <section class="panel conclusion">
           <h3>结论</h3>
@@ -493,6 +530,7 @@
           </dl>
         </section>
       </div>
+
       <footer class="article-footer">
         <span>Journal of clinical oncology : official journal of the American Society of Clinical Oncology</span>
         <span>2026 Jun 11</span>
@@ -511,17 +549,36 @@
         </div>
         <div class="paper-actions">
           <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42269085/" target="_blank" rel="noreferrer">PMID 42269085</a>
-          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42269085/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42269085/" target="_blank" rel="noreferrer">打开 PubMed</a>
         </div>
       </header>
+
       <div class="tag-strip"><span>双抗 / CD20xCD3 / R/R DLBCL</span><span>ASCT 不适合 R/R DLBCL</span><span>EDAT/PDAT/MDAT 命中；2026-06-12 近 7 天新增入库/发表/更新</span></div>
       
-      <div class="pico-grid">
-        <div><b>P</b><span>ASCT 不适合的 R/R DLBCL 患者</span></div>
-        <div><b>I</b><span>glofitamab + gemcitabine + oxaliplatin</span></div>
-        <div><b>C</b><span>rituximab + gemcitabine + oxaliplatin</span></div>
-        <div><b>O</b><span>OS、PFS、CR、亚组疗效、安全性新信号</span></div>
-      </div>
+    <div class="pico-grid">
+      
+          <div>
+            <b>P</b>
+            <span>人群</span>
+            <p>ASCT 不适合的 R/R DLBCL 患者</p>
+          </div>
+          <div>
+            <b>I</b>
+            <span>干预/暴露</span>
+            <p>glofitamab + gemcitabine + oxaliplatin</p>
+          </div>
+          <div>
+            <b>C</b>
+            <span>比较</span>
+            <p>rituximab + gemcitabine + oxaliplatin</p>
+          </div>
+          <div>
+            <b>O</b>
+            <span>结局</span>
+            <p>OS、PFS、CR、亚组疗效、安全性新信号</p>
+          </div>
+    </div>
+
       <div class="article-grid">
         <section class="panel conclusion">
           <h3>结论</h3>
@@ -544,6 +601,7 @@
           </dl>
         </section>
       </div>
+
       <footer class="article-footer">
         <span>Blood advances</span>
         <span>2026 Jun 10</span>
@@ -562,17 +620,36 @@
         </div>
         <div class="paper-actions">
           <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42269079/" target="_blank" rel="noreferrer">PMID 42269079</a>
-          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42269079/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42269079/" target="_blank" rel="noreferrer">打开 PubMed</a>
         </div>
       </header>
+
       <div class="tag-strip"><span>CAR-T / lymphodepletion / 药代</span><span>R/R large B-cell lymphoma</span><span>EDAT/PDAT/MDAT 命中；2026-06-12 近 7 天新增入库/发表/更新</span></div>
       
-      <div class="pico-grid">
-        <div><b>P</b><span>接受商业 CD19 CAR-T 的 R/R LBCL 患者</span></div>
-        <div><b>I</b><span>淋巴清除期间氟达拉滨 AUC 监测并识别最佳暴露窗口</span></div>
-        <div><b>C</b><span>处于最佳 AUC 窗口 vs 未处于最佳 AUC 窗口</span></div>
-        <div><b>O</b><span>PFS、CAR-T 扩增、CRS、ICANS、血液毒性</span></div>
-      </div>
+    <div class="pico-grid">
+      
+          <div>
+            <b>P</b>
+            <span>人群</span>
+            <p>接受商业 CD19 CAR-T 的 R/R LBCL 患者</p>
+          </div>
+          <div>
+            <b>I</b>
+            <span>干预/暴露</span>
+            <p>淋巴清除期间氟达拉滨 AUC 监测并识别最佳暴露窗口</p>
+          </div>
+          <div>
+            <b>C</b>
+            <span>比较</span>
+            <p>处于最佳 AUC 窗口 vs 未处于最佳 AUC 窗口</p>
+          </div>
+          <div>
+            <b>O</b>
+            <span>结局</span>
+            <p>PFS、CAR-T 扩增、CRS、ICANS、血液毒性</p>
+          </div>
+    </div>
+
       <div class="article-grid">
         <section class="panel conclusion">
           <h3>结论</h3>
@@ -595,6 +672,7 @@
           </dl>
         </section>
       </div>
+
       <footer class="article-footer">
         <span>Blood advances</span>
         <span>2026 Jun 10</span>
@@ -613,17 +691,36 @@
         </div>
         <div class="paper-actions">
           <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42271039/" target="_blank" rel="noreferrer">PMID 42271039</a>
-          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42271039/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42271039/" target="_blank" rel="noreferrer">打开 PubMed</a>
         </div>
       </header>
+
       <div class="tag-strip"><span>免疫微环境 / EBV+ DLBCL / 转化机制</span><span>EBV 阳性 DLBCL</span><span>EDAT/PDAT/MDAT 命中；2026-06-12 近 7 天新增入库/发表/更新</span></div>
       
-      <div class="pico-grid">
-        <div><b>P</b><span>EBV+ DLBCL 患者及 EBV- DLBCL、EBV+ cHL、传染性单核细胞增多症和健康对照</span></div>
-        <div><b>I</b><span>抗病毒 T 细胞功能、空间蛋白组学和 LMP1 相关机制建模</span></div>
-        <div><b>C</b><span>EBV+ DLBCL 与 EBV- DLBCL、其他 EBV 相关状态及健康对照</span></div>
-        <div><b>O</b><span>T 细胞耗竭/调节、CD8+ T 细胞密度、PD-L1+/IDO1+ 巨噬细胞生态位、LMP1 空间关联</span></div>
-      </div>
+    <div class="pico-grid">
+      
+          <div>
+            <b>P</b>
+            <span>人群</span>
+            <p>EBV+ DLBCL 患者及 EBV- DLBCL、EBV+ cHL、传染性单核细胞增多症和健康对照</p>
+          </div>
+          <div>
+            <b>I</b>
+            <span>干预/暴露</span>
+            <p>抗病毒 T 细胞功能、空间蛋白组学和 LMP1 相关机制建模</p>
+          </div>
+          <div>
+            <b>C</b>
+            <span>比较</span>
+            <p>EBV+ DLBCL 与 EBV- DLBCL、其他 EBV 相关状态及健康对照</p>
+          </div>
+          <div>
+            <b>O</b>
+            <span>结局</span>
+            <p>T 细胞耗竭/调节、CD8+ T 细胞密度、PD-L1+/IDO1+ 巨噬细胞生态位、LMP1 空间关联</p>
+          </div>
+    </div>
+
       <div class="article-grid">
         <section class="panel conclusion">
           <h3>结论</h3>
@@ -646,6 +743,7 @@
           </dl>
         </section>
       </div>
+
       <footer class="article-footer">
         <span>Leukemia</span>
         <span>2026 Jun 10</span>
@@ -664,17 +762,36 @@
         </div>
         <div class="paper-actions">
           <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/42270158/" target="_blank" rel="noreferrer">PMID 42270158</a>
-          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42270158/" target="_blank" rel="noreferrer">打开 PubMed 文献</a>
+          <a class="open-paper" href="https://pubmed.ncbi.nlm.nih.gov/42270158/" target="_blank" rel="noreferrer">打开 PubMed</a>
         </div>
       </header>
+
       <div class="tag-strip"><span>免疫治疗机制 / 巨噬细胞 / DLBCL 耐药</span><span>DLBCL</span><span>EDAT/PDAT/MDAT 命中；2026-06-12 近 7 天新增入库/发表/更新</span></div>
       
-      <div class="pico-grid">
-        <div><b>P</b><span>DLBCL 公共数据、细胞系、动物模型及巨噬细胞-DLBCL 共培养系统</span></div>
-        <div><b>I</b><span>HMGB2 knockdown 或靶向 HMGB2-TRIM65-NLRP3 轴</span></div>
-        <div><b>C</b><span>HMGB2 高表达/未干预状态与 knockdown/靶向干预状态</span></div>
-        <div><b>O</b><span>肿瘤进展、巨噬细胞极化、吞噬功能、CD20 免疫治疗协同效应</span></div>
-      </div>
+    <div class="pico-grid">
+      
+          <div>
+            <b>P</b>
+            <span>人群</span>
+            <p>DLBCL 公共数据、细胞系、动物模型及巨噬细胞-DLBCL 共培养系统</p>
+          </div>
+          <div>
+            <b>I</b>
+            <span>干预/暴露</span>
+            <p>HMGB2 knockdown 或靶向 HMGB2-TRIM65-NLRP3 轴</p>
+          </div>
+          <div>
+            <b>C</b>
+            <span>比较</span>
+            <p>HMGB2 高表达/未干预状态与 knockdown/靶向干预状态</p>
+          </div>
+          <div>
+            <b>O</b>
+            <span>结局</span>
+            <p>肿瘤进展、巨噬细胞极化、吞噬功能、CD20 免疫治疗协同效应</p>
+          </div>
+    </div>
+
       <div class="article-grid">
         <section class="panel conclusion">
           <h3>结论</h3>
@@ -697,6 +814,7 @@
           </dl>
         </section>
       </div>
+
       <footer class="article-footer">
         <span>Journal for immunotherapy of cancer</span>
         <span>2026 Jun 10</span>
@@ -708,7 +826,7 @@
   <section class="slide judgment-slide" data-count="7/7">
     <div class="slide-inner">
       <p class="eyebrow">今日综合判断 · 2026-06-12</p>
-      <h2>今天的信号不是单一药物热点，而是“疗效前移 + 治疗可及 + CNS/微环境分层 + 安全管理”同步推进</h2>
+      <h2>今日重点不是单个药名，而是 CNS 预防、双抗固定疗程、CAR-T 前处理药代和免疫微环境分层这些可改变研究设计的变量。</h2>
       <div class="judgment-grid">
         <section class="panel">
           <h3>已验证证据</h3>
@@ -723,24 +841,7 @@
           <p>我的推断是，今天最值得后续跟踪的不是单个药名，而是“策略变量”：CNS 预防是否真正降低事件、双抗在二线/不可移植人群的位置、CAR-T 淋巴清除是否需要 PK 引导、EBV+ DLBCL 是否需要抗病毒免疫和髓系生态位联合分层、抗 CD20 耐受是否可通过恢复巨噬吞噬来转化。所有推断仅用于文献监测和研究设计启示，不构成治疗推荐。</p>
         </section>
       </div>
-      <div class="judgment-grid">
-        <section class="panel">
-          <h3>下一次优先跟进</h3>
-          <p>继续观察 frontMIND OS/ctDNA、PCNSL 双抗 CNS 穿透验证、双抗治疗中 PET 动态指标、CAR-T 可及性和桥接前 MTV 变化。</p>
-        </section>
-        <section class="panel">
-          <h3>设计启示</h3>
-          <p>DLBCL/CNSL 研究应同时记录疗效、到达治疗的路径、CNS/CSF 指标、影像负荷、分子/微环境分层和感染/神经毒性安全窗口。</p>
-        </section>
-        <section class="panel">
-          <h3>边界提醒</h3>
-          <p>本页仅作文献监测、证据摘要和方案设计启示整理，不提供医疗建议，也不生成治疗推荐。</p>
-        </section>
-      </div>
-      <div class="fixed-link">
-        <span>PubMed 链接均使用 PMID 固定格式；本地固定文件：</span>
-        <span>pubmed-pages/index.html</span>
-      </div>
+      <p class="fixed-note">固定本地文件：pubmed-pages/index.html。固定公网链接：<a href="https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/" target="_blank" rel="noreferrer">https://zhengyipharmacy-collab.github.io/pubmed-lymphoma-slides/</a>。PubMed 链接均使用 https://pubmed.ncbi.nlm.nih.gov/{PMID}/ 格式。</p>
     </div>
   </section>
 
@@ -749,6 +850,7 @@
     const dots = document.getElementById("dots");
     const progress = document.getElementById("progress");
     let current = 0;
+
     function go(index) {
       slides[index]?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -756,6 +858,7 @@
       progress.style.width = ((current + 1) / slides.length) * 100 + "%";
       Array.from(dots.children).forEach((dot, index) => dot.classList.toggle("active", index === current));
     }
+
     slides.forEach((_, index) => {
       const button = document.createElement("button");
       button.type = "button";
@@ -763,6 +866,7 @@
       button.addEventListener("click", () => go(index));
       dots.appendChild(button);
     });
+
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
@@ -772,6 +876,7 @@
       }
     }, { threshold: 0.55 });
     slides.forEach((slide) => observer.observe(slide));
+
     window.addEventListener("keydown", (event) => {
       if (["ArrowDown", "PageDown", " "].includes(event.key)) {
         event.preventDefault();
